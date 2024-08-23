@@ -1,0 +1,42 @@
+/* home.css */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.home-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(188.68deg, #06132D 62.73%, #14439F 122.14%);
+  position: relative; /* 자식 요소를 정렬하기 위해 relative 위치 지정 */
+}
+
+.home-wrapper h1 {
+  width: 550px;
+  height: 420px;
+  font-weight: 700;
+  font-size: 110px;
+  line-height: 140px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0; /* 중앙 정렬을 위해 margin을 0으로 설정 */
+  z-index: 1; /* 큐브 아래에 위치하도록 z-index 설정 */
+
+  background: radial-gradient(87.73% 87.73% at 50% 58.48%, #F6F6F7 41.5%, #14439F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.cube-container {
+  position: absolute; /* 정중앙에 배치된 h1 위에 겹치도록 설정 */
+  top: 60%; /* 큐브를 아래로 내려서 절반 정도만 겹치게 설정 */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* h1 위에 겹치도록 z-index 설정 */
+  opacity: 0.85; /* 큐브의 불투명도를 높임 */
+}

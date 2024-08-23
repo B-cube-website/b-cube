@@ -1,13 +1,13 @@
-import Spline from '@splinetool/react-spline/next';
+"use client";
+
+import Cube from "./cube";
+import './home.css';
 
 export default function Home() {
   return (
-    <main>
-      <Spline
-        scene="https://prod.spline.design/VqHtIGEmiCQxSk1c/scene.splinecode" 
-      />
-    </main>
+    <div className="home-wrapper">
+      <h1>BROAD BUSINESS BUILDER</h1>
+      <Cube />
+    </div>
   );
-}
-
-
+};
