@@ -19,7 +19,7 @@
     "formidable": "^3.5.1",
     "multiparty": "^4.2.3",
     "mysql2": "^3.11.0",
-    "next": "14.2.5",
+    "next": "^14.2.6",
     "oci-common": "^2.92.0",
     "oci-objectstorage": "^2.92.0",
     "oci-sdk": "^2.92.0",
@@ -31,10 +31,11 @@
     "@types/node": "^20.16.1",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.5.4"
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5"
   }
 }
