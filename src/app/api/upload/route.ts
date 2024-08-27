@@ -4,6 +4,7 @@ import Busboy from 'busboy';
 import { NextResponse } from 'next/server';
 import path from 'path';
 import { Readable } from 'stream';
+import crypto from 'crypto';
 
 // 환경 변수
 const configFilePathEnv = process.env.OCI_CONFIG_FILE || path.join(process.cwd(), '.vercel', 'config');
@@ -57,7 +58,24 @@ export async function POST(req: Request): Promise<Response> {
     });
 
     busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
+      // filename이 객체로 전달되는 경우 문자열로 변환
+      if (typeof filename === 'object') {
+        filename = filename.filename || 'unknown';
+      }
+      // filename이 문자열인지 확인
+      if (typeof filename !== 'string') {
+        console.error('파일 이름이 문자열이 아닙니다:', filename);
+        return reject(NextResponse.json({ error: '잘못된 파일 이름' }, { status: 400 }));
+      }
+
       console.log(`업로드한 파일: ${filename}`);
+
+      // 파일 이름과 확장자를 추출
+      const ext = path.extname(filename).toLowerCase() || '.png'; // 기본값을 .png로 설정
+
+      // 파일 이름을 고유한 ID로 변환하여 경로를 설정
+      const uniqueId = crypto.randomBytes(16).toString('hex');
+      const objectName = `image/${uniqueId}${ext}`; // 파일 확장자를 포함한 경로 설정
 
       const uploadPromise = new Promise<void>((resolve, reject) => {
         const chunks: Buffer[] = [];
@@ -70,15 +88,15 @@ export async function POST(req: Request): Promise<Response> {
           objectStorageClient.putObject({
             namespaceName: NAMESPACE,
             bucketName: BUCKET_NAME,
-            objectName: filename,
+            objectName: objectName,
             putObjectBody: stream,
           })
           .then(() => {
-            console.log(`파일 ${filename} 업로드 완료`);
+            console.log(`파일 ${objectName} 업로드 완료`);
             resolve();
           })
           .catch((error) => {
-            console.error(`업로드 실패 ${filename}:`, error);
+            console.error(`업로드 실패 ${objectName}:`, error);
             reject(error);
           });
         });
@@ -99,7 +117,7 @@ export async function POST(req: Request): Promise<Response> {
     });
 
     busboy.on('error', (error) => {
-      console.error('업로드 에러:', error);
+      console.error('Busboy 에러:', error);
       reject(NextResponse.json({ error: '업로드 실패' }, { status: 500 }));
     });
   });
