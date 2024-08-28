@@ -1,0 +1,33 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_472_1186)">
+<rect x="4" width="40" height="40" rx="20" fill="#1A1D25" shape-rendering="crispEdges"/>
+<g clip-path="url(#clip0_472_1186)">
+<g clip-path="url(#clip1_472_1186)">
+<g clip-path="url(#clip2_472_1186)">
+<path d="M31 11H17C16.2043 11 15.4413 11.3161 14.8787 11.8787C14.3161 12.4413 14 13.2043 14 14V24C14 24.7956 14.3161 25.5587 14.8787 26.1213C15.4413 26.6839 16.2043 27 17 27H31C31.7956 27 32.5587 26.6839 33.1213 26.1213C33.6839 25.5587 34 24.7956 34 24V14C34 13.2043 33.6839 12.4413 33.1213 11.8787C32.5587 11.3161 31.7956 11 31 11ZM30.33 13L24 17.75L17.67 13H30.33ZM31 25H17C16.7348 25 16.4804 24.8946 16.2929 24.7071C16.1054 24.5196 16 24.2652 16 24V14.25L23.4 19.8C23.5731 19.9298 23.7836 20 24 20C24.2164 20 24.4269 19.9298 24.6 19.8L32 14.25V24C32 24.2652 31.8946 24.5196 31.7071 24.7071C31.5196 24.8946 31.2652 25 31 25Z" fill="white"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_472_1186" x="0" y="0" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_472_1186"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_472_1186" result="shape"/>
+</filter>
+<clipPath id="clip0_472_1186">
+<rect width="20" height="16" fill="white" transform="translate(14 11)"/>
+</clipPath>
+<clipPath id="clip1_472_1186">
+<rect width="20" height="16" fill="white" transform="translate(14 11)"/>
+</clipPath>
+<clipPath id="clip2_472_1186">
+<rect width="20" height="16" fill="white" transform="translate(14 11)"/>
+</clipPath>
+</defs>
+</svg>
