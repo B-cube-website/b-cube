@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import megaphone from "../../../public/megaphone.svg";
 import email_logo2 from "../../../public/email_logo2.svg";
 import kakaoTalk_logo2 from "../../../public/kakakoTalk_logo2.svg";
@@ -9,33 +9,48 @@ import Image from "next/image";
 
 export default function Recruit() {
   const [selectedActivity, setSelectedActivity] = useState("designathon");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const fileInputRef = useRef(null);
 
   const handleButtonClick = (activity) => {
     setSelectedActivity(activity);
   };
 
-  const handleUpload = async () => {
-    try {
-      const response = await fetch("file:///path/to/your/image.jpg"); // 파일 경로를 적절하게 수정
-      const blob = await response.blob();
+  const handleFileChange = (event) => {
+    console.log("File selected:", event.target.files[0]);
+    setSelectedFile(event.target.files[0]);
+  };
 
+  const handleUpload = async () => {
+    if (!selectedFile) {
+      console.log("No file selected.");
+      return;
+    }
+
+    try {
       const formData = new FormData();
-      formData.append("file", blob, "image.jpg");
+      formData.append("file", selectedFile);
+
+      console.log("Uploading file...");
 
       const uploadResponse = await fetch("http://localhost:3000/api/upload", {
         method: "POST",
-        headers: {},
         body: formData,
       });
 
       if (uploadResponse.ok) {
         console.log("Upload successful!");
       } else {
-        console.log("Upload failed!");
+        console.log("Upload failed!", await uploadResponse.text());
       }
     } catch (error) {
       console.error("Error uploading image:", error);
     }
+  };
+
+  const openFilePicker = () => {
+    console.log("Opening file picker...");
+    fileInputRef.current.click();
   };
 
   return (
@@ -46,19 +61,45 @@ export default function Recruit() {
       }}
     >
       <div
-        className="flex justify-center items-center"
+        className="flex flex-col justify-center items-center"
         style={{ height: "300px", backgroundColor: "#2c3e50" }}
       >
+        <button
+          onClick={openFilePicker}
+          style={{
+            width: "300px",
+            height: "50px",
+            backgroundColor: "#1abc9c",
+            fontSize: "20px",
+            borderRadius: "10px",
+            border: "none",
+            cursor: "pointer",
+            color: "white",
+          }}
+        >
+          Select Image
+        </button>
+
+        {/* 숨겨진 파일 입력 요소 */}
+        <input
+          type="file"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          style={{ display: "none" }}
+        />
+
         <button
           onClick={handleUpload}
           style={{
             width: "300px",
-            height: "300px",
-            backgroundColor: "#1abc9c",
-            color: "white",
+            height: "50px",
+            backgroundColor: "#e74c3c",
             fontSize: "20px",
             borderRadius: "10px",
             border: "none",
+            cursor: "pointer",
+            color: "white",
+            marginTop: "20px",
           }}
         >
           Upload Image
@@ -362,6 +403,7 @@ interface ContactItemProps {
   color1: string;
   color2: string;
   style?: React.CSSProperties;
+  svg?: any;
 }
 
 function ContactItem({
