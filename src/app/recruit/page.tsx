@@ -9,6 +9,33 @@ export default function Recruit() {
     setSelectedActivity(activity);
   };
 
+  const handleUpload = async () => {
+    try {
+      // 로컬 파일 경로를 Blob 객체로 변환
+      const response = await fetch("file:///path/to/your/image.jpg"); // 파일 경로를 적절하게 수정
+      const blob = await response.blob();
+
+      const formData = new FormData();
+      formData.append("file", blob, "image.jpg");
+
+      const uploadResponse = await fetch("http://localhost:3000/api/upload", {
+        method: "POST",
+        headers: {
+          // 'Content-Type'을 설정하지 마세요, 브라우저가 자동으로 설정합니다.
+        },
+        body: formData,
+      });
+
+      if (uploadResponse.ok) {
+        console.log("Upload successful!");
+      } else {
+        console.log("Upload failed!");
+      }
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  };
+
   return (
     <main
       className="min-h-screen"
@@ -16,6 +43,25 @@ export default function Recruit() {
         background: "linear-gradient(180deg, #06132D 79%, #14439F 100%)",
       }}
     >
+      {/* 간단한 업로드 버튼 */}
+      <div className="flex justify-center items-center" style={{ height: "300px", backgroundColor: "#2c3e50" }}>
+        <button
+          onClick={handleUpload}
+          style={{
+            width: "300px",
+            height: "300px",
+            backgroundColor: "#1abc9c",
+            color: "white",
+            fontSize: "20px",
+            borderRadius: "10px",
+            border: "none",
+          }}
+        >
+          Upload Image
+        </button>
+      </div>
+
+      {/* 페이지의 나머지 코드 */}
       <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto h-[700px]">
         <img
           src="recruit_megaphone.svg"
