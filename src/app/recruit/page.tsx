@@ -1,6 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
+import megaphone from "../../../public/megaphone.svg";
+import email_logo2 from "../../../public/email_logo2.svg";
+import kakaoTalk_logo2 from "../../../public/kakakoTalk_logo2.svg";
+import insta_logo2 from "../../../public/insta_logo2.svg";
+import Image from "next/image";
 
 export default function Recruit() {
   const [selectedActivity, setSelectedActivity] = useState("designathon");
@@ -62,12 +67,10 @@ export default function Recruit() {
 
       {/* 페이지의 원래 코드 */}
       <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto h-[700px]">
-        <img
-          src="recruit_megaphone.svg"
-          className="w-full max-w-[733.58px] h-auto absolute left-1/2 transform -translate-x-1/2 top-[82.11px] opacity-40 object-cover"
-          alt="Megaphone"
-        />
-        <div className="w-full h-full absolute left-0 top-0 bg-[#06142d]/5 backdrop-blur-[20px]" />
+        <div className="w-[733.58px] h-[733.58px] absolute left-[756.58px] top-[82.11px] object-cover">
+          <Image src={megaphone} alt="megaphone" />
+        </div>
+        <div className="w-full h-full absolute left-0 top-0 backdrop-blur-[8px]" />
         <div className="flex flex-col justify-start items-start absolute left-[98px] top-[117px] gap-6">
           <p className="text-5xl font-bold text-left text-white">
             지금은 모집기간이 아닙니다
@@ -154,9 +157,8 @@ export default function Recruit() {
           </div>
         </div>
 
-        {/* Activity Section */}
-        <section className="flex flex-col justify-center items-center w-full gap-12">
-          <div className="flex flex-col justify-center items-start w-full gap-2">
+        <section className="flex flex-col justify-center items-center w-full gap-12 ">
+          <div className="flex flex-col justify-center items-start w-full gap-2 ">
             <p
               className="w-full text-xl font-semibold text-center"
               style={{
@@ -211,8 +213,7 @@ export default function Recruit() {
           </div>
         </section>
 
-        {/* Dynamic Content Section */}
-        <section className="flex flex-col justify-center items-center w-full gap-16">
+        <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[120px]">
           <div
             className="flex flex-col md:flex-row justify-start items-start w-full gap-8 px-4 sm:px-6 lg:px-8 py-12 rounded-[20px] bg-[#f6f6f7]/[0.04] border border-[#f6f6f7]"
             style={{
@@ -221,10 +222,13 @@ export default function Recruit() {
               backgroundOrigin: "border-box",
             }}
           >
-            <p className="w-full md:w-[317px] text-[24px] font-bold text-left text-[#f6f6f7] whitespace-nowrap">
+            <p
+              className="text-[24px] font-bold text-left text-[#f6f6f7] whitespace-nowrap flex-shrink-0"
+              style={{ minWidth: "317px" }}
+            >
               다음과 같은 활동을 합니다
             </p>
-            <p className="w-full text-[16px] font-medium text-left text-[#f6f6f7] leading-[30px]">
+            <p className="flex-grow text-[16px] font-medium text-left text-[#f6f6f7] leading-[30px]">
               {selectedActivity === "designathon" && (
                 <>
                   1. 서비스 기획: 주어진 주제에 따라 팀별로 웹/앱 서비스 기획.
@@ -260,18 +264,22 @@ export default function Recruit() {
               )}
             </p>
           </div>
+
           <div
-            className="flex flex-col md:flex-row justify-start items-start w-full gap-8 px-4 sm:px-6 lg:px-8 py-12 rounded-[20px] bg-[#f6f6f7]/[0.04] border border-[#f6f6f7]" // [0.1] max-w-[1300px] transform scale-100 transition-transform duration-300 ease-in-out hover:scale-110 custom-responsive 호버링 예시용 코드
+            className="flex flex-col md:flex-row justify-start items-start w-full gap-8 px-4 sm:px-6 lg:px-8 py-12 rounded-[20px] bg-[#f6f6f7]/[0.04] border border-[#f6f6f7]"
             style={{
               maxWidth: "1300px",
               border: "1px solid #518CFF",
               backgroundOrigin: "border-box",
             }}
           >
-            <p className="w-full md:w-[317px] text-[24px] font-bold text-left text-[#f6f6f7] whitespace-nowrap">
+            <p
+              className="text-[24px] font-bold text-left text-[#f6f6f7] whitespace-nowrap flex-shrink-0"
+              style={{ minWidth: "317px" }}
+            >
               이런 멤버를 찾습니다
             </p>
-            <p className="w-full text-[16px] font-medium text-left text-[#f6f6f7] leading-[30px]">
+            <p className="flex-grow text-[16px] font-medium text-left text-[#f6f6f7] leading-[30px]">
               {selectedActivity === "designathon" && (
                 <>
                   1. 새로운 서비스에 대한 아이디어 혹은 기존 문제를 색다르게
@@ -303,7 +311,7 @@ export default function Recruit() {
           </div>
         </section>
 
-        <section className="flex flex-col justify-center items-center w-full gap-16">
+        <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[280px]">
           <div className="flex flex-col justify-center items-start w-full gap-2">
             <p
               className="w-full text-[40px] font-bold text-center"
@@ -322,18 +330,24 @@ export default function Recruit() {
               value="bcube@ajou.ac.kr"
               color1="#195DE2"
               color2="#0E337C"
+              svg={email_logo2}
+              style={{ maxWidth: "240px", maxHeight: "253px", width: "100%" }}
             />
             <ContactItem
               title="KakaoTalk"
               value="@bcube"
               color1="#195DE2"
               color2="#0E337C"
+              svg={kakaoTalk_logo2}
+              style={{ maxWidth: "240px", maxHeight: "253px", width: "100%" }}
             />
             <ContactItem
               title="Instagram"
               value="@sexyit_season2"
               color1="#195DE2"
               color2="#0E337C"
+              svg={insta_logo2}
+              style={{ maxWidth: "240px", maxHeight: "253px", width: "100%" }}
             />
           </div>
         </section>
@@ -347,14 +361,23 @@ interface ContactItemProps {
   value: string;
   color1: string;
   color2: string;
+  style?: React.CSSProperties;
 }
 
-function ContactItem({ title, value, color1, color2 }: ContactItemProps) {
+function ContactItem({
+  title,
+  value,
+  color1,
+  color2,
+  svg,
+  style = {},
+}: ContactItemProps) {
   return (
     <div
       className="flex flex-col justify-start items-center h-[253px] w-full md:w-60 gap-6 px-20 py-12 rounded-[20px] bg-[#f6f6f7]/[0.04] border border-[#f6f6f7]/[0.1] max-w-[100%] md:max-w-[60px] transform scale-100 transition-transform duration-300 ease-in-out hover:scale-[var(--scale)]"
       style={{
         border: "1px solid #518CFF",
+        ...style,
       }}
     >
       <div
@@ -363,7 +386,9 @@ function ContactItem({ title, value, color1, color2 }: ContactItemProps) {
           background: `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`,
           borderRadius: "50%",
         }}
-      />
+      >
+        <Image src={svg} alt={`${title} logo`} />
+      </div>
       <div className="flex flex-col justify-start items-center gap-2">
         <p
           className="text-[16px] font-bold text-center"
