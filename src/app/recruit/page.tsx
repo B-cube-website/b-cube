@@ -16,11 +16,6 @@ export default function Recruit() {
     setSelectedActivity(activity);
   };
 
-  const handleFileChange = (event) => {
-    console.log("File selected:", event.target.files[0]);
-    setSelectedFile(event.target.files[0]);
-  };
-
   const handleUpload = async () => {
     if (!selectedFile) {
       console.log("No file selected.");
@@ -48,61 +43,14 @@ export default function Recruit() {
     }
   };
 
-  const openFilePicker = () => {
-    console.log("Opening file picker...");
-    console.log(fileInputRef.current);
-    if (fileInputRef.current) {
-      fileInputRef.current.click();
-    }
-  };
-
   return (
     <main
       className="min-h-screen"
       style={{
-        background: "linear-gradient(180deg, #06132D 79%, #14439F 100%)",
+        background: "linear-gradient(180deg, #06132D 79%, #0E2F6F 100%)",
       }}
     >
-      <div
-        className="flex flex-col justify-center items-center"
-        style={{ height: "300px", backgroundColor: "#2c3e50" }}
-      >
-<button
-  onClick={openFilePicker}
-  style={{
-    width: "300px",
-    height: "50px",
-    backgroundColor: "#1abc9c",
-    fontSize: "20px",
-    border: "none",
-    cursor: "pointer",
-    position: "relative",
-    overflow: "hidden",
-  }}
->
-  Select Image
-  <input
-    type="file"
-    ref={fileInputRef}
-    onChange={handleFileChange}
-    style={{
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      opacity: 0, 
-      cursor: "pointer", 
-    }}
-  />
-</button>
-        <input
-          type="file"
-          ref={fileInputRef}
-          onChange={handleFileChange}
-          style={{ display: "none" }}
-        />
-      </div>
+      <div className="flex flex-col justify-center items-center"></div>
 
       {/* 페이지의 원래 코드 */}
       <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto h-[700px]">
