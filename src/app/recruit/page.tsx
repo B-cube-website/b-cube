@@ -50,7 +50,10 @@ export default function Recruit() {
 
   const openFilePicker = () => {
     console.log("Opening file picker...");
-    fileInputRef.current.click();
+    console.log(fileInputRef.current);
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
   };
 
   return (
@@ -64,46 +67,41 @@ export default function Recruit() {
         className="flex flex-col justify-center items-center"
         style={{ height: "300px", backgroundColor: "#2c3e50" }}
       >
-        <button
-          onClick={openFilePicker}
-          style={{
-            width: "300px",
-            height: "50px",
-            backgroundColor: "#1abc9c",
-            fontSize: "20px",
-            borderRadius: "10px",
-            border: "none",
-            cursor: "pointer",
-            color: "white",
-          }}
-        >
-          Select Image
-        </button>
-
-        {/* 숨겨진 파일 입력 요소 */}
+<button
+  onClick={openFilePicker}
+  style={{
+    width: "300px",
+    height: "50px",
+    backgroundColor: "#1abc9c",
+    fontSize: "20px",
+    border: "none",
+    cursor: "pointer",
+    position: "relative",
+    overflow: "hidden",
+  }}
+>
+  Select Image
+  <input
+    type="file"
+    ref={fileInputRef}
+    onChange={handleFileChange}
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      opacity: 0, 
+      cursor: "pointer", 
+    }}
+  />
+</button>
         <input
           type="file"
           ref={fileInputRef}
           onChange={handleFileChange}
           style={{ display: "none" }}
         />
-
-        <button
-          onClick={handleUpload}
-          style={{
-            width: "300px",
-            height: "50px",
-            backgroundColor: "#e74c3c",
-            fontSize: "20px",
-            borderRadius: "10px",
-            border: "none",
-            cursor: "pointer",
-            color: "white",
-            marginTop: "20px",
-          }}
-        >
-          Upload Image
-        </button>
       </div>
 
       {/* 페이지의 원래 코드 */}
