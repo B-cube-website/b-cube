@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import megaphone from "../../../public/megaphone.svg";
 import email_logo2 from "../../../public/email_logo2.svg";
 import kakaoTalk_logo2 from "../../../public/kakakoTalk_logo2.svg";
@@ -9,29 +9,34 @@ import Image from "next/image";
 
 export default function Recruit() {
   const [selectedActivity, setSelectedActivity] = useState("designathon");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const fileInputRef = useRef(null);
 
   const handleButtonClick = (activity) => {
     setSelectedActivity(activity);
   };
 
   const handleUpload = async () => {
-    try {
-      const response = await fetch("file:///path/to/your/image.jpg"); // 파일 경로를 적절하게 수정
-      const blob = await response.blob();
+    if (!selectedFile) {
+      console.log("No file selected.");
+      return;
+    }
 
+    try {
       const formData = new FormData();
-      formData.append("file", blob, "image.jpg");
+      formData.append("file", selectedFile);
+
+      console.log("Uploading file...");
 
       const uploadResponse = await fetch("http://localhost:3000/api/upload", {
         method: "POST",
-        headers: {},
         body: formData,
       });
 
       if (uploadResponse.ok) {
         console.log("Upload successful!");
       } else {
-        console.log("Upload failed!");
+        console.log("Upload failed!", await uploadResponse.text());
       }
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -42,28 +47,10 @@ export default function Recruit() {
     <main
       className="min-h-screen"
       style={{
-        background: "linear-gradient(180deg, #06132D 79%, #14439F 100%)",
+        background: "linear-gradient(180deg, #06132D 79%, #0E2F6F 100%)",
       }}
     >
-      <div
-        className="flex justify-center items-center"
-        style={{ height: "300px", backgroundColor: "#2c3e50" }}
-      >
-        <button
-          onClick={handleUpload}
-          style={{
-            width: "300px",
-            height: "300px",
-            backgroundColor: "#1abc9c",
-            color: "white",
-            fontSize: "20px",
-            borderRadius: "10px",
-            border: "none",
-          }}
-        >
-          Upload Image
-        </button>
-      </div>
+      <div className="flex flex-col justify-center items-center"></div>
 
       {/* 페이지의 원래 코드 */}
       <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto h-[700px]">
@@ -362,6 +349,7 @@ interface ContactItemProps {
   color1: string;
   color2: string;
   style?: React.CSSProperties;
+  svg?: any;
 }
 
 function ContactItem({
