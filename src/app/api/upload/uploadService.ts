@@ -3,9 +3,6 @@ import path from 'path';
 import crypto from 'crypto';
 import { generateImageUrl } from '../../_services/imageService';
 import { Readable } from 'stream';
-import formidable, { File, Files, Fields } from 'formidable';
-import { IncomingMessage } from 'http';
-import fs from 'fs';
 
 
 const BUCKET_NAME = process.env.OCI_BUCKET_NAME ?? '';
