@@ -12,7 +12,7 @@ export default function Recruit() {
   const [selectedFile, setSelectedFile] = useState(null);
   const fileInputRef = useRef(null);
 
-  const handleButtonClick = (activity) => {
+  const handleButtonClick = (activity: any) => {
     setSelectedActivity(activity);
   };
 
