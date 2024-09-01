@@ -16,33 +16,6 @@ export default function Recruit() {
     setSelectedActivity(activity);
   };
 
-  const handleUpload = async () => {
-    if (!selectedFile) {
-      console.log("No file selected.");
-      return;
-    }
-
-    try {
-      const formData = new FormData();
-      formData.append("file", selectedFile);
-
-      console.log("Uploading file...");
-
-      const uploadResponse = await fetch("http://localhost:3000/api/upload", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (uploadResponse.ok) {
-        console.log("Upload successful!");
-      } else {
-        console.log("Upload failed!", await uploadResponse.text());
-      }
-    } catch (error) {
-      console.error("Error uploading image:", error);
-    }
-  };
-
   return (
     <main
       className="min-h-screen"
