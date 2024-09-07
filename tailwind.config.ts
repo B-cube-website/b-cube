@@ -14,10 +14,21 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        Pretendard: ["Pretendard"]
-      }
+        Pretendard: ["Pretendard"],
+      },
+      fontSize: {
+        fontSize1: "48px",
+        fontSize2: "40px",
+        fontSize3: "30px",
+        fontSize4: "24px",
+        fontSize5: "22px",
+        fontSize6: "20px",
+        fontSize7: "18px",
+        fontSize8: "16px",
+      },
     },
   },
   plugins: [],
 };
+
 export default config;
