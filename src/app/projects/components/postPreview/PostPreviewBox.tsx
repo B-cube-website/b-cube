@@ -9,9 +9,9 @@ interface PostPreviewBoxProps {
 const PostPreviewBox: React.FC<PostPreviewBoxProps> = ({ year, title, participants }) => {
   return (
     <div>
-      <div className="relative flex w-80 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-2 my-2">
+      <div className="relative flex w-96 flex-col rounded-xl border text-white shadow-md mx-2 my-2 border-white">
         <div className="p-4">
-          <div className="relative h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+          <div className="relative h-48 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600"></div>
           <p className='mt-4'>{year}</p>
           <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased truncate my-1">
             {title}
