@@ -5,8 +5,6 @@ import Executives from "./Executives";
 export default function Home() {
   return (
     <>
-      <div className="fixed inset-0 bg-gradient-to-b from-[#06132D] to-[#14439F] -z-10"></div>
-
       <main className="relative min-h-screen">
         <section className="flex flex-col justify-center items-center p-8">
           <div className="flex justify-center items-center w-[1440px] h-[548px] p-0 gap-2.5">
