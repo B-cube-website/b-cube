@@ -27,6 +27,9 @@ const config: Config = {
         fontSize8: "16px",
       },
     },
+    maxWidth: {
+      '35.5rem': '35.5rem',  // 사용자 정의 값 추가
+    },
   },
   plugins: [],
 };
