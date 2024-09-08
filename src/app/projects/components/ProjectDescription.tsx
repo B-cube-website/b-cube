@@ -3,17 +3,17 @@ import React from "react";
 
 interface ProjectDescriptionProps {
   title: string;
-  desc: string;
+  children: React.ReactNode
 }
 
 const ProjectDescription: React.FC<ProjectDescriptionProps> = ({
   title,
-  desc,
+  children,
 }) => {
   return (
-    <section className="flex flex-col w-full gap-16 relative pb-[120px]">
+    <section className="flex flex-col w-full gap-16 relative px-32">
       <ProjectSectionHeader title={title} />
-      <p className="text-xl text-left text-[#f6f6f7]">{desc}</p>
+      <p className="text-xl text-left text-[#f6f6f7]">{children}</p>
     </section>
   );
 };
