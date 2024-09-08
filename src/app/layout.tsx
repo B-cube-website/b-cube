@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/navigation";
-import Footer from "@/components/footer"; 
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +19,46 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navigation />
-        {children}
-        <Footer />
+        {/* 고정된 배경색 */}
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            zIndex: -1, // 가장 뒤에 위치
+            backgroundColor: "#06132D", // 기존 배경색
+          }}
+        />
+
+        {/* 투명한 그라디언트 배경 (상단 완전 투명, 하단으로 갈수록 색 진해짐) */}
+        <div
+          style={{
+            position: "fixed",
+            bottom: 0,
+            left: 0,
+            width: "100vw",
+            height: "50vh",
+            zIndex: 0, // 고정 배경 위에 그라디언트
+            pointerEvents: "none", // 그라디언트가 인터랙션을 방해하지 않도록
+            background:
+              "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(14, 47, 110, 0.8))", // 상단에서 투명, 하단으로 갈수록 색 진해짐
+          }}
+        />
+
+        {/* 콘텐츠 영역 */}
+        <div
+          className="min-h-screen"
+          style={{
+            position: "relative", // 콘텐츠가 고정된 배경 위에 나타남
+            zIndex: 1, // 콘텐츠가 그라디언트보다 위에 위치하도록 설정
+          }}
+        >
+          <Navigation />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
