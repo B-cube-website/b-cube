@@ -28,7 +28,7 @@ const config: Config = {
       },
     },
     maxWidth: {
-      '35.5rem': '35.5rem',  // 사용자 정의 값 추가
+      '35.5rem': '35.5rem', 
     },
   },
   plugins: [],

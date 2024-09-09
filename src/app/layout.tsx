@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
+import ClientWrapper from "@/components/ClientWrapper"; // 클라이언트 컴포넌트 경로
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,9 +12,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -27,12 +26,11 @@ export default function RootLayout({
             left: 0,
             width: "100vw",
             height: "100vh",
-            zIndex: -1, // 가장 뒤에 위치
-            backgroundColor: "#06132D", // 기존 배경색
+            zIndex: -1,
+            backgroundColor: "#06132D",
           }}
         />
-
-        {/* 투명한 그라디언트 배경 (상단 완전 투명, 하단으로 갈수록 색 진해짐) */}
+        {/* 투명한 그라디언트 배경 */}
         <div
           style={{
             position: "fixed",
@@ -40,25 +38,14 @@ export default function RootLayout({
             left: 0,
             width: "100vw",
             height: "50vh",
-            zIndex: 0, // 고정 배경 위에 그라디언트
-            pointerEvents: "none", // 그라디언트가 인터랙션을 방해하지 않도록
+            zIndex: 0,
+            pointerEvents: "none",
             background:
-              "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(14, 47, 110, 0.8))", // 상단에서 투명, 하단으로 갈수록 색 진해짐
+              "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(14, 47, 110, 0.8))",
           }}
         />
-
-        {/* 콘텐츠 영역 */}
-        <div
-          className="min-h-screen"
-          style={{
-            position: "relative", // 콘텐츠가 고정된 배경 위에 나타남
-            zIndex: 1, // 콘텐츠가 그라디언트보다 위에 위치하도록 설정
-          }}
-        >
-          <Navigation />
-          {children}
-          <Footer />
-        </div>
+        {/* ClientWrapper로 모바일/데스크탑 네비게이션과 푸터 처리 */}
+        <ClientWrapper>{children}</ClientWrapper>
       </body>
     </html>
   );

@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import ProjectDescription from "./ProjectDescription";
 import PostPreviewBox from "./postPreview/PostPreviewBox";
-import ActivityButton from "@/app/recruit/activityButton";
+import ActivityButton from "@/app/recruit/components/activityButton";
 
 const SectionEtc = () => {
   const [selectedActivity, setSelectedActivity] =
-  React.useState<string>("더보기");
-const [postsData, setPostsData] = React.useState<any[]>([]);
+    React.useState<string>("더보기");
+  const [postsData, setPostsData] = React.useState<any[]>([]);
 
   useEffect(() => {
     setPostsData([
