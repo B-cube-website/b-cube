@@ -6,6 +6,7 @@ import BCUBE from "../../public/BCUBE.svg";
 import email_logo from "../../public/email_logo.svg";
 import insta_logo from "../../public/insta_logo.svg";
 import github_logo from "../../public/github_logo.svg";
+import kakaoTalk_logo from "../../public/kakaoTalk_logo.svg";
 import Image from "next/image";
 
 export default function Footer() {
@@ -16,9 +17,9 @@ export default function Footer() {
           <Image src={logo} alt="logo" />
           <Image src={BCUBE} alt="BCUBE" />
         </div>
-        
+
         <div className="flex justify-start items-center gap-6"></div>
-        
+
         <nav>
           <ul className="flex flex-row gap-10">
             <li>
@@ -32,6 +33,13 @@ export default function Footer() {
               <Link href="#" target="_blank" rel="noopener noreferrer">
                 <div>
                   <Image src={insta_logo} alt="insta_logo" />
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link href="#">
+                <div>
+                  <Image src={kakaoTalk_logo} alt="kakaoTalk_logo" />
                 </div>
               </Link>
             </li>

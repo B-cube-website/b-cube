@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import ProjectDescription from "./ProjectDescription";
 import Image from "next/image";
 import PhotoWithTitleBox from "./postPreview/Card";
-import ActivityButton from "@/app/recruit/activityButton";
+import ActivityButton from "@/app/recruit/components/activityButton";
 
 const SectionSexyIt = () => {
   const [selectedActivity, setSelectedActivity] =
@@ -38,7 +38,7 @@ const SectionSexyIt = () => {
         description: "게임같은 기록 시스템",
         image: "/cat_image.jpg",
         date: "2023",
-        names: ["조국", "정혜진", "심주름", "조우진", "차우철"],
+        names: ["조국", "정혜진", "심푸름", "조우진", "차우철"],
       },
       {
         title: "네이버 하이퍼클로바",

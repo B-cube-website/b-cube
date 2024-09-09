@@ -26,7 +26,8 @@
     "oci-sdk": "^2.92.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "web-streams-polyfill": "^4.0.0"
+    "web-streams-polyfill": "^4.0.0",
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "@types/busboy": "^1.5.4",

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ProjectDescription from "./ProjectDescription";
 import PostPreviewBox from "./postPreview/PostPreviewBox";
-import ActivityButton from "@/app/recruit/activityButton";
+import ActivityButton from "@/app/recruit/components/activityButton";
 
 const SectionDesignton = () => {
   const [selectedActivity, setSelectedActivity] =
@@ -23,7 +23,7 @@ const SectionDesignton = () => {
         description: "2023년 프로젝트",
         image: "/cat_image.jpg",
         year: "2023",
-        names: ["이다운", "박성우", "모지혁", "심예은"],
+        names: ["이다은", "박성우", "모지혁", "심예은"],
       },
       {
         title: "아주대 캠퍼스맵",
@@ -33,11 +33,11 @@ const SectionDesignton = () => {
         names: ["정민태", "윤예림", "성하솔", "원동혁"],
       },
       {
-        title: "치도의 기록집",
+        title: "치토의 기록집",
         description: "게임같은 기록 시스템",
         image: "/cat_image.jpg",
         year: "2023",
-        names: ["조국", "정혜진", "심주름", "조우진", "차우철"],
+        names: ["조국", "정혜진", "심푸름", "조우진", "차우철"],
       },
       {
         title: "디자인톤 AJOUWAY",
