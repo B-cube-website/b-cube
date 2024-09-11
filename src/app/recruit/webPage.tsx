@@ -22,8 +22,17 @@ export default function Recruit() {
   return (
     <main>
       <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto h-[700px]">
-        <div className="w-[733.58px] h-[733.58px] absolute left-[756.58px] top-[82.11px] object-cover">
-          <Image src={megaphone} alt="megaphone" />
+        <div
+          className="absolute"
+          style={{
+            width: "calc(100% - 45.5% - 7%)", // left 52.5%와 right 7%를 합한 값을 너비로 계산
+            height: "calc(100% - 45.5% - 7%)",
+            left: "45.5%", // 왼쪽에서 52.5% 떨어지게 설정
+            right: "7%", // 오른쪽에서 7% 떨어지게 설정
+            top: "82.11px",
+          }}
+        >
+          <Image src={megaphone} alt="megaphone" className="object-contain" />
         </div>
         <div className="flex flex-col justify-start items-start absolute left-[98px] top-[117px] gap-6">
           <p className="text-5xl font-bold text-left text-white">
@@ -58,7 +67,7 @@ export default function Recruit() {
         </div>
 
         <SectionHeader title="Activity" subtitle="활동 분야" />
-        <div className="flex flex-wrap justify-center items-center w-full gap-6">
+        <div className="flex flex-nowrap justify-center items-center w-full gap-6">
           <ActivityButton
             activity="디자인톤"
             selected={selectedActivity === "designathon"}
