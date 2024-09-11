@@ -11,11 +11,11 @@ export default function ActivityButton({
 }: ActivityButtonProps) {
   return (
     <button
-      className={`flex justify-center items-center w-full sm:w-auto px-12 py-4 rounded-[100px] ${
+      className={`flex justify-center items-center px-12 py-4 rounded-[100px] ${
         selected
           ? "text-[#14439f] bg-white"
           : "bg-[#7380b0]/5 border-[#191f35] text-[#7380b0]"
-      } border`}
+      } w-auto min-w-[100px] whitespace-nowrap`}
       onClick={onClick}
     >
       <p className="text-xl font-semibold text-center whitespace-nowrap">
