@@ -36,7 +36,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
               {name}
             </p>
             <div className="flex justify-start items-center flex-grow-0 flex-shrink-0 relative gap-[3.8128654956817627px]">
-              <Haksamo />
+              <Image src={Haksamo} alt="haksamo" />
 
               <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-center text-[#c5c5c6]">
                 {studentId} {/* 학번 */}
@@ -52,7 +52,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
           </div>
         </div>
       </div>
-      <Email_logo3 />
+      <Image src={Email_logo3} alt="email_logo3" />
     </div>
   );
 };
