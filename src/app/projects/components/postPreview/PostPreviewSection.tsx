@@ -4,22 +4,13 @@ import PostPreviewBox from "./PostPreviewBox";
 import ActivityButton from "@/app/recruit/components/activityButton";
 
 interface PostPreviewSectionProps {
-    title: string;
-    desc: string;
+  title: string;
+  desc: string;
 }
 
 const PostPreviewSection: React.FC<PostPreviewSectionProps> = ({ title, desc }) => {
-  const [selectedActivity, setSelectedActivity] =
-    React.useState<string>("더보기");
+  const [selectedActivity, setSelectedActivity] = React.useState<string>("더보기");
   const [postsData, setPostsData] = React.useState<any[]>([]);
-
-  const fetchPosts = () => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((data) => {
-        setPostsData(data);
-      });
-  };
 
   useEffect(() => {
     setPostsData([
@@ -55,12 +46,12 @@ const PostPreviewSection: React.FC<PostPreviewSectionProps> = ({ title, desc }) 
   }, []);
 
   return (
-    <div className="flex flex-col justify-start items-start w-full max-w-screen-2xl mx-auto relative gap-20 px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col justify-start items-start w-full max-w-screen-2xl mx-auto relative gap-12 sm:gap-20 px-4 sm:px-6 lg:px-8">
       <ProjectDescription title={title}>
         {desc}
       </ProjectDescription>
-      <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[120px]">
-        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-16 p-6">
+      <section className="flex flex-col justify-center items-center w-full gap-8 sm:gap-16 relative pb-20 sm:pb-[120px]">
+        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-16 p-4 sm:p-6">
           {postsData.map((item, index) => (
             <PostPreviewBox
               key={index}

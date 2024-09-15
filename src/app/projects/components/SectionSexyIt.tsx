@@ -52,41 +52,45 @@ const SectionSexyIt = () => {
 
   return (
     <div className="flex flex-col justify-start items-start w-full max-w-screen-2xl mx-auto relative gap-20 px-4 sm:px-6 lg:px-8">
-      <ProjectDescription title="섹시한 IT">
-        <div className="flex flex-row justify-between">
-          <span>
-            <p className="mb-4">
-              💡아는 것이 섹시하다 | 섹시하게 IT하자💡
-              <br />
-              매달 다양한 IT관련 주제를 가지고 카드뉴스를 만들어 정보를 공유하는
-              활동이에요.
-            </p>
-            <div className="text-gray-400">
-              INSTAGRAM
-              <div>
-                <a
-                  href="https://www.instagram.com/sexyit_season2/"
-                  className="mr-4"
-                >
-                  @sexyit_season2
-                </a>{" "}
-                <a href="https://www.instagram.com/sexyit2018/">@sexyit2018</a>
+      <div className="flex flex-row gap-4">
+        <ProjectDescription title="섹시한 IT">
+          <div className="flex">
+            <div>
+              <p className="mb-4">
+                💡아는 것이 섹시하다 | 섹시하게 IT하자💡
+                <br />
+                매달 다양한 IT관련 주제를 가지고 카드뉴스를 만들어 정보를
+                공유하는 활동이에요.
+              </p>
+              <div className="text-gray-400">
+                INSTAGRAM
+                <div>
+                  <a
+                    href="https://www.instagram.com/sexyit_season2/"
+                    className="mr-4"
+                  >
+                    @sexyit_season2
+                  </a>{" "}
+                  <a href="https://www.instagram.com/sexyit2018/">
+                    @sexyit2018
+                  </a>
+                </div>
               </div>
             </div>
-          </span>
-          <span className="min-w-64 min-h-64">
-            <Image
-              src="/cat_image.jpg"
-              alt="섹시한 IT"
-              width={256}
-              height={256}
-              className="bg-cover bg-center rounded-full flex-none order-0"
-            />
-          </span>
-        </div>
-      </ProjectDescription>
+            <div className="min-w-64 min-h-64">
+              <Image
+                src="/cat_image.jpg"
+                alt="섹시한 IT"
+                width={256}
+                height={256}
+                className="bg-cover bg-center rounded-full flex-none order-0"
+              />
+            </div>
+          </div>
+        </ProjectDescription>
+      </div>
       <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[120px]">
-        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-16 p-4">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-4">
           {postsData.map((card, index) => (
             <PhotoWithTitleBox
               key={index}
