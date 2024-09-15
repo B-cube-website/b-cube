@@ -77,7 +77,10 @@ const SectionSexyIt = () => {
                 </div>
               </div>
             </div>
-            <div className="min-w-64 min-h-64">
+            <div
+              className=" 
+            sm:min-w-16 sm:min-h-16 md:min-w-32 md:min-h-64 lg:min-w-64 lg:min-h-64 ml-4"
+            >
               <Image
                 src="/cat_image.jpg"
                 alt="섹시한 IT"
