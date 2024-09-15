@@ -61,7 +61,7 @@ const SectionSexyIt = () => {
               매달 다양한 IT관련 주제를 가지고 카드뉴스를 만들어 정보를 공유하는
               활동이에요.
             </p>
-            <p className="text-gray-400">
+            <div className="text-gray-400">
               INSTAGRAM
               <div>
                 <a
@@ -72,7 +72,7 @@ const SectionSexyIt = () => {
                 </a>{" "}
                 <a href="https://www.instagram.com/sexyit2018/">@sexyit2018</a>
               </div>
-            </p>
+            </div>
           </span>
           <span className="min-w-64 min-h-64">
             <Image
@@ -86,7 +86,7 @@ const SectionSexyIt = () => {
         </div>
       </ProjectDescription>
       <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[120px]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 p-4">
+        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-16 p-4">
           {postsData.map((card, index) => (
             <PhotoWithTitleBox
               key={index}

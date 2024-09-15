@@ -1,10 +1,14 @@
 import React, { useEffect } from "react";
-import ProjectDescription from "./ProjectDescription";
-import PostPreviewBox from "./postPreview/PostPreviewBox";
+import ProjectDescription from "../ProjectDescription";
+import PostPreviewBox from "./PostPreviewBox";
 import ActivityButton from "@/app/recruit/components/activityButton";
-import PostPreviewSection from "./postPreview/PostPreviewSection";
 
-const SectionDesignton = () => {
+interface PostPreviewSectionProps {
+    title: string;
+    desc: string;
+}
+
+const PostPreviewSection: React.FC<PostPreviewSectionProps> = ({ title, desc }) => {
   const [selectedActivity, setSelectedActivity] =
     React.useState<string>("더보기");
   const [postsData, setPostsData] = React.useState<any[]>([]);
@@ -49,9 +53,32 @@ const SectionDesignton = () => {
       },
     ]);
   }, []);
+
   return (
-    <PostPreviewSection title="디자인톤" desc="팀 별로 아이디어를 기획하고 구체화하여 앱 서비스를 기획하는 활동" />
-    );
+    <div className="flex flex-col justify-start items-start w-full max-w-screen-2xl mx-auto relative gap-20 px-4 sm:px-6 lg:px-8">
+      <ProjectDescription title={title}>
+        {desc}
+      </ProjectDescription>
+      <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[120px]">
+        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-16 p-6">
+          {postsData.map((item, index) => (
+            <PostPreviewBox
+              key={index}
+              image={item.image}
+              year={item.year}
+              title={item.title}
+              participants={item.names}
+            />
+          ))}
+        </div>
+        <ActivityButton
+          activity="더보기"
+          selected={selectedActivity === "더보기"}
+          onClick={() => alert("더보기")}
+        />
+      </section>
+    </div>
+  );
 };
 
-export default SectionDesignton;
+export default PostPreviewSection;
