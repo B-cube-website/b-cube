@@ -4,7 +4,7 @@ interface StoreState {
   isMobile: boolean;
   isSidebarOpen: boolean; // 사이드바 열림/닫힘 상태
   checkMobile: () => void;
-  toggleSidebar: () => void; // 사이드바 열림/닫힘을 토글하는 함수 aa
+  toggleSidebar: () => void; // 사이드바 열림/닫힘을 토글하는 함수
 }
 
 // Zustand 스토어 생성
