@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import pool from '../../_libs/mysql';
-
 import '../../../server/init'; // 경로 수정
+
 
 export async function POST(req: Request) {
     try {
