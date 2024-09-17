@@ -13,7 +13,7 @@ const nextConfig = {
       "f0:0c:07:b4:c6:af:19:72:a7:c9:db:3d:28:8c:f0:0c",
     OCI_PRIVATE_KEY_FILE_PATH:
       process.env.ORACLE_CLOUD_PRIVATE_KEY_FILE_PATH ||
-      "/home/ubuntu/oci_api_key.pem",
+      "C:\\Users\\carma\\KDH\\Git\\b-cube\\flash0221@ajou.ac.kr_2024-08-22T14_08_21.364Z.pem",
     OCI_TENANCY_ID:
       process.env.ORACLE_CLOUD_TENANCY_ID ||
       "ocid1.tenancy.oc1..aaaaaaaaotkd6ok43jubqp5qu3dx47xbq7x2xgep74e64jlc7c3coppzd4va",
