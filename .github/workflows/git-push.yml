@@ -21,7 +21,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.DONG_TOKEN }}
         with:
           source-directory: "output"
-          destination-github-username: dongdongs
+          destination-github-username: DongDongsqq
           destination-repository-name: b-cube
           user-email: ${{ secrets.DONG_EMAIL }}
           commit-message: ${{ github.event.commits[0].message }}
