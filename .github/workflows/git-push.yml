@@ -22,7 +22,7 @@ jobs:
         with:
           source-directory: "output"
           destination-github-username: DongDongsqq
-          destination-repository-name: b-cube
+          destination-repository-name: b-cube_release
           user-email: ${{ secrets.DONG_EMAIL }}
           commit-message: ${{ github.event.commits[0].message }}
           target-branch: main
