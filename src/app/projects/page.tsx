@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import ActivityButton from "../../components/activityButton";
+import ActivityButton from "@/components/activityButton";
 import MainBanner from "./components/MainBanner";
 import SectionDesignton from "./components/SectionDesignton";
 import SectionSexyIt from "./components/SectionSexyIt";
@@ -43,10 +43,18 @@ const Project: React.FC = () => {
           onClick={() => handleButtonClick("others")}
         />
       </div>
-      {selectedActivity === "designathon" && <SectionDesignton />}
-      {selectedActivity === "sexyIT" && <SectionSexyIt />}
-      {selectedActivity === "study" && <SectionStudy />}
-      {selectedActivity === "others" && <SectionEtc />}
+      <div className={selectedActivity === "designathon" ? "block" : "hidden"}>
+        <SectionDesignton />
+      </div>
+      <div className={selectedActivity === "sexyIT" ? "block" : "hidden"}>
+        <SectionSexyIt />
+      </div>
+      <div className={selectedActivity === "study" ? "block" : "hidden"}>
+        <SectionStudy />
+      </div>
+      <div className={selectedActivity === "others" ? "block" : "hidden"}>
+        <SectionEtc />
+      </div>
     </main>
   );
 };

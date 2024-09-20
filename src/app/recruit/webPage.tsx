@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import megaphone from "../../../public/megaphone.svg";
 import Image from "next/image";
 import Card from "./components/card";
-import ActivityButton from "../../components/activityButton";
+import ActivityButton from "@/components/activityButton";
 import ContactItem from "./components/contactItem";
 import SectionHeader from "../../components/sectionHeader";
 import email_logo2 from "../../../public/email_logo2.svg";
