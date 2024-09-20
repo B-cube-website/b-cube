@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import ActivityButton from "../../components/activityButton";
+import ActivityButton from "@/components/activityButton";
 import MainBanner from "./components/MainBanner";
 import SectionDesignton from "./components/SectionDesignton";
 import SectionSexyIt from "./components/SectionSexyIt";

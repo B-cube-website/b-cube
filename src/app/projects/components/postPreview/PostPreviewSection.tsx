@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ProjectDescription from "../ProjectDescription";
 import PostPreviewBox from "./PostPreviewBox";
-import ActivityButton from "@/app/recruit/components/activityButton";
+import ActivityButton from "@/components/activityButton";
 
 interface PostPreviewSectionProps {
   title: string;
