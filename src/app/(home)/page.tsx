@@ -1,21 +1,6 @@
 import Activity from "./Activity";
 import Article from "@/components/Article";
 import Executives from "./Executives";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "B-cube",
-  description: "아주대학교 경영인텔리전스학과 소학회",
-  openGraph: {
-    title: "B-cube",
-    description: "아주대학교 경영인텔리전스학과 소학회",
-    images: "https://b-cube-three.vercel.app/opengraph-image.png",
-    url: "https://b-cube-three.vercel.app",
-    siteName: "B-cube",
-    locale: "ko_KR",
-    type: "website",
-  },
-};
 
 export default function Home() {
   return (
