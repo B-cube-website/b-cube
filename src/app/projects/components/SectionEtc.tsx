@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import ProjectDescription from "./ProjectDescription";
 import PostPreviewBox from "./postPreview/PostPreviewBox";
-import ActivityButton from "@/app/recruit/components/activityButton";
 import PostPreviewSection from "./postPreview/PostPreviewSection";
 
 const SectionEtc = () => {

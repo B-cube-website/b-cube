@@ -1,4 +1,4 @@
-import create from "zustand";
+import { create } from "zustand";
 
 interface StoreState {
   isMobile: boolean;
@@ -9,9 +9,11 @@ interface StoreState {
 
 // Zustand 스토어 생성
 const useStore = create<StoreState>((set) => ({
-  isMobile: false, // 초기 모바일 상태는 false
-  isSidebarOpen: false, // 초기 사이드바 상태는 닫힘
+  // 초기 상태
+  isMobile: false,
+  isSidebarOpen: false,
 
+  // 모바일 여부 확인
   checkMobile: () => {
     const isMobileScreen = window.innerWidth <= 767;
     set({ isMobile: isMobileScreen });

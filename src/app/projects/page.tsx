@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import ActivityButton from "../recruit/components/activityButton";
+import ActivityButton from "../../components/activityButton";
 import MainBanner from "./components/MainBanner";
 import SectionDesignton from "./components/SectionDesignton";
 import SectionSexyIt from "./components/SectionSexyIt";
 import SectionStudy from "./components/SectionStudy";
 import SectionEtc from "./components/SectionEtc";
+
+
 
 const Project: React.FC = () => {
   const [selectedActivity, setSelectedActivity] =

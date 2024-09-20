@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import ProjectDescription from "./ProjectDescription";
 import Image from "next/image";
 import PhotoWithTitleBox from "./postPreview/Card";
-import ActivityButton from "@/app/recruit/components/activityButton";
+import ActivityButton from "@/components/activityButton";
 
 const SectionSexyIt = () => {
   const [selectedActivity, setSelectedActivity] =

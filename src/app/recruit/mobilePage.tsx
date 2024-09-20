@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import MobileMain from "@/mobileComponents/mobileMain";
 import MobileArticle from "@/mobileComponents/mobileArticle";
-import ActivityButton from "./components/activityButton";
+import ActivityButton from "../../components/activityButton";
 import email_logo2 from "../../../public/email_logo2.svg";
 import kakaoTalk_logo2 from "../../../public/kakaoTalk_logo2.svg";
 import insta_logo2 from "../../../public/insta_logo2.svg";
