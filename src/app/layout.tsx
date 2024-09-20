@@ -8,9 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "B-cube",
   description: "아주대학교 경영인텔리전스학과 소학회",
+  metadataBase: new URL("https://b-cube-three.vercel.app/"),
   openGraph: {
     title: "B-cube",
     description: "아주대학교 경영인텔리전스학과 소학회",
+
     images: "/opengraph-image.png",
     url: "https://b-cube-three.vercel.app",
     siteName: "B-cube",
