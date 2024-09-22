@@ -1,9 +1,13 @@
-"use client"; // 이 컴포넌트를 클라이언트에서만 렌더링
+"use client";
 
 import React, { useEffect, useState } from "react";
-import ProfileCard from "./ProfileCard"; // ProfileCard 컴포넌트를 가져옴
+import ProfileCard from "./ProfileCard";
+import ActivityButton from "@/components/activityButton";
+
 
 const SectionOBinterview = () => {
+  const [selectedActivity, setSelectedActivity] =
+  React.useState<string>("더보기");
   const [postData, setPostData] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -46,8 +50,15 @@ const SectionOBinterview = () => {
       ) : (
         <p>로딩 중...</p> // 데이터를 불러오는 동안 표시
       )}
+      <ActivityButton
+activity="더보기"
+selected={selectedActivity === "더보기"}
+onClick={() => alert("더보기")}
+/>
     </div>
   );
 };
+
+
 
 export default SectionOBinterview;
