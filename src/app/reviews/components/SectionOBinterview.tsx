@@ -4,15 +4,13 @@ import React, { useEffect, useState } from "react";
 import ProfileCard from "./ProfileCard";
 import ActivityButton from "@/components/activityButton";
 
-
 const SectionOBinterview = () => {
-  const [selectedActivity, setSelectedActivity] =
-  React.useState<string>("더보기");
   const [postData, setPostData] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState<number>(6); // 초기값 6
 
   useEffect(() => {
-    fetchPosts(); // 컴포넌트가 마운트될 때 데이터를 가져옴
+    fetchPosts();
   }, []);
 
   const fetchPosts = () => {
@@ -24,8 +22,8 @@ const SectionOBinterview = () => {
         return response.json();
       })
       .then((data) => {
-        setPostData(data); // 데이터를 상태에 저장
-        setError(null); // 에러가 없을 때 초기화
+        setPostData(data);
+        setError(null);
       })
       .catch((error) => {
         console.log("데이터를 불러오는데 실패했습니다:", error);
@@ -33,32 +31,45 @@ const SectionOBinterview = () => {
       });
   };
 
+  const handleLoadMore = () => {
+    setVisibleCount((prevCount) => prevCount + 6);
+  };
+
   return (
-    <div className="section-ob-interview grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {error ? (
-        <p>{error}</p> // 에러가 발생했을 때 에러 메시지 표시
-      ) : postData.length > 0 ? (
-        postData.map((post) => (
-          <ProfileCard
-            key={post.id} // 각 데이터의 고유 id 값
-            name={post.name} // API로부터 받은 name
-            studentId={post.studentId} // API로부터 받은 studentId
-            message={post.message} // API로부터 받은 message
-            imageUrl={post.imageUrl} // API로부터 받은 imageUrl
+    <div className="section-ob-interview px-4 sm:px-6 lg:px-8">
+      {/* 프로필 카드를 담는 그리드 컨테이너 */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {error ? (
+          <p className="text-red-500">{error}</p> // 에러 메시지 표시
+        ) : postData.length > 0 ? (
+          postData
+            .slice(0, visibleCount)
+            .map((post) => (
+              <ProfileCard
+                key={post.id}
+                name={post.name}
+                studentId={post.studentId}
+                message={post.message}
+                imageUrl={post.imageUrl}
+              />
+            ))
+        ) : (
+          <p>로딩 중...</p>
+        )}
+      </div>
+
+      {/* "더보기" 버튼을 프로필 카드 아래에 배치 */}
+      {visibleCount < postData.length && (
+        <section className="flex justify-center items-center w-full mt-8">
+          <ActivityButton
+            activity="더보기"
+            selected={true}
+            onClick={handleLoadMore}
           />
-        ))
-      ) : (
-        <p>로딩 중...</p> // 데이터를 불러오는 동안 표시
+        </section>
       )}
-      <ActivityButton
-activity="더보기"
-selected={selectedActivity === "더보기"}
-onClick={() => alert("더보기")}
-/>
     </div>
   );
 };
-
-
 
 export default SectionOBinterview;

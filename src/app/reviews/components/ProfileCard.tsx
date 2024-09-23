@@ -18,7 +18,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   imageUrl,
 }) => {
   return (
-    <div className="flex-grow-0 flex-shrink-0 w-[379px] h-[480px] relative rounded-[10px] bg-[#f6f6f7]/[0.04]">
+    <div
+      className="flex-grow-0 flex-shrink-0 w-[379px] h-[480px] relative rounded-[10px] bg-[#f6f6f7]/[0.04]"
+      style={{
+        border: "1px solid #518CFF",
+      }}
+    >
       {/* 프로필 이미지 */}
       <div className="w-[180px] h-[180px] absolute left-[99.66px] top-8 overflow-hidden rounded-[90px]">
         <img
@@ -27,14 +32,13 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
           alt={`${name} profile`}
         />
       </div>
-
       {/* 이름 */}
-      <p className="absolute left-[124px] top-[259px] text-2xl font-semibold text-center text-[#f6f6f7]">
+      <p className="absolute left-1/2 top-[259px] transform -translate-x-1/2 text-2xl font-semibold text-center text-[#f6f6f7]">
         {name}
       </p>
 
       {/* 학번 */}
-      <div className="flex justify-start items-center absolute left-[153px] top-[296px] gap-2">
+      <div className="flex justify-start items-center absolute left-1/2 transform -translate-x-1/2 top-[296px] gap-2">
         {/* 학번 아이콘 */}
         <Image
           src={Haksamo}
@@ -49,7 +53,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
       </div>
 
       {/* 메시지 */}
-      <div className="flex justify-center items-center absolute left-[107.5px] top-[336px] px-6 py-4 rounded-full bg-[#ebeef6]/20">
+      <div className="flex justify-center items-center absolute left-1/2 top-[336px] transform -translate-x-1/2 px-6 py-4 rounded-full bg-[#ebeef6]/20">
         <p className="flex-grow-0 flex-shrink-0 text-sm font-medium text-center text-[#f6f6f7]">
           {message}
         </p>

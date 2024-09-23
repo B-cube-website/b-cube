@@ -9,7 +9,7 @@ import SectionActivityPhoto from "./components/SectionActivityPhoto";
 
 export default function Review() {
   const [selectedActivity, setSelectedActivity] =
-    useState<string>("designathon");
+    useState<string>("OBinterview");
 
   const handleButtonClick = (activity: string) => {
     setSelectedActivity(activity);
