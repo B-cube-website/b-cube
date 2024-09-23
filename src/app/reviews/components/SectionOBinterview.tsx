@@ -36,7 +36,7 @@ const SectionOBinterview = () => {
   };
 
   return (
-    <div className="section-ob-interview px-4 sm:px-6 lg:px-8">
+    <div className="section-ob-interview px-4 sm:px-6 lg:px-8 mt-36 mb-32">
       {/* 프로필 카드를 담는 그리드 컨테이너 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {error ? (
@@ -60,7 +60,7 @@ const SectionOBinterview = () => {
 
       {/* "더보기" 버튼을 프로필 카드 아래에 배치 */}
       {visibleCount < postData.length && (
-        <section className="flex justify-center items-center w-full mt-8">
+        <section className="flex justify-center items-center w-full mt-24 mb-32">
           <ActivityButton
             activity="더보기"
             selected={true}

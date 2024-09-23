@@ -8,8 +8,6 @@ import SectionSexyIt from "./components/SectionSexyIt";
 import SectionStudy from "./components/SectionStudy";
 import SectionEtc from "./components/SectionEtc";
 
-
-
 const Project: React.FC = () => {
   const [selectedActivity, setSelectedActivity] =
     useState<string>("designathon");
