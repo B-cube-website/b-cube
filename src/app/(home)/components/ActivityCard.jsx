@@ -1,69 +1,35 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 
-interface Activity {
-  id: number;
-  explain: string;
-  title: string;
-  image_path: string;
-}
-
-const mockData: Activity[] = [
-  {
-    id: 1,
-    explain: "귀여워 고양이 춘시기",
-    title: "춘식핑",
-    image_path: "/cat_image.jpg",
-  },
-  {
-    id: 2,
-    explain: "귀여워 고양이 춘시기",
-    title: "춘식핑",
-    image_path: "/cat_image.jpg",
-  },
-  {
-    id: 3,
-    explain: "귀여워 고양이 춘시기",
-    title: "춘식핑",
-    image_path: "/cat_image.jpg",
-  },
-  {
-    id: 4,
-    explain: "귀여워 고양이 춘시기",
-    title: "춘식핑",
-    image_path: "/cat_image.jpg",
-  },
-  {
-    id: 5,
-    explain: "귀여워 고양이 춘시기",
-    title: "춘식핑",
-    image_path: "/cat_image.jpg",
-  },
-];
-
-export default function Activity() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+export default function ActivityCard({ isLoading, loadingText, activity }) {
+  const scrollContainerRef = useRef(null);
 
   useEffect(() => {
-    if (scrollContainerRef.current) {
+    if (scrollContainerRef.current && activity.length > 0) {
       const containerWidth = scrollContainerRef.current.offsetWidth;
       const scrollWidth = scrollContainerRef.current.scrollWidth;
 
       const scrollToCenter = (scrollWidth - containerWidth) / 2;
       scrollContainerRef.current.scrollLeft = scrollToCenter;
     }
-  }, []);
+  }, [activity]); // activity가 변경될 때만 실행
+
+  if (isLoading) {
+    return <p>{loadingText}</p>;
+  }
+
+  if (activity.length === 0) {
+    return <p>활동 데이터가 없습니다.</p>;
+  }
 
   return (
-    <div className="flex justify-center w-full mt-[80px]">
+    <section className="flex justify-center w-full mt-[80px]">
       <div
         ref={scrollContainerRef}
         className="w-full overflow-x-auto flex items-center px-[32px] scroll-smooth"
         style={{ scrollSnapType: "x mandatory" }}
       >
         <div className="flex gap-[64px] w-max">
-          {mockData.map((item) => (
+          {activity.map((item) => (
             <div
               key={item.id}
               className="relative w-[335px] h-[209px] flex-shrink-0"
@@ -83,6 +49,6 @@ export default function Activity() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
