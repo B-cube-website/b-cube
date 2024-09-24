@@ -1,22 +1,18 @@
-"use client";
+import Main from "./components/Main";
+import { headers } from "next/headers";
 
-import React, { useEffect } from "react";
-import WebPage from "./webPage";
-import MobilePage from "./mobilePage";
-import useStore from "@/stores/useStore";
+// 서버 측에서 User-Agent를 기반으로 모바일 여부를 판단하는 함수
+async function checkIfMobile() {
+  const userAgent = headers().get("user-agent") || "";
+  const isMobile =
+    /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Silk/.test(userAgent);
+  return isMobile;
+}
 
-export default function Main() {
-  const isMobile = useStore((state) => state.isMobile);
-  const checkMobile = useStore((state) => state.checkMobile);
+export default async function HomePage() {
+  // 서버 측에서 모바일 여부 확인
+  const isMobile = await checkIfMobile();
 
-  useEffect(() => {
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, [checkMobile]);
-
-  return <>{isMobile ? <MobilePage /> : <WebPage />} </>;
+  // 클라이언트 컴포넌트에 초기 모바일 상태 전달
+  return <Main initialMobileState={isMobile} />;
 }

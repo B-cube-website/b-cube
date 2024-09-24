@@ -1,6 +1,6 @@
-import Activity from "./Activity";
+import Activity from "./components/Activity";
 import Article from "@/components/Article";
-import Executives from "./Executives";
+import Executives from "./components/Executives";
 
 export default function Home() {
   return (

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ClientWrapper from "@/components/ClientWrapper"; // 클라이언트 컴포넌트 경로
+import ClientWrapper from "@/components/ClientWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -55,7 +55,6 @@ export default function RootLayout({
               "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(14, 47, 110, 0.8))",
           }}
         />
-        {/* ClientWrapper로 모바일/데스크탑 네비게이션과 푸터 처리 */}
         <ClientWrapper>{children}</ClientWrapper>
       </body>
     </html>
