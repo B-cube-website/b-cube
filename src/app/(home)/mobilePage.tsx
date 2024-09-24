@@ -1,3 +1,5 @@
+"use client";
+
 import Activity from "./components/Activity";
 import Article from "@/components/Article";
 import Executives from "./components/Executives";
@@ -7,7 +9,7 @@ export default function Home() {
     <>
       <main className="relative min-h-screen">
         <section className="flex flex-col justify-center items-center p-8">
-          <div className="flex justify-center items-center w-[1440px] h-[548px] p-0 gap-2.5">
+          <div className="flex justify-center items-center w-full h-[548px] p-0 gap-2.5">
             <h1
               className="flex items-center justify-center font-bold text-[80px] leading-[110px] text-center bg-clip-text text-transparent"
               style={{

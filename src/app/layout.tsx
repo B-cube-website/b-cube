@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: "B-cube",
     description: "아주대학교 경영인텔리전스학과 소학회",
-
     images: "/opengraph-image.png",
     url: "https://b-cube-three.vercel.app",
     siteName: "B-cube",
@@ -26,6 +25,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const initialMobileState = false; // 기본값 설정
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -55,7 +56,9 @@ export default function RootLayout({
               "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(14, 47, 110, 0.8))",
           }}
         />
-        <ClientWrapper>{children}</ClientWrapper>
+        <ClientWrapper initialMobileState={initialMobileState}>
+          {children}
+        </ClientWrapper>
       </body>
     </html>
   );
