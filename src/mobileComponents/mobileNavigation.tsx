@@ -12,6 +12,7 @@ import { usePathname } from "next/navigation";
 export default function Navigation() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // 사이드바 상태 관리
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen); // 사이드바 열기/닫기 토글 함수
+  const closeSidebar = () => setIsSidebarOpen(false); // 사이드바 닫기 함수
   const pathname = usePathname();
 
   const linkStyle = (href: string) =>
@@ -96,16 +97,16 @@ export default function Navigation() {
         </div>
 
         <nav className="flex flex-col items-start p-4 space-y-6">
-          <Link href="/" className={linkStyle("/")}>
+          <Link href="/" className={linkStyle("/")} onClick={closeSidebar}>
             홈
           </Link>
-          <Link href="/projects" className={linkStyle("/projects")}>
+          <Link href="/projects" className={linkStyle("/projects")} onClick={closeSidebar}>
             프로젝트
           </Link>
-          <Link href="/reviews" className={linkStyle("/reviews")}>
+          <Link href="/reviews" className={linkStyle("/reviews")} onClick={closeSidebar}>
             후기
           </Link>
-          <Link href="/recruit" className={linkStyle("/recruit")}>
+          <Link href="/recruit" className={linkStyle("/recruit")} onClick={closeSidebar}>
             리크루팅
           </Link>
         </nav>
