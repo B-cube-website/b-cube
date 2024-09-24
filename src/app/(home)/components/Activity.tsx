@@ -5,15 +5,16 @@ import { useEffect, useState } from "react";
 
 interface Activity {
   id: number;
-  explain: string;
   title: string;
-  image_path: string;
+  imagePath: string;
+  pdfPath: string;
 }
 
 export default function Activity() {
   const [isFetching, setIsFetching] = useState(false);
   const [activeCards, setActiveCards] = useState<Activity[]>([]);
   const [error, setError] = useState<string | null>(null);
+
 
   useEffect(() => {
     const fetchActivity = async () => {
@@ -36,7 +37,8 @@ export default function Activity() {
 
         const resData = await response.json();
         // 데이터가 없으면 빈 배열 반환
-        setActiveCards(resData.activities || []);  
+        setActiveCards(resData || []);
+         
 
       } catch (err) {
         // 명확한 에러 메시지 처리

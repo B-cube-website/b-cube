@@ -5,11 +5,11 @@ import { useState, useEffect } from "react";
 
 interface Executive {
   id: number;
-  member_name: string;
+  memberName: string;
   role: string;
-  student_id: string;
-  basic_info: string;
-  image_path: string;
+  studentId: string;
+  basicInfo: string;
+  imageUrl: string;
 }
 
 export default function Executives() {
@@ -36,7 +36,7 @@ export default function Executives() {
         }
 
         const resData = await response.json();
-        setProfiles(resData.profiles || []); // API가 빈 데이터를 반환할 경우 대비
+        setProfiles(resData || []); // API가 빈 데이터를 반환할 경우 대비
 
       } catch (err) {
         // Error 객체 타입을 명확히 처리
