@@ -35,24 +35,42 @@ const SectionOBinterview = () => {
     setVisibleCount((prevCount) => prevCount + 6);
   };
 
+  // 총 데이터가 3의 배수 + 1인지 확인
+  const isLastCardCentered =
+    postData.length % 3 === 1 && postData.length <= visibleCount;
+
   return (
-    <div className="section-ob-interview px-4 sm:px-6 lg:px-8 mt-36 mb-32">
-      {/* 프로필 카드를 담는 그리드 컨테이너 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="section-ob-interview flex flex-col items-center mt-36 mb-32">
+      {/* 그리드 컨테이너 */}
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-screen-lg mx-auto justify-items-center"
+        style={{ paddingLeft: "120px", paddingRight: "120px" }}
+      >
         {error ? (
           <p className="text-red-500">{error}</p> // 에러 메시지 표시
         ) : postData.length > 0 ? (
-          postData
-            .slice(0, visibleCount)
-            .map((post) => (
-              <ProfileCard
+          postData.slice(0, visibleCount).map((post, index) => {
+            // 마지막 카드가 3의 배수 + 1일 때 가운데 정렬
+            const isLastCard =
+              isLastCardCentered &&
+              index === postData.slice(0, visibleCount).length - 1;
+
+            return (
+              <div
                 key={post.id}
-                name={post.name}
-                studentId={post.studentId}
-                message={post.message}
-                imageUrl={post.imageUrl}
-              />
-            ))
+                className={`${
+                  isLastCard ? "md:col-span-3 flex justify-center" : ""
+                }`}
+              >
+                <ProfileCard
+                  name={post.name}
+                  studentId={post.studentId}
+                  message={post.message}
+                  imageUrl={post.imageUrl}
+                />
+              </div>
+            );
+          })
         ) : (
           <p>로딩 중...</p>
         )}
