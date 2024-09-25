@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Haksamo from "../../../../public/haksamo.svg";
 import Email_logo3 from "../../../../public/email_logo3.svg";
@@ -11,6 +11,7 @@ interface ProfileCardProps {
   studentId: string;
   message: string;
   imageUrl: string;
+  className: string;
 }
 
 const ProfileCard: React.FC<ProfileCardProps> = ({
@@ -18,18 +19,19 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   studentId,
   message,
   imageUrl,
+  className,
 }) => {
   const [isLongText, setIsLongText] = useState(false);
-  const messageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (messageRef.current) {
-      // 메시지의 scrollWidth를 측정하여 최대 너비와 비교
-      if (messageRef.current.scrollWidth > 340) {
-        setIsLongText(true);
-      } else {
-        setIsLongText(false);
-      }
+    // 공백을 제외한 텍스트 길이 계산
+    const messageLengthWithoutSpaces = message.replace(/\s/g, "").length;
+
+    // 텍스트 길이가 공백 제외 15자를 넘는지 체크
+    if (messageLengthWithoutSpaces > 10) {
+      setIsLongText(true);
+    } else {
+      setIsLongText(false);
     }
   }, [message]);
 
@@ -71,13 +73,9 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
 
       {/* 메시지 */}
       <div
-        ref={messageRef}
         className={`absolute left-1/2 top-[336px] transform -translate-x-1/2 px-6 py-4 rounded-full bg-[#ebeef6]/20 ${
-          isLongText ? "max-w-[340px] w-full" : "w-fit"
+          isLongText ? "max-w-[280px] w-full" : "w-fit"
         }`}
-        style={{
-          wordBreak: "break-word", // 긴 텍스트가 있을 경우 줄바꿈 허용
-        }}
       >
         <p className="text-sm font-medium text-center text-[#f6f6f7]">
           {message}

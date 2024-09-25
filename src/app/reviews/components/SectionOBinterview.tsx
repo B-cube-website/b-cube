@@ -40,11 +40,18 @@ const SectionOBinterview = () => {
     postData.length % 3 === 1 && postData.length <= visibleCount;
 
   return (
-    <div className="section-ob-interview flex flex-col items-center mt-36 mb-32">
+    <div className="section-ob-interview flex flex-col justify-center items-center mt-36 mb-32">
       {/* 그리드 컨테이너 */}
       <div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-screen-lg mx-auto justify-items-center"
-        style={{ paddingLeft: "120px", paddingRight: "120px" }}
+        className="grid-container grid w-full"
+        style={{
+          gridTemplateColumns: "repeat(3, 1fr)", // 한 줄에 3개
+          gap: "20px",
+          maxWidth: "1200px", // 그리드 너비를 제한
+          width: "100%", // 부모 너비에 맞춤
+          padding: "0 120px", // 좌우 패딩
+          justifyContent: "center", // 그리드 컨테이너를 중앙으로 정렬
+        }}
       >
         {error ? (
           <p className="text-red-500">{error}</p> // 에러 메시지 표시
@@ -67,6 +74,7 @@ const SectionOBinterview = () => {
                   studentId={post.studentId}
                   message={post.message}
                   imageUrl={post.imageUrl}
+                  className="w-full h-full max-w-[250px] max-h-[350px]" // 프로필 카드 크기 고정
                 />
               </div>
             );
