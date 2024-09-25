@@ -74,6 +74,7 @@ const SectionOBinterview = () => {
                   studentId={post.studentId}
                   message={post.message}
                   imageUrl={post.imageUrl}
+                  email={post.email}
                   className="w-full h-full max-w-[250px] max-h-[350px]" // 프로필 카드 크기 고정
                 />
               </div>

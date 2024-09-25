@@ -11,6 +11,7 @@ interface ProfileCardProps {
   studentId: string;
   message: string;
   imageUrl: string;
+  email: string;
   className: string;
 }
 
@@ -19,6 +20,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   studentId,
   message,
   imageUrl,
+  email,
   className,
 }) => {
   const [isLongText, setIsLongText] = useState(false);
@@ -27,13 +29,25 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     // 공백을 제외한 텍스트 길이 계산
     const messageLengthWithoutSpaces = message.replace(/\s/g, "").length;
 
-    // 텍스트 길이가 공백 제외 15자를 넘는지 체크
+    // 텍스트 길이가 공백 제외 10자를 넘는지 체크
     if (messageLengthWithoutSpaces > 10) {
       setIsLongText(true);
     } else {
       setIsLongText(false);
     }
   }, [message]);
+
+  // 이메일 복사 함수
+  const copyEmailToClipboard = () => {
+    navigator.clipboard
+      .writeText(email)
+      .then(() => {
+        alert("이메일이 복사되었습니다."); // 복사 완료 알림
+      })
+      .catch((err) => {
+        console.error("이메일 복사 중 오류 발생:", err);
+      });
+  };
 
   return (
     <div
@@ -82,13 +96,14 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
         </p>
       </div>
 
-      {/* 이메일 아이콘 */}
+      {/* 이메일 아이콘 클릭 시 복사 */}
       <Image
         src={Email_logo3}
         alt="이메일 아이콘"
         width={31}
         height={30}
-        className="w-[30px] h-[30px] absolute left-1/2 transform -translate-x-1/2 top-[418px]"
+        className="w-[30px] h-[30px] absolute left-1/2 transform -translate-x-1/2 top-[425px] cursor-pointer"
+        onClick={copyEmailToClipboard} // 클릭 시 이메일 복사
       />
     </div>
   );
