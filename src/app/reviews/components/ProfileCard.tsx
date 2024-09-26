@@ -4,15 +4,15 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Haksamo from "../../../../public/haksamo.svg";
 import Email_logo3 from "../../../../public/email_logo3.svg";
+import useStore from "@/stores/useStore"; // Zustand에서 isMobile 상태 가져오기
 
-// ProfileCardProps 인터페이스 정의
 interface ProfileCardProps {
   name: string;
   studentId: string;
   message: string;
   imageUrl: string;
   email: string;
-  className: string;
+  style?: React.CSSProperties;
 }
 
 const ProfileCard: React.FC<ProfileCardProps> = ({
@@ -21,28 +21,21 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   message,
   imageUrl,
   email,
-  className,
+  style,
 }) => {
   const [isLongText, setIsLongText] = useState(false);
+  const { isMobile } = useStore(); // 모바일 여부 확인
 
   useEffect(() => {
-    // 공백을 제외한 텍스트 길이 계산
     const messageLengthWithoutSpaces = message.replace(/\s/g, "").length;
-
-    // 텍스트 길이가 공백 제외 10자를 넘는지 체크
-    if (messageLengthWithoutSpaces > 10) {
-      setIsLongText(true);
-    } else {
-      setIsLongText(false);
-    }
+    setIsLongText(messageLengthWithoutSpaces > 10);
   }, [message]);
 
-  // 이메일 복사 함수
   const copyEmailToClipboard = () => {
     navigator.clipboard
       .writeText(email)
       .then(() => {
-        alert("이메일이 복사되었습니다."); // 복사 완료 알림
+        alert("이메일이 복사되었습니다.");
       })
       .catch((err) => {
         console.error("이메일 복사 중 오류 발생:", err);
@@ -51,13 +44,16 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
 
   return (
     <div
-      className="flex-grow-0 flex-shrink-0 w-[380px] h-[480px] relative rounded-[10px] bg-[#f6f6f7]/[0.04]"
+      className="relative flex-grow-0 flex-shrink-0 rounded-[10px] bg-[#f6f6f7]/[0.04] flex flex-col items-center justify-between p-6"
       style={{
         border: "1px solid #518CFF",
+        width: isMobile ? "87vw" : "380px", // 모바일에서는 87vw, 데스크탑에서는 고정 380px
+        height: isMobile ? "calc(87vw * 1.23)" : "480px", // 모바일에서는 높이도 1.23배, 데스크탑은 480px
+        ...style, // 추가 스타일 적용
       }}
     >
       {/* 프로필 이미지 */}
-      <div className="w-[180px] h-[180px] absolute left-1/2 top-8 transform -translate-x-1/2 overflow-hidden rounded-full">
+      <div className="w-[180px] h-[180px] rounded-full overflow-hidden">
         <img
           className="w-full h-full object-cover"
           src={imageUrl}
@@ -66,13 +62,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
       </div>
 
       {/* 이름 */}
-      <p className="absolute left-1/2 top-[259px] transform -translate-x-1/2 text-2xl font-semibold text-center text-[#f6f6f7]">
+      <p className="text-2xl font-semibold text-center text-[#f6f6f7] mt-4">
         {name}
       </p>
 
       {/* 학번 */}
-      <div className="flex items-center absolute left-1/2 transform -translate-x-1/2 top-[296px] gap-2">
-        {/* 학번 아이콘 */}
+      <div className="flex items-center gap-2 mt-2">
         <Image
           src={Haksamo}
           alt="학번 아이콘"
@@ -87,7 +82,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
 
       {/* 메시지 */}
       <div
-        className={`absolute left-1/2 top-[336px] transform -translate-x-1/2 px-6 py-4 rounded-full bg-[#ebeef6]/20 ${
+        className={`px-6 py-4 rounded-full bg-[#ebeef6]/20 mt-4 ${
           isLongText ? "max-w-[280px] w-full" : "w-fit"
         }`}
       >
@@ -96,15 +91,17 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
         </p>
       </div>
 
-      {/* 이메일 아이콘 클릭 시 복사 */}
-      <Image
-        src={Email_logo3}
-        alt="이메일 아이콘"
-        width={31}
-        height={30}
-        className="w-[30px] h-[30px] absolute left-1/2 transform -translate-x-1/2 top-[425px] cursor-pointer"
-        onClick={copyEmailToClipboard} // 클릭 시 이메일 복사
-      />
+      {/* 이메일 아이콘 */}
+      <div className="mt-4">
+        <Image
+          src={Email_logo3}
+          alt="이메일 아이콘"
+          width={31}
+          height={30}
+          className="cursor-pointer"
+          onClick={copyEmailToClipboard} // 클릭 시 이메일 복사
+        />
+      </div>
     </div>
   );
 };

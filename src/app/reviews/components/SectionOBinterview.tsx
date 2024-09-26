@@ -3,11 +3,13 @@
 import React, { useEffect, useState } from "react";
 import ProfileCard from "./ProfileCard";
 import ActivityButton from "@/components/activityButton";
+import useStore from "@/stores/useStore"; // Zustand 스토어를 가져오는 경로
 
 const SectionOBinterview = () => {
   const [postData, setPostData] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(6); // 초기값 6
+  const { isMobile } = useStore(); // Zustand에서 isMobile 상태 가져오기
 
   useEffect(() => {
     fetchPosts();
@@ -45,12 +47,12 @@ const SectionOBinterview = () => {
       <div
         className="grid-container grid w-full"
         style={{
-          gridTemplateColumns: "repeat(3, 1fr)", // 한 줄에 3개
-          gap: "20px",
-          maxWidth: "1200px", // 그리드 너비를 제한
-          width: "100%", // 부모 너비에 맞춤
-          padding: "0 120px", // 좌우 패딩
-          justifyContent: "center", // 그리드 컨테이너를 중앙으로 정렬
+          gridTemplateColumns: isMobile ? "repeat(1, 1fr)" : "repeat(3, 1fr)", // 모바일에서는 한 줄에 1개, 웹에서는 3개
+          gap: isMobile ? "25px" : "20px", // 모바일에서는 25px, 웹에서는 20px
+          maxWidth: isMobile ? "87vw" : "1200px", // 모바일에서는 너비 87vw
+          width: "100%",
+          padding: isMobile ? "0" : "0 120px", // 모바일에서는 패딩 제거
+          justifyContent: "center", // 그리드 아이템을 중앙에 정렬
         }}
       >
         {error ? (
@@ -66,8 +68,16 @@ const SectionOBinterview = () => {
               <div
                 key={post.id}
                 className={`${
-                  isLastCard ? "md:col-span-3 flex justify-center" : ""
+                  isLastCard && !isMobile
+                    ? "md:col-span-3 flex justify-center"
+                    : ""
                 }`}
+                style={{
+                  width: isMobile ? "87vw" : "auto", // 모바일에서는 카드 너비 87vw
+                  height: isMobile ? "calc(87vw * 1.23)" : "auto", // 모바일에서는 높이 너비의 1.23배
+                  display: "flex", // 프로필 카드 가운데 정렬
+                  justifyContent: "center",
+                }}
               >
                 <ProfileCard
                   name={post.name}
@@ -75,7 +85,10 @@ const SectionOBinterview = () => {
                   message={post.message}
                   imageUrl={post.imageUrl}
                   email={post.email}
-                  className="w-full h-full max-w-[250px] max-h-[350px]" // 프로필 카드 크기 고정
+                  // 모바일일 때의 카드 내부 스타일 조정
+                  style={
+                    isMobile ? { fontSize: "clamp(0.8rem, 2vw, 1rem)" } : {}
+                  }
                 />
               </div>
             );

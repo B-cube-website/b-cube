@@ -52,7 +52,12 @@ const MobileMain: React.FC<MobileMainProps> = ({
           </p>
         )}
         <p className="absolute left-[27px] top-[-9.29px] z-10 text-2xl font-bold text-left text-white">
-          {mainText}
+          {mainText.split("<br />").map((line, index) => (
+            <React.Fragment key={index}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))}
         </p>
 
         {/* 그라데이션 적용 위치 */}
