@@ -38,24 +38,27 @@ export default function RootLayout({
             left: 0,
             width: "100vw",
             height: "100vh",
-            zIndex: -1,
+            zIndex: -2,
             backgroundColor: "#06132D",
           }}
         />
-        {/* 투명한 그라디언트 배경 */}
+        {/* SVG 파일로 대체된 투명한 그라디언트 배경 */}
         <div
           style={{
             position: "fixed",
-            bottom: 0,
-            left: 0,
+            display: "grid", // 그리드 사용
+            placeItems: "center", // 중앙 배치
             width: "100vw",
-            height: "50vh",
-            zIndex: 0,
+            height: "100vh",
+            zIndex: -1,
             pointerEvents: "none",
-            background:
-              "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(14, 47, 110, 0.8))",
+            backgroundImage: 'url("/addLayout.svg")',
+            backgroundSize: "cover", // 비율을 유지하며 화면을 덮음
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
           }}
         />
+
         <ClientWrapper initialMobileState={initialMobileState}>
           {children}
         </ClientWrapper>

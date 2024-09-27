@@ -52,7 +52,6 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
         ...style, // 추가 스타일 적용
       }}
     >
-      {/* 프로필 이미지 */}
       <div className="w-[180px] h-[180px] rounded-full overflow-hidden">
         <img
           className="w-full h-full object-cover"
@@ -61,12 +60,10 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
         />
       </div>
 
-      {/* 이름 */}
       <p className="text-2xl font-semibold text-center text-[#f6f6f7] mt-4">
         {name}
       </p>
 
-      {/* 학번 */}
       <div className="flex items-center gap-2 mt-2">
         <Image
           src={Haksamo}
