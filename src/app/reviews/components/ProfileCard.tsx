@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Haksamo from "../../../../public/haksamo.svg";
 import Email_logo3 from "../../../../public/email_logo3.svg";
-import useStore from "@/stores/useStore"; // Zustand에서 isMobile 상태 가져오기
+import useStore from "@/stores/useStore";
 
 interface ProfileCardProps {
   name: string;

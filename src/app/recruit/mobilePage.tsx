@@ -83,7 +83,13 @@ export default function Recruit() {
 
       {/* 선택된 활동에 따라 콘텐츠 표시 */}
       <section className="flex flex-col justify-center items-center w-full gap-6 relative pb-[120px]">
-        <div className="flex flex-col justify-start items-start w-full max-w-[342px] gap-4 px-8 py-10 rounded-[20px] bg-[#f6f6f7]/[0.04] border border-[#518CFF]">
+        <div
+          className="flex flex-col justify-start items-start max-w-[342px] gap-4 px-8 py-10 rounded-[20px] bg-[#f6f6f7]/[0.04] border border-[#518CFF]"
+          style={{
+            width: "87vw",
+            maxWidth: "342px",
+          }}
+        >
           <div className="flex flex-col justify-start items-start w-full gap-6">
             <p className="text-xl font-bold text-left text-[#f6f6f7] whitespace-nowrap flex-shrink-0">
               다음과 같은 활동을 합니다
@@ -126,7 +132,13 @@ export default function Recruit() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-start items-start w-full max-w-[342px] gap-4 px-8 py-10 rounded-[20px] bg-[#f6f6f7]/[0.04] border border-[#518CFF]">
+        <div
+          className="flex flex-col justify-start items-start gap-4 px-8 py-10 rounded-[20px] bg-[#f6f6f7]/[0.04] border border-[#518CFF]"
+          style={{
+            width: "87vw",
+            maxWidth: "342px",
+          }}
+        >
           <div className="flex flex-col justify-start items-start w-full gap-6">
             <p className="text-xl font-bold text-left text-[#f6f6f7] whitespace-nowrap flex-shrink-0">
               이런 멤버를 찾습니다
@@ -164,14 +176,26 @@ export default function Recruit() {
         </div>
       </section>
 
-      <div className="flex flex-col justify-center items-center w-[390px] gap-8">
-        <div className="flex flex-col justify-start items-start w-full max-w-[342px] gap-[2.1824533939361572px]">
+      <div className="flex flex-col justify-center items-center gap-8">
+        <div
+          className="flex flex-col justify-center items-center gap-[2.1824533939361572px]"
+          style={{
+            width: "87vw",
+            maxWidth: "342px",
+          }}
+        >
           <p className="flex-grow-0 flex-shrink-0 w-[390px] text-xl font-bold text-center bg-gradient-to-r from-[#7380B0] to-[#518CFF] bg-clip-text text-transparent">
             Contact us
           </p>
         </div>
 
-        <div className="flex flex-col justify-center items-center flex-grow-0 flex-shrink-0 w-[342px] gap-6 mb-16">
+        <div
+          className="flex flex-col justify-center items-center flex-grow-0 flex-shrink-0 gap-6 mb-16"
+          style={{
+            width: "87vw",
+            maxWidth: "342px",
+          }}  
+        >
           <div className="flex justify-center items-center self-stretch flex-grow-0 flex-shrink-0 gap-[6.547360420227051px] px-6 py-8 rounded-[20px] bg-[#f6f6f7]/[0.04] border border-[#518CFF]">
             <div className="flex justify-between items-center flex-grow relative">
               <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-4">
