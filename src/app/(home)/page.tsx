@@ -41,7 +41,7 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="flex flex-col justify-center items-center mt-[352px] px-[28px] md:px-[96px] md:mt-[228px]">
+        <section className="flex flex-col justify-center items-center mt-[192px] px-[28px] md:px-[96px] md:mt-[228px]">
           <Article subject="Introduction" title="소개" />
           <div className="flex flex-col md:flex-row justify-start md:justify-between items-center md:items-start w-full mt-8 md:mt-20 gap-4 md:gap-16">
             <p className="text-center md:text-left text-[16px] md:text-2xl font-bold text-[#f6f6f7] md:w-1/5">

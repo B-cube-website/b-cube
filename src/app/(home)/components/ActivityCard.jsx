@@ -25,7 +25,7 @@ export default function ActivityCard({ isLoading, loadingText, activity }) {
   return (
     <section className="relative flex justify-center w-full mt-[80px]">
       {/* 카드 리스트를 담은 애니메이션 컨테이너 */}
-      <div className="w-full max-w-[1440px] overflow-hidden">
+      <div className="w-full overflow-hidden">
         <div
           className="flex transition-transform duration-700 ease-in-out" // 부드러운 이동 애니메이션
           style={{ transform: getTranslateX() }}
@@ -33,7 +33,7 @@ export default function ActivityCard({ isLoading, loadingText, activity }) {
           {activity.map((item, index) => (
             <div
               key={item.id}
-              className={`relative w-[250px] h-[150px] sm:w-[335px] sm:h-[209px] flex-shrink-0 transition-transform duration-500 ease-in-out ${
+              className={`relative w-[250px] h-[150px] md:w-[335px] md:h-[209px] flex-shrink-0 transition-transform duration-500 ease-in-out ${
                 activeIndex === index ? "scale-110" : "scale-90"
               }`} // 가운데 카드가 더 커지는 애니메이션
             >
@@ -42,7 +42,8 @@ export default function ActivityCard({ isLoading, loadingText, activity }) {
                 alt={item.title}
                 className="w-full h-full object-cover rounded-[20px]"
               />
-              <p className="absolute inset-0 bg-gradient-to-b from-transparent to-[#14439f] flex justify-center items-end pb-8 text-[14px] sm:text-[18px] font-semibold text-white text-center rounded-[20px]">
+              <p className="absolute inset-0 bg-gradient-to-b from-transparent to-[#14439f] flex justify-center items-end pb-8 text-[14px] md:text-[18px] font-semibold text-white text-center rounded-[20px]">
+                {item.description} <br />
                 {item.title}
               </p>
             </div>

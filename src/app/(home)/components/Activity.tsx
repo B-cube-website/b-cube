@@ -8,6 +8,7 @@ interface Activity {
   title: string;
   imagePath: string;
   pdfPath: string;
+  description: string;
 }
 
 export default function Activity() {
