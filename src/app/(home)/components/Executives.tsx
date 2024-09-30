@@ -1,66 +1,78 @@
 "use client";
 
-import { useState } from "react";
+import ExecutivesProfile from "./ExecutiveProfile";
+import { useState, useEffect } from "react";
 
 interface Executive {
   id: number;
-  member_name: string;
+  memberName: string;
   role: string;
-  student_id: string;
-  basic_info: string;
-  image_path: string;
+  studentId: string;
+  basicInfo: string;
+  imageUrl: string;
 }
 
-const mockData: Executive[] = [
-  {
-    id: 1,
-    member_name: "춘식이",
-    role: "회장",
-    student_id: "202127633",
-    basic_info: "경영인텔리전스학과 21학번",
-    image_path: "/cat_image.jpg",
-  },
-  {
-    id: 2,
-    member_name: "라이언",
-    role: "부회장",
-    student_id: "202127630",
-    basic_info: "경영인텔리전스학과 21학번",
-    image_path: "/cat_image.jpg",
-  },
-];
-
 export default function Executives() {
-  const [data, setData] = useState(mockData);
-  const [error, setError] = useState<Error | null>(null);
+  const [isFetching, setIsFetching] = useState(false);
+  const [profiles, setProfiles] = useState<Executive[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
-  if (error) {
-    return <h1>{error.message}</h1>;
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      setIsFetching(true);
+      setError(null);
+
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/api/executives`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=UTF-8",
+            "Accept": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
+        const resData = await response.json();
+        setProfiles(resData || []); // API가 빈 데이터를 반환할 경우 대비
+
+      } catch (err) {
+        // Error 객체 타입을 명확히 처리
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Unknown error occurred");
+        }
+      } finally {
+        setIsFetching(false);
+      }
+    };
+
+    fetchProfiles();
+  }, []);
+
+  // 로딩 중 처리
+  if (isFetching) {
+    return <div>로딩 중입니다...</div>;
   }
 
-  return (
-    <div className="mt-[48px] flex justify-center items-start flex-wrap w-full gap-[128px]">
-      {data.map((executive) => (
-        <div
-          key={executive.id}
-          className="flex flex-col justify-start items-center relative gap-6"
-        >
-          <img
-            src={executive.image_path}
-            alt={`${executive.member_name}'s profile`}
-            className="w-[222px] h-[222px] bg-cover bg-center rounded-full flex-none order-0"
-          />
+  // 에러 처리
+  if (error) {
+    return <div>데이터 불러오기 실패: {error}</div>;
+  }
 
-          <p className="text-center flex flex-col items-center gap-2 text-[#F6F6F7] font-semibold">
-            <span className="text-[20px] leading-[24px]">{executive.role}</span>
-            <span className="text-[18px] leading-[30px]">
-              {executive.basic_info}
-              <br />
-              {executive.member_name}
-            </span>
-          </p>
-        </div>
-      ))}
-    </div>
+  if (profiles.length === 0) {
+    return <div>회장단 데이터가 없습니다.</div>;
+  }
+
+  // 데이터가 있을 때 렌더링
+  return (
+    <ExecutivesProfile
+      profile={profiles}
+      isLoading={isFetching}
+      loadingText="로딩 중입니다..."
+    />
   );
 }
