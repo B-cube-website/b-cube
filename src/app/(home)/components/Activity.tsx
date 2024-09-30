@@ -1,88 +1,80 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import ActivityCard from './ActivityCard';
+import { useEffect, useState } from "react";
 
 interface Activity {
   id: number;
-  explain: string;
   title: string;
-  image_path: string;
+  imagePath: string;
+  pdfPath: string;
+  description: string;
 }
 
-const mockData: Activity[] = [
-  {
-    id: 1,
-    explain: "귀여워 고양이 춘시기",
-    title: "춘식핑",
-    image_path: "/cat_image.jpg",
-  },
-  {
-    id: 2,
-    explain: "귀여워 고양이 춘시기",
-    title: "춘식핑",
-    image_path: "/cat_image.jpg",
-  },
-  {
-    id: 3,
-    explain: "귀여워 고양이 춘시기",
-    title: "춘식핑",
-    image_path: "/cat_image.jpg",
-  },
-  {
-    id: 4,
-    explain: "귀여워 고양이 춘시기",
-    title: "춘식핑",
-    image_path: "/cat_image.jpg",
-  },
-  {
-    id: 5,
-    explain: "귀여워 고양이 춘시기",
-    title: "춘식핑",
-    image_path: "/cat_image.jpg",
-  },
-];
-
 export default function Activity() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isFetching, setIsFetching] = useState(false);
+  const [activeCards, setActiveCards] = useState<Activity[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
 
   useEffect(() => {
-    if (scrollContainerRef.current) {
-      const containerWidth = scrollContainerRef.current.offsetWidth;
-      const scrollWidth = scrollContainerRef.current.scrollWidth;
+    const fetchActivity = async () => {
+      setIsFetching(true);
+      setError(null);
 
-      const scrollToCenter = (scrollWidth - containerWidth) / 2;
-      scrollContainerRef.current.scrollLeft = scrollToCenter;
-    }
-  }, []);
+      try {
+        // 환경 변수를 사용하여 API URL 설정
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/api/main-activity`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+            'Accept': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+
+        const resData = await response.json();
+        // 데이터가 없으면 빈 배열 반환
+        setActiveCards(resData || []);
+         
+
+      } catch (err) {
+        // 명확한 에러 메시지 처리
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('Unknown error occurred');
+        }
+      } finally {
+        setIsFetching(false);
+      }
+    };
+
+    fetchActivity();
+  }, []); // useEffect는 빈 배열로, 처음 한 번만 실행되도록 설정
+
+  if (error) {
+    return <div className="text-red-500">데이터 불러오기 실패: {error}</div>;
+  }
+
+  if (isFetching) {
+    return <div>로딩 중입니다...</div>;
+  }
+
+  if (activeCards.length === 0) {
+    return <div>활동 데이터가 없습니다.</div>;
+  }
 
   return (
-    <div className="flex justify-center w-full mt-[80px]">
-      <div
-        ref={scrollContainerRef}
-        className="w-full overflow-x-auto flex items-center px-[32px] scroll-smooth"
-        style={{ scrollSnapType: "x mandatory" }}
-      >
-        <div className="flex gap-[64px] w-max">
-          {mockData.map((item) => (
-            <div
-              key={item.id}
-              className="relative w-[335px] h-[209px] flex-shrink-0"
-              style={{ scrollSnapAlign: "center" }}
-            >
-              <img
-                src={item.image_path}
-                alt={item.title}
-                className="w-full h-full object-cover rounded-[20px]"
-              />
-              <p className="absolute inset-0 bg-gradient-to-b from-transparent to-[#14439f] flex justify-center items-end pb-8 text-[18px] font-semibold text-white text-center rounded-[20px]">
-                {item.explain}
-                <br />
-                {item.title}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+    <div>
+      <ActivityCard
+        activity={activeCards}
+        isLoading={isFetching}
+        loadingText="로딩 중입니다..."
+      />
     </div>
   );
 }

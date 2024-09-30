@@ -10,31 +10,25 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <div className="flex flex-col justify-center items-start w-full h-[294px] relative gap-6 px-7 py-16 bg-[#06132d]">
-      <p className="flex-grow-0 flex-shrink-0 w-32 text-[28px] font-bold text-center text-white">
+      <p className="flex-grow-0 flex-shrink-0 text-[28px] leading-[30px] font-bold text-center text-white">
         B-CUBE
       </p>
-      <div className="flex flex-col justify-center items-start flex-grow-0 flex-shrink-0 relative gap-2">
-        <p className="flex-grow-0 flex-shrink-0 text-base text-center">
-          <span className="flex-grow-0 flex-shrink-0 text-base font-medium text-center text-[#518cff]">
-            B
-          </span>
-          <span className="flex-grow-0 flex-shrink-0 text-base text-center text-white">
-            road{" "}
-          </span>
-          <span className="flex-grow-0 flex-shrink-0 text-base font-medium text-center text-[#518cff]">
-            B
-          </span>
-          <span className="flex-grow-0 flex-shrink-0 text-base text-center text-white">
-            usiness{" "}
-          </span>
-          <span className="flex-grow-0 flex-shrink-0 text-base font-medium text-center text-[#518cff]">
-            B
-          </span>
-          <span className="flex-grow-0 flex-shrink-0 text-base text-center text-white">
-            uilder
-          </span>
+      <div className="flex flex-col justify-center items-start flex-grow-0 flex-shrink-0 relative gap-2 leading-[20px] text-[16px]">
+        <p className="flex-grow-0 flex-shrink-0 text-center">
+          {["B", "road ", "B", "usiness ", "B", "uilder"].map((word, index) => (
+            <span
+              key={index}
+              className={`${
+                word.startsWith("B")
+                  ? "font-medium text-[#518cff]"
+                  : "text-white"
+              }`}
+            >
+              {word}
+            </span>
+          ))}
         </p>
-        <p className="font-light text-[16px]  text-white">
+        <p className=" text-white">
           B-CUBE (비큐브, 아주대학교 경영대학 소학회)
         </p>
       </div>
