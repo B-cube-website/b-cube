@@ -1,0 +1,41 @@
+/* 슬라이더 전체 컨테이너 */
+.slider-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+  
+  /* 각 슬라이드 아이템 */
+  .slick-slide div {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 150px;
+    margin: 0 10px;
+  }
+  
+  /* 카드 텍스트 스타일 */
+  .slick-slide h3 {
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
+  }
+  
+  /* 슬라이더 네비게이션 버튼 (필요시) */
+  .slick-prev,
+  .slick-next {
+    background-color: #14439f;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+  }
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 20px;
+    color: white;
+  }
