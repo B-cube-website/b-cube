@@ -1,14 +1,36 @@
 import { useState, useEffect } from "react";
 
-export default function ActivityCard({ isLoading, loadingText, activity }) {
+// 활동 데이터 타입 정의
+interface Activity {
+  id: number;
+  title: string;
+  imagePath: string;
+  pdfPath: string;
+  description: string;
+}
+
+// `ActivityCard` 컴포넌트의 Props 타입 정의
+interface ActivityCardProps {
+  isLoading: boolean;
+  loadingText?: string;
+  activity: Activity[];
+}
+
+export default function ActivityCard({
+  isLoading,
+  loadingText = "로딩 중...",
+  activity,
+}: ActivityCardProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   // 2초마다 자동으로 카드 넘김
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % activity.length); // 순환
-    }, 2000); // 2초마다 이동
-    return () => clearInterval(interval); // 컴포넌트 언마운트 시 클린업
+    if (activity.length > 0) {
+      const interval = setInterval(() => {
+        setActiveIndex((prevIndex) => (prevIndex + 1) % activity.length); // 순환
+      }, 2000); // 2초마다 이동
+      return () => clearInterval(interval); // 컴포넌트 언마운트 시 클린업
+    }
   }, [activity.length]);
 
   if (isLoading) {
@@ -27,7 +49,7 @@ export default function ActivityCard({ isLoading, loadingText, activity }) {
       {/* 카드 리스트를 담은 애니메이션 컨테이너 */}
       <div className="w-full overflow-hidden">
         <div
-          className="flex transition-transform duration-700 ease-in-out" // 부드러운 이동 애니메이션
+          className="flex transition-transform duration-700 ease-in-out"
           style={{ transform: getTranslateX() }}
         >
           {activity.map((item, index) => (
