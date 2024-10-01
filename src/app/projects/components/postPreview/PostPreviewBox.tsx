@@ -36,7 +36,7 @@ const PostPreviewBox: React.FC<PostPreviewBoxProps> = ({
           </h5>
           {participants ? (
             participants.length > 0 && (
-              <p className="my-1 text-gray-400">{participants.join(", ")}</p>
+              <p className="my-1 text-gray-400">{participants}</p>
             )
           ) : (
             <p className="my-1 text-gray-400"> </p>

@@ -1,54 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ProjectDescription from "./ProjectDescription";
 import Image from "next/image";
 import PhotoWithTitleBox from "./postPreview/Card";
 import ActivityButton from "@/components/activityButton";
+import fetchPosts from "@/functions/fetchPosts";
 
 const SectionSexyIt = () => {
-  const [selectedActivity, setSelectedActivity] =
-    React.useState<string>("더보기");
+  const [selectedActivity, setSelectedActivity] = React.useState<string>("더보기");
   const [postsData, setPostsData] = React.useState<any[]>([]);
-
-  const fetchPosts = () => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((data) => {
-        setPostsData(data);
-      });
-  };
+  const [error, setError] = useState<string | null>(null);
+  const [visiblePosts, setVisiblePosts] = useState<number>(6); // 처음에는 6개만 표시
 
   useEffect(() => {
-    setPostsData([
-      {
-        title: "기계고객",
-        description: "2023년 프로젝트",
-        image: "/cat_image.jpg",
-        date: "2023",
-        names: ["이다운", "박성우", "모지혁", "심예은"],
-      },
-      {
-        title: "반도체 HBM",
-        description: "2023년 프로젝트",
-        image: "/cat_image.jpg",
-        date: "2023",
-        names: ["정민태", "윤예림", "성하솔", "원동혁"],
-      },
-      {
-        title: "라이브커머스",
-        description: "게임같은 기록 시스템",
-        image: "/cat_image.jpg",
-        date: "2023",
-        names: ["조국", "정혜진", "심푸름", "조우진", "차우철"],
-      },
-      {
-        title: "네이버 하이퍼클로바",
-        description: "디자인 프로젝트",
-        image: "/cat_image.jpg",
-        date: "2023",
-        names: ["오준석", "장현수", "이우석", "석지민", "김영연"],
-      },
-    ]);
+    fetchPosts("/api/activities/sexyit", setPostsData, setError);
   }, []);
+
+  // 더보기 버튼 클릭 시 6개의 포스트 추가로 표시
+  const loadMorePosts = () => {
+    setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 6);
+  };
 
   return (
     <div className="flex flex-col justify-start items-start w-full max-w-screen-2xl mx-auto relative gap-20 px-4 sm:px-6 lg:px-8">
@@ -94,7 +64,7 @@ const SectionSexyIt = () => {
       </div>
       <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[120px]">
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-4">
-          {postsData.map((card, index) => (
+          {postsData.slice(0, visiblePosts).map((card, index) => (
             <PhotoWithTitleBox
               key={index}
               title={card.title}
@@ -104,11 +74,13 @@ const SectionSexyIt = () => {
             />
           ))}
         </div>
-        <ActivityButton
-          activity="더보기"
-          selected={selectedActivity === "더보기"}
-          onClick={() => alert("더보기")}
-        />
+        {visiblePosts < postsData.length && (
+          <ActivityButton
+            activity="더보기"
+            selected={selectedActivity === "더보기"}
+            onClick={loadMorePosts}
+          />
+        )}
       </section>
     </div>
   );
