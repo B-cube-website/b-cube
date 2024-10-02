@@ -52,9 +52,13 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
         ...style, // 추가 스타일 적용
       }}
     >
-      <div className="w-[180px] h-[180px] rounded-full overflow-hidden">
+      <div className="rounded-full overflow-hidden">
         <img
           className="w-full h-full object-cover"
+          style={{
+            width: isMobile ? "30vw" : "180px", // 모바일에서는 87vw, 데스크탑에서는 100%로 설정
+            height: isMobile ? "30vw" : "180px", // 모바일에서는 87vw, 데스크탑에서는 100%로 설정
+          }}
           src={imageUrl}
           alt={`${name}의 프로필 이미지`}
         />
