@@ -1,7 +1,7 @@
-// import Activity from "./components/Activity";
+import Activity from "./components/Activity";
 import Article from "@/components/Article";
 import Executives from "./components/Executives";
-import CenterMode from "./components/practice";
+// import CenterMode from "./components/ActivityCard";
 
 export default function Home() {
   return (
@@ -25,7 +25,6 @@ export default function Home() {
               BUILDER
             </h1>
           </div>
-          <CenterMode />
 
           <h2 className="mt-[128px] flex items-center justify-center w-full font-semibold text-xl md:text-[40px] md:leading-[40px] text-center bg-clip-text text-transparent bg-gradient-to-r from-[#A8B3D8] to-[#518CFF]">
             아주대학교 경영인텔리전스학과 소학회
@@ -58,10 +57,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* <section className="flex flex-col justify-center items-center mt-[160px] md:mt-[228px]">
+        <section className="flex flex-col justify-center items-center mt-[160px] md:mt-[228px]">
           <Article subject="Activities" title="주요 활동" />
           <Activity />
-        </section> */}
+        </section>
 
         <section className="flex flex-col justify-center items-center mt-[160px] md:mt-[228px] md:mb-[352px] mb-[224px]">
           <Article subject="Executives" title="현재 회장단" />

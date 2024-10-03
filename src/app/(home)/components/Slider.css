@@ -1,0 +1,76 @@
+/* ActivityCard CSS */
+.activity-card-wrapper {
+  position: relative;
+  display: flex;
+  margin-top: 32px;
+}
+
+@media (min-width: 768px) {
+  .activity-card-wrapper {
+    margin-top: 80px;
+  }
+}
+
+.InfiniteLoop__slider {
+  overflow-x: hidden;
+  position: relative;
+  height: 300px; /* 슬라이더 높이 고정 */
+}
+
+.InfiniteLoop__inner {
+  display: flex;
+  width: fit-content;
+  animation: loop 30s linear infinite;
+}
+
+.InfiniteLoop__item {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 335px; /* 카드의 고정 너비 */
+  height: 209px; /* 카드의 고정 높이 */
+  margin-right: 64px; /* 카드 간의 간격을 위해 margin-right 사용 */
+  border-radius: 20px; /* 모서리 둥글게 */
+  position: relative;
+  overflow: hidden; /* 내부 이미지나 텍스트가 넘치지 않도록 */
+}
+
+.InfiniteLoop__item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px; /* 이미지와 텍스트 간격 */
+}
+
+.description-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, transparent, #14439f);
+  padding: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .description-overlay {
+    font-size: 18px;
+  }
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(0); /* 첫 번째 카드에서 시작 */
+  }
+  100% {
+    transform: translateX(calc(-50%)); /* 전체 슬라이드 길이만큼 이동 */
+  }
+}
