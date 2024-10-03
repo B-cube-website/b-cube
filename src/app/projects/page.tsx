@@ -10,7 +10,7 @@ import SectionEtc from "./components/SectionEtc";
 
 const Project: React.FC = () => {
   const [selectedActivity, setSelectedActivity] =
-    useState<string>("designathon");
+    useState<string>("designthon");
 
   const handleButtonClick = (activity: string) => {
     setSelectedActivity(activity);
@@ -22,8 +22,8 @@ const Project: React.FC = () => {
       <div className="flex flex-wrap justify-center items-center w-full gap-6">
         <ActivityButton
           activity="디자인톤"
-          selected={selectedActivity === "designathon"}
-          onClick={() => handleButtonClick("designathon")}
+          selected={selectedActivity === "designthon"}
+          onClick={() => handleButtonClick("designthon")}
         />
         <ActivityButton
           activity="섹시한 IT"
@@ -41,7 +41,7 @@ const Project: React.FC = () => {
           onClick={() => handleButtonClick("others")}
         />
       </div>
-      <div className={selectedActivity === "designathon" ? "block" : "hidden"}>
+      <div className={selectedActivity === "designthon" ? "block" : "hidden"}>
         <SectionDesignton />
       </div>
       <div className={selectedActivity === "sexyIT" ? "block" : "hidden"}>
