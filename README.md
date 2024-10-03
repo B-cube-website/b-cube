@@ -1,3 +1,11 @@
+
+.env.local 파일을 프로젝트 최상단에 넣으십시오.
+```
+NEXT_PUBLIC_API_HOST=
+```
+
+------
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
