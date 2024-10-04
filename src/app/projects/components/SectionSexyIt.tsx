@@ -69,8 +69,8 @@ const SectionSexyIt = () => {
               key={index}
               title={card.title}
               date={card.date}
-              imageSrc={card.image}
-              link={card.link}
+              imageSrc={card.imageUrl}
+              link={card.url}
             />
           ))}
         </div>
