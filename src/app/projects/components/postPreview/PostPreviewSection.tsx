@@ -33,6 +33,7 @@ const PostPreviewSection: React.FC<PostPreviewSectionProps> = ({ title, desc, po
               year={item.year}
               title={item.title}
               participants={item.participants}
+              pdfUrl={item.pdfUrl}
             />
           ))}
         </div>
