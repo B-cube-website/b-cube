@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ProjectDescription from "./ProjectDescription";
-import PostPreviewBox from "./postPreview/PostPreviewBox";
 import PostPreviewSection from "./postPreview/PostPreviewSection";
 import fetchPosts from "@/functions/fetchPosts";
 
