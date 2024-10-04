@@ -3,6 +3,7 @@
 import ActivityCard from './ActivityCard';
 import { useEffect, useState } from "react";
 
+// 활동 데이터 타입 정의
 interface Activity {
   id: number;
   title: string;
@@ -16,14 +17,12 @@ export default function Activity() {
   const [activeCards, setActiveCards] = useState<Activity[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-
   useEffect(() => {
     const fetchActivity = async () => {
       setIsFetching(true);
       setError(null);
 
       try {
-        // 환경 변수를 사용하여 API URL 설정
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/api/main-activity`, {
           method: 'GET',
           headers: {
@@ -37,12 +36,9 @@ export default function Activity() {
         }
 
         const resData = await response.json();
-        // 데이터가 없으면 빈 배열 반환
         setActiveCards(resData || []);
-         
 
       } catch (err) {
-        // 명확한 에러 메시지 처리
         if (err instanceof Error) {
           setError(err.message);
         } else {
@@ -60,21 +56,20 @@ export default function Activity() {
     return <div className="text-red-500">데이터 불러오기 실패: {error}</div>;
   }
 
-  if (isFetching) {
-    return <div>로딩 중입니다...</div>;
-  }
-
-  if (activeCards.length === 0) {
-    return <div>활동 데이터가 없습니다.</div>;
-  }
-
+  // isFetching이 true일 때는 로딩 중, activity가 로드되었으나 비어있을 때는 "활동 데이터가 없습니다." 표시
   return (
     <div>
-      <ActivityCard
-        activity={activeCards}
-        isLoading={isFetching}
-        loadingText="로딩 중입니다..."
-      />
+      {isFetching ? (
+        <div>로딩 중입니다...</div>
+      ) : activeCards.length === 0 ? (
+        <div>활동 데이터가 없습니다.</div>
+      ) : (
+        <ActivityCard
+          activity={activeCards}
+          isLoading={isFetching}
+          loadingText="로딩 중입니다..."
+        />
+      )}
     </div>
   );
 }

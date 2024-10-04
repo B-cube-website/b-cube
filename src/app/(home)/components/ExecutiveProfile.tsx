@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 
 // Executive 타입 정의
 interface Executive {
@@ -32,7 +32,7 @@ export default function ExecutivesProfile({
 
   // id가 5 또는 9인 항목만 필터링
   const filteredProfile = profile.filter(
-    (executive) => executive.id === 5 || executive.id === 9
+    (executive) => executive.id === 5 || executive.id === 16
   );
 
   if (filteredProfile.length === 0) {

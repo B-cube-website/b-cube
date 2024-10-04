@@ -1,6 +1,7 @@
 import Activity from "./components/Activity";
 import Article from "@/components/Article";
 import Executives from "./components/Executives";
+// import CenterMode from "./components/ActivityCard";
 
 export default function Home() {
   return (
