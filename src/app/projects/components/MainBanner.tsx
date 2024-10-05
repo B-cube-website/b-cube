@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import file_image from "@/../public/file-bulb.png";
+import file_image from "@/../public/file-bulb.svg";
 
 const MainBanner = () => {
   return (
@@ -12,11 +12,15 @@ const MainBanner = () => {
           height: "calc(100% - 45.5% - 7%)",
           left: "45.5%",
           right: "7%",
-          top: "82.11px",
+          top: "40.11px",
           bottom: "32px",
         }}
       >
-        <Image src={file_image} alt="file_image" className="object-contain" />
+        <Image
+          src={file_image}
+          alt="file_image"
+          className="object-contain"
+        />
       </div>
       <div className="flex flex-col justify-start items-start absolute left-[98px] top-[117px] gap-6">
         <h1
