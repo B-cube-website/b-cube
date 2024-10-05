@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import ProjectDescription from "./ProjectDescription";
 import Image from "next/image";
-import PhotoWithTitleBox from "./postPreview/Card";
+import PhotoWithTitleBox from "./postPreview/PhotoWithTitleBox";
 import ActivityButton from "@/components/activityButton";
 import fetchPosts from "@/functions/fetchPosts";
 
 const SectionSexyIt = () => {
-  const [selectedActivity, setSelectedActivity] = React.useState<string>("더보기");
+  const [selectedActivity, setSelectedActivity] =
+    React.useState<string>("더보기");
   const [postsData, setPostsData] = React.useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [visiblePosts, setVisiblePosts] = useState<number>(6); // 처음에는 6개만 표시
+  const [currentVisiblePosts, setCurrentVisiblePosts] = useState<number>(0);
 
   useEffect(() => {
     fetchPosts("/api/activities/sexyit", setPostsData, setError);
@@ -17,7 +19,15 @@ const SectionSexyIt = () => {
 
   // 더보기 버튼 클릭 시 6개의 포스트 추가로 표시
   const loadMorePosts = () => {
-    setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 6);
+    let i = 1;
+    while (i < 6) {
+      if (visiblePosts + i + 1 > postsData.length) {
+        break;
+      }
+      i++;
+    }
+    setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + i);
+    setCurrentVisiblePosts(i);
   };
 
   return (
@@ -64,17 +74,46 @@ const SectionSexyIt = () => {
       </div>
       <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[120px]">
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-4">
-          {postsData.slice(0, visiblePosts).map((card, index) => (
+          {postsData.slice(0, (Math.floor(visiblePosts / 3)) * 3).map((card, index) => (
             <PhotoWithTitleBox
               key={index}
-              title={card.title}
+              title={card.title + visiblePosts.toString() + "main"}
               date={card.date}
               imageSrc={card.imageUrl}
               link={card.url}
             />
           ))}
+          {visiblePosts % 3 === 1 && <PhotoWithTitleBox key={"dummy"} />}
+          {visiblePosts % 3 === 1 ? (
+            <PhotoWithTitleBox
+              key={postsData[visiblePosts - 1] + 1}
+              title={
+                postsData[visiblePosts - 1].title +
+                visiblePosts.toString() +
+                "add"
+              }
+              date={postsData[visiblePosts - 1].date}
+              imageSrc={postsData[visiblePosts - 1].imageUrl}
+              link={postsData[visiblePosts - 1].url}
+            />
+          ) : (
+            postsData
+              .slice(
+                Math.floor(visiblePosts / 3) * 3,
+                Math.floor(visiblePosts / 3) * 3 + currentVisiblePosts
+              )
+              .map((card, index) => (
+                <PhotoWithTitleBox
+                  key={index}
+                  title={card.title + visiblePosts.toString() + "last"}
+                  date={card.date}
+                  imageSrc={card.imageUrl}
+                  link={card.url}
+                />
+              ))
+          )}
         </div>
-        {visiblePosts < postsData.length && (
+        {visiblePosts < postsData.length - 1 && (
           <ActivityButton
             activity="더보기"
             selected={selectedActivity === "더보기"}

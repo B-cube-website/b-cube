@@ -11,7 +11,6 @@ const fetchPosts = (requestUrl: string, setPostsData: SetPostsData, setError: Se
     })
     .then((data: any[]) => {
       setPostsData(data);
-      console.log(data);
       setError(null);
     })
     .catch((error) => {
