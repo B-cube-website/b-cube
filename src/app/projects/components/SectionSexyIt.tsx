@@ -81,7 +81,7 @@ const SectionSexyIt = () => {
               link={card.url}
             />
           ))}
-          {visiblePosts % 3 === 1 && <PhotoWithTitleBox key={"dummy"} />}
+          {visiblePosts % 3 === 1 && <div className="hidden lg:block"><PhotoWithTitleBox key={"dummy"} /></div>}
           {visiblePosts % 3 === 1 ? (
             <PhotoWithTitleBox
               key={postsData[visiblePosts - 1] + 1}
