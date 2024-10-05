@@ -7,6 +7,7 @@ import SectionDesignton from "./components/SectionDesignton";
 import SectionSexyIt from "./components/SectionSexyIt";
 import SectionStudy from "./components/SectionStudy";
 import SectionEtc from "./components/SectionEtc";
+import MobileMain from "@/mobileComponents/mobileMain";
 
 const Project: React.FC = () => {
   const [selectedActivity, setSelectedActivity] =
@@ -18,7 +19,17 @@ const Project: React.FC = () => {
 
   return (
     <main>
-      <MainBanner />
+      <div className="hidden lg:block">
+        <MainBanner />
+      </div>
+      <div className="lg:hidden">
+        <MobileMain
+          svgImage="/file-bulb.png"
+          altText="file-bulb"
+          mainText="B-CUBE의 다양한 활동들을 지금 확인해 보세요"
+          subText=""
+        />
+      </div>
       <div className="flex flex-wrap justify-center items-center w-full gap-6">
         <ActivityButton
           activity="디자인톤"
