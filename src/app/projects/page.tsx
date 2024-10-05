@@ -19,12 +19,12 @@ const Project: React.FC = () => {
 
   return (
     <main>
-      <div className="hidden lg:block">
+      <div className="hidden sm:block">
         <MainBanner />
       </div>
-      <div className="lg:hidden">
+      <div className="sm:hidden">
         <MobileMain
-          svgImage="/file-bulb.png"
+          svgImage="/file-bulb.svg"
           altText="file-bulb"
           mainText="B-CUBE의 다양한 활동들을 지금 확인해 보세요"
           subText=""
