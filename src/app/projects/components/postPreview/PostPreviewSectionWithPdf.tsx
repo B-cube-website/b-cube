@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ProjectDescription from "../ProjectDescription";
-import PostPreviewBox from "./PostPreviewBox";
+import PostPreviewBoxWithPdf from "./PostPreviewBoxWithPdf";
 import ActivityButton from "@/components/activityButton";
 
-interface PostPreviewSectionProps {
+interface PostPreviewSectionWithPdfProps {
   title: string;
   desc: string;
   postsData: any[];
   setPostsData: React.Dispatch<React.SetStateAction<any[]>>;
 }
 
-const PostPreviewSection: React.FC<PostPreviewSectionProps> = ({ title, desc, postsData }) => {
+const PostPreviewSectionWithPdf: React.FC<PostPreviewSectionWithPdfProps> = ({ title, desc, postsData }) => {
   const [selectedActivity, setSelectedActivity] = useState<string>("더보기");
   const [visiblePosts, setVisiblePosts] = useState<number>(6); // 처음에는 6개의 포스트만 표시
 
@@ -27,13 +27,13 @@ const PostPreviewSection: React.FC<PostPreviewSectionProps> = ({ title, desc, po
       <section className="flex flex-col justify-center items-center w-full gap-8 sm:gap-16 relative pb-20 sm:pb-[120px]">
         <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-16 p-4 sm:p-6">
           {postsData.slice(0, visiblePosts).map((item, index) => (
-            <PostPreviewBox
+            <PostPreviewBoxWithPdf
               key={index}
               image={item.imageUrl}
               year={item.year}
               title={item.title}
               participants={item.participants}
-              url={item.url}
+              pdfUrl={item.pdfUrl}
             />
           ))}
         </div>
@@ -49,4 +49,4 @@ const PostPreviewSection: React.FC<PostPreviewSectionProps> = ({ title, desc, po
   );
 };
 
-export default PostPreviewSection;
+export default PostPreviewSectionWithPdf;
