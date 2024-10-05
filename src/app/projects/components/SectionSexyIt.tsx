@@ -34,7 +34,7 @@ const SectionSexyIt = () => {
     <div className="flex flex-col justify-start items-start w-full max-w-screen-2xl mx-auto relative gap-20 px-4 sm:px-6 lg:px-8">
       <div className="flex flex-row gap-4">
         <ProjectDescription title="섹시한 IT">
-          <div className="flex">
+          <div className="flex items-center align-middle">
             <div>
               <p className="mb-4">
                 💡아는 것이 섹시하다 | 섹시하게 IT하자💡
@@ -62,7 +62,7 @@ const SectionSexyIt = () => {
             sm:min-w-16 sm:min-h-16 md:min-w-32 md:min-h-64 lg:min-w-64 lg:min-h-64 ml-4"
             >
               <Image
-                src="/cat_image.jpg"
+                src="/sexyit.jpg"
                 alt="섹시한 IT"
                 width={256}
                 height={256}
@@ -77,7 +77,7 @@ const SectionSexyIt = () => {
           {postsData.slice(0, (Math.floor(visiblePosts / 3)) * 3).map((card, index) => (
             <PhotoWithTitleBox
               key={index}
-              title={card.title + visiblePosts.toString() + "main"}
+              title={card.title}
               date={card.date}
               imageSrc={card.imageUrl}
               link={card.url}
@@ -88,9 +88,7 @@ const SectionSexyIt = () => {
             <PhotoWithTitleBox
               key={postsData[visiblePosts - 1] + 1}
               title={
-                postsData[visiblePosts - 1].title +
-                visiblePosts.toString() +
-                "add"
+                postsData[visiblePosts - 1].title
               }
               date={postsData[visiblePosts - 1].date}
               imageSrc={postsData[visiblePosts - 1].imageUrl}
@@ -105,7 +103,7 @@ const SectionSexyIt = () => {
               .map((card, index) => (
                 <PhotoWithTitleBox
                   key={index}
-                  title={card.title + visiblePosts.toString() + "last"}
+                  title={card.title}
                   date={card.date}
                   imageSrc={card.imageUrl}
                   link={card.url}
