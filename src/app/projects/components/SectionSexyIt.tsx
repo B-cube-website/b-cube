@@ -19,16 +19,14 @@ const SectionSexyIt = () => {
 
   // 더보기 버튼 클릭 시 6개의 포스트 추가로 표시
   const loadMorePosts = () => {
-    let i = 1;
-    while (i < 6) {
-      if (visiblePosts + i + 1 > postsData.length) {
-        break;
-      }
-      i++;
-    }
-    setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + i);
-    setCurrentVisiblePosts(i);
+    const remainingPosts = postsData.length - visiblePosts;
+    const postsToShow = Math.min(6, remainingPosts); 
+
+    setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + postsToShow);
+    setCurrentVisiblePosts(postsToShow);
   };
+  
+  
 
   return (
     <div className="flex flex-col justify-start items-start w-full max-w-screen-2xl mx-auto relative gap-20 px-4 sm:px-6 lg:px-8">
@@ -83,7 +81,7 @@ const SectionSexyIt = () => {
               link={card.url}
             />
           ))}
-          {visiblePosts % 3 === 1 && <PhotoWithTitleBox key={"dummy"} />}
+          {visiblePosts % 3 === 1 && <div className="hidden lg:block"><PhotoWithTitleBox key={"dummy"} /></div>}
           {visiblePosts % 3 === 1 ? (
             <PhotoWithTitleBox
               key={postsData[visiblePosts - 1] + 1}
@@ -98,7 +96,7 @@ const SectionSexyIt = () => {
             postsData
               .slice(
                 Math.floor(visiblePosts / 3) * 3,
-                Math.floor(visiblePosts / 3) * 3 + currentVisiblePosts
+                Math.floor(visiblePosts / 3) * 3 + visiblePosts % 3
               )
               .map((card, index) => (
                 <PhotoWithTitleBox
