@@ -177,24 +177,19 @@ export default function Recruit() {
       </section>
 
       <div className="flex flex-col justify-center items-center gap-8">
-        <div
-          className="flex flex-col justify-center items-center gap-[2.1824533939361572px]"
-          style={{
-            width: "87vw",
-            maxWidth: "342px",
-          }}
-        >
-          <p className="flex-grow-0 flex-shrink-0 w-[390px] text-xl font-bold text-center bg-gradient-to-r from-[#7380B0] to-[#518CFF] bg-clip-text text-transparent">
-            Contact us
-          </p>
-        </div>
+      <div className="flex flex-col justify-center items-center gap-[2px]" style={{ width: "87vw", maxWidth: "342px" }}>
+  <p className="text-xl font-bold text-center bg-gradient-to-r from-[#7380B0] to-[#518CFF] bg-clip-text text-transparent">
+    Contact us
+  </p>
+</div>
+
 
         <div
           className="flex flex-col justify-center items-center flex-grow-0 flex-shrink-0 gap-6 mb-16"
           style={{
             width: "87vw",
             maxWidth: "342px",
-          }}  
+          }}
         >
           <div className="flex justify-center items-center self-stretch flex-grow-0 flex-shrink-0 gap-[6.547360420227051px] px-6 py-8 rounded-[20px] bg-[#f6f6f7]/[0.04] border border-[#518CFF]">
             <div className="flex justify-between items-center flex-grow relative">
