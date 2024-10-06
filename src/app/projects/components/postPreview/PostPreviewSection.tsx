@@ -25,7 +25,7 @@ const PostPreviewSection: React.FC<PostPreviewSectionProps> = ({ title, desc, po
         {desc}
       </ProjectDescription>
       <section className="flex flex-col justify-center items-center w-full gap-8 sm:gap-16 relative pb-20 sm:pb-[120px]">
-        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-16 p-4 sm:p-6">
+        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-16 py-4 sm:py-6">
           {postsData.slice(0, visiblePosts).map((item, index) => (
             <PostPreviewBox
               key={index}
