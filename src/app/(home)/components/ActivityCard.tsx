@@ -16,12 +16,14 @@ interface ActivityCardProps {
   isLoading: boolean;
   loadingText?: string;
   activity: Activity[];
+  className?: string;  // className prop 추가
 }
 
 export default function ActivityCard({
   isLoading,
   loadingText = "로딩 중...",
   activity,
+  className = "",
 }: ActivityCardProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -34,7 +36,7 @@ export default function ActivityCard({
   }
 
   return (
-    <section className="activity-card-wrapper">
+    <section className={`activity-card-wrapper ${className}`}>
       <div className="InfiniteLoop__slider">
         <InfiniteLoopSlider onHoverStop={true}>
           {activity.map((item) => (
