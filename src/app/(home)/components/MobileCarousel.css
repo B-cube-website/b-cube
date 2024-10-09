@@ -1,0 +1,46 @@
+.mobile-carousel-wrapper {
+    position: relative;
+    margin-top: 32px;
+    justify-content: center;
+    display: flex;
+}
+
+  
+  .mobile-carousel-item {
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 330px;
+    height: 210px;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .mobile__item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px; 
+    margin-bottom: 0;
+  }
+
+  .mobile-description-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;  /* 부모 요소에 맞게 상대적인 높이로 설정 */
+    background: linear-gradient(to bottom, transparent, #14439f);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

@@ -1,4 +1,4 @@
-import Activity from "./components/Activity";
+import MobileActivity from "./components/MobileActivity";
 import Article from "@/components/Article";
 import Executives from "./components/Executives";
 // import CenterMode from "./components/ActivityCard";
@@ -59,7 +59,7 @@ export default function Home() {
 
         <section className="flex flex-col justify-center items-center mt-[160px] md:mt-[228px]">
           <Article subject="Activities" title="주요 활동" />
-          <Activity />
+          <MobileActivity />
         </section>
 
         <section className="flex flex-col justify-center items-center mt-[160px] md:mt-[228px] md:mb-[352px] mb-[224px]">
