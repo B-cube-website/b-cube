@@ -62,7 +62,7 @@ export default function Home() {
           <Activity />
         </section>
 
-        <section className="flex flex-col justify-center items-center mt-[160px] md:mt-[228px] md:mb-[352px] mb-[224px]">
+        <section className="flex flex-col justify-center items-center mt-[160px] md:mt-[148px] md:mb-[352px] mb-[224px]">
           <Article subject="Executives" title="현재 회장단" />
           <Executives />
         </section>

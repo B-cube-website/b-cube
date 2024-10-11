@@ -1,18 +1,8 @@
 .activity-card-wrapper {
-  position: relative;
-  display: flex;
-  margin-top: 32px;
-}
-
-@media (min-width: 768px) {
-  .activity-card-wrapper {
-    margin-top: 80px;
-  }
-}
-
-.InfiniteLoop__slider {
-  overflow-x: visible; 
-  position: relative;
+  width: 100vw;
+  overflow: hidden;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .InfiniteLoop__inner {
@@ -31,8 +21,7 @@
   margin-right: 80px; 
   border-radius: 20px; 
   position: relative;
-  overflow: hidden; 
-  transition: transform 0.3s ease-in-out; 
+  transition: transform 0.3s ease-in-out;
 }
 
 .InfiniteLoop__item-img {
@@ -63,18 +52,6 @@
 }
 
 
-/* 모바일 크기 변경을 위한 미디어 쿼리 추가 */
-@media (max-width: 768px) {
-  .InfiniteLoop__item {
-    width: 335px; /* 모바일 환경에서 카드 너비 변경 */
-    height: 210px; /* 모바일 환경에서 카드 높이 변경 */
-    margin-right: 40px; /* 모바일 환경에서 카드 간격도 조정 */
-  }
-
-  .description-overlay {
-    font-size: 16px; /* 모바일 환경에서 폰트 크기 조정 */
-  }
-}
 
 @keyframes loop {
   0% {

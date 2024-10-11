@@ -34,7 +34,7 @@ export default function MobileActivityCard({
   }
 
   return (
-    <section className={`mobile-carousel-wrapper ${className}`}>
+    <section className='mobile-carousel-wrapper'>
       <MobileCarousel>
         {activity.map((item) => (
           <div className="mobile-carousel-item" key={item.id}>

@@ -36,8 +36,8 @@ export default function ActivityCard({
   }
 
   return (
-    <section className={`activity-card-wrapper ${className}`}>
-      <div className="InfiniteLoop__slider">
+    <section className='activity-card-wrapper'>
+      <div>
         <InfiniteLoopSlider onHoverStop={true}>
           {activity.map((item) => (
             <div key={item.id} className="InfiniteLoop__item">

@@ -3,8 +3,8 @@ import React, { CSSProperties, useState } from 'react';
 interface InfiniteLoopSliderProps {
   children: React.ReactNode;
   onHoverStop?: boolean;
-  style?: CSSProperties; // 기본으로 설정한 스타일 덮어씌우고 싶을 경우
-  className?: string; // 추가된 className prop
+  style?: CSSProperties; 
+  className?: string;
 }
 
 const InfiniteLoopSlider: React.FC<InfiniteLoopSliderProps> = ({ children, style, onHoverStop, className = '' }) => {
@@ -13,7 +13,7 @@ const InfiniteLoopSlider: React.FC<InfiniteLoopSliderProps> = ({ children, style
   // 슬라이더에 마우스를 올렸을 때 이벤트
   const onMouseOverSlider = (e: React.MouseEvent) => {
     const slider = e.currentTarget;
-    if (e.target === slider) return; // 슬라이더 자체가 아닌 슬라이더 안의 요소들에 마우스를 올렸을 때 멈추고 싶어 해당 코드를 넣었습니다.
+    if (e.target === slider) return;
 
     if (!(slider instanceof HTMLDivElement)) return;
     slider.style.animationPlayState = 'paused';
@@ -39,7 +39,7 @@ const InfiniteLoopSlider: React.FC<InfiniteLoopSliderProps> = ({ children, style
   };
 
   return (
-    <div className={`InfiniteLoop__slider ${className}`}>
+    <div className={`InfiniteLoop__slider`}>
       <div
         className='InfiniteLoop__inner'
         style={style}

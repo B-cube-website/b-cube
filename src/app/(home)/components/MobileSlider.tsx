@@ -1,33 +1,31 @@
 import React from 'react';
 import Slider from "react-slick";
+import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import nextArrow from "../../../../public/nextArrow.svg";
+import prevArrow from "../../../../public/prevArrow.svg";
 
 interface MobileCarouselProps {
   children: React.ReactNode;
 }
 
 const CustomPrevArrow = (props: any) => {
-  const { onClick } = props;
-  return (
-    <button
-      className="absolute left-4 flex h-16 w-16 items-center justify-center rounded-full bg-white opacity-70 cursor-pointer z-20"
-      onClick={onClick}
-    >
-    </button>
-  );
-};
-
-const CustomNextArrow = (props: any) => {
-  const { onClick } = props;
-  return (
-    <button
-      className="absolute right-4 flex h-16 w-16 items-center justify-center rounded-full bg-white opacity-70 cursor-pointer z-20"
-      onClick={onClick}
-    >
-    </button>
-  );
-};
+    const { onClick } = props;
+    return (
+      <Image src={prevArrow} alt='prevArrow' className="absolute left-4 top-1/2 transform -translate-y-1/2 flex h-14 w-14 items-center justify-center rounded-full cursor-pointer z-20"
+      onClick={onClick}/>
+    );
+  };
+  
+  const CustomNextArrow = (props: any) => {
+    const { onClick } = props;
+    return (
+      <Image src={nextArrow} alt='nextArrow' className="absolute right-4 top-1/2 transform -translate-y-1/2 flex h-14 w-14 items-center justify-center rounded-full cursor-pointer z-20"
+      onClick={onClick}/>
+    );
+  };
+  
 
 const MobileCarousel: React.FC<MobileCarouselProps> = ({ children }) => {
   const settings = {

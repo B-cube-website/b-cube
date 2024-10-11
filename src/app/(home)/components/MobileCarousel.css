@@ -1,8 +1,9 @@
 .mobile-carousel-wrapper {
     position: relative;
-    margin-top: 32px;
+    margin-top: 16px;
     justify-content: center;
     display: flex;
+    width: 100vw;
 }
 
   
