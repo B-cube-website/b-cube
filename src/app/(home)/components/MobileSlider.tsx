@@ -13,18 +13,28 @@ interface MobileCarouselProps {
 const CustomPrevArrow = (props: any) => {
     const { onClick } = props;
     return (
-      <Image src={prevArrow} alt='prevArrow' className="absolute left-4 top-1/2 transform -translate-y-1/2 flex h-14 w-14 items-center justify-center rounded-full cursor-pointer z-20"
-      onClick={onClick}/>
+      <Image
+        src={prevArrow}
+        alt="prevArrow"
+        className="absolute left-10 top-1/2 transform -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full cursor-pointer z-20"
+        onClick={onClick}
+      />
     );
   };
   
   const CustomNextArrow = (props: any) => {
     const { onClick } = props;
     return (
-      <Image src={nextArrow} alt='nextArrow' className="absolute right-4 top-1/2 transform -translate-y-1/2 flex h-14 w-14 items-center justify-center rounded-full cursor-pointer z-20"
-      onClick={onClick}/>
+      <Image
+        src={nextArrow}
+        alt="nextArrow"
+        className="absolute right-10 top-1/2 transform -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full cursor-pointer z-20"
+        onClick={onClick}
+      />
     );
   };
+  
+  
   
 
 const MobileCarousel: React.FC<MobileCarouselProps> = ({ children }) => {

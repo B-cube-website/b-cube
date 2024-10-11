@@ -7,17 +7,18 @@
 }
 
   
-  .mobile-carousel-item {
+.mobile-carousel-item {
     border-radius: 20px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    width: 330px;
-    height: 210px;
+    width: calc(100vw - 48px); /* 화면 너비에서 양쪽 마진 각각 24px을 뺌 */
+    aspect-ratio: 330 / 210; /* 원래 비율 유지 */
     position: relative;
     margin: 0 auto;
   }
+  
 
   .mobile__item-img {
     width: 100%;
