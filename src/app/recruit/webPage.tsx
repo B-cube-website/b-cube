@@ -10,6 +10,7 @@ import SectionHeader from "../../components/sectionHeader";
 import email_logo2 from "../../../public/email_logo2.svg";
 import kakaoTalk_logo2 from "../../../public/kakaoTalk_logo2.svg";
 import insta_logo2 from "../../../public/insta_logo2.svg";
+import Link from "next/link";
 
 export default function Recruit() {
   const [selectedActivity, setSelectedActivity] =
@@ -198,28 +199,40 @@ export default function Recruit() {
           <div className="flex flex-col md:flex-row justify-start items-end gap-8">
             <ContactItem
               title="Mail"
-              value="bcube@ajou.ac.kr"
+              value="playground99@ajou.ac.kr"
               color1="#195DE2"
               color2="#0E337C"
               style={{ maxWidth: "240px", maxHeight: "253px", width: "100%" }}
               svg={email_logo2}
             />
-            <ContactItem
-              title="KakaoTalk"
-              value="@bcube"
-              color1="#195DE2"
-              color2="#0E337C"
-              style={{ maxWidth: "240px", maxHeight: "253px", width: "100%" }}
-              svg={kakaoTalk_logo2}
-            />
-            <ContactItem
-              title="Instagram"
-              value="@sexyit_season2"
-              color1="#195DE2"
-              color2="#0E337C"
-              style={{ maxWidth: "240px", maxHeight: "253px", width: "100%" }}
-              svg={insta_logo2}
-            />
+            <Link
+              href="https://open.kakao.com/o/sCRuhWTg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ContactItem
+                title="KakaoTalk"
+                value="오픈채팅방"
+                color1="#195DE2"
+                color2="#0E337C"
+                style={{ maxWidth: "240px", maxHeight: "253px", width: "100%" }}
+                svg={kakaoTalk_logo2}
+              />
+            </Link>
+            <Link
+              href="https://www.instagram.com/sexyit_season2/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ContactItem
+                title="Instagram"
+                value="섹시한 IT"
+                color1="#195DE2"
+                color2="#0E337C"
+                style={{ maxWidth: "240px", maxHeight: "253px", width: "100%" }}
+                svg={insta_logo2}
+              />
+            </Link>
           </div>
         </section>
       </div>

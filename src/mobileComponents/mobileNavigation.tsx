@@ -25,8 +25,12 @@ export default function Navigation() {
       <div className="relative flex flex-col w-full">
         <div className="flex flex-row justify-between items-center p-2">
           <div className="flex flex-row items-center gap-4">
-            <Image src={logo} alt="logo" />
-            <Image src={BCUBE} alt="BCUBE" />
+            <Link href="/">
+              <Image src={logo} alt="logo" />
+            </Link>
+            <Link href="/">
+              <Image src={BCUBE} alt="BCUBE" />
+            </Link>
           </div>
 
           <nav className="hidden md:flex">
@@ -100,13 +104,25 @@ export default function Navigation() {
           <Link href="/" className={linkStyle("/")} onClick={closeSidebar}>
             홈
           </Link>
-          <Link href="/projects" className={linkStyle("/projects")} onClick={closeSidebar}>
+          <Link
+            href="/projects"
+            className={linkStyle("/projects")}
+            onClick={closeSidebar}
+          >
             프로젝트
           </Link>
-          <Link href="/reviews" className={linkStyle("/reviews")} onClick={closeSidebar}>
+          <Link
+            href="/reviews"
+            className={linkStyle("/reviews")}
+            onClick={closeSidebar}
+          >
             후기
           </Link>
-          <Link href="/recruit" className={linkStyle("/recruit")} onClick={closeSidebar}>
+          <Link
+            href="/recruit"
+            className={linkStyle("/recruit")}
+            onClick={closeSidebar}
+          >
             리크루팅
           </Link>
         </nav>

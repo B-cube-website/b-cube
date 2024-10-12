@@ -33,13 +33,18 @@ export default function Footer() {
         </p>
       </div>
       <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-6">
-        <Link href="#">
-          <Image src={email_logo} alt="email_logo" width={40} height={40} />
-        </Link>
-        <Link href="#" target="_blank" rel="noopener noreferrer">
+        <Link
+          href="https://www.instagram.com/sexyit_season2/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image src={insta_logo} alt="insta_logo" width={40} height={40} />
         </Link>
-        <Link href="#">
+        <Link
+          href="https://open.kakao.com/o/sCRuhWTg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image
             src={kakaoTalk_logo}
             alt="kakaoTalk_logo"

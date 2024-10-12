@@ -8,6 +8,7 @@ import ActivityButton from "@/components/activityButton";
 import email_logo2 from "../../../public/email_logo2.svg";
 import kakaoTalk_logo2 from "../../../public/kakaoTalk_logo2.svg";
 import insta_logo2 from "../../../public/insta_logo2.svg";
+import Link from "next/link";
 
 export default function Recruit() {
   const [selectedActivity, setSelectedActivity] =
@@ -177,12 +178,14 @@ export default function Recruit() {
       </section>
 
       <div className="flex flex-col justify-center items-center gap-8">
-      <div className="flex flex-col justify-center items-center gap-[2px]" style={{ width: "87vw", maxWidth: "342px" }}>
-  <p className="text-xl font-bold text-center bg-gradient-to-r from-[#7380B0] to-[#518CFF] bg-clip-text text-transparent">
-    Contact us
-  </p>
-</div>
-
+        <div
+          className="flex flex-col justify-center items-center gap-[2px]"
+          style={{ width: "87vw", maxWidth: "342px" }}
+        >
+          <p className="text-xl font-bold text-center bg-gradient-to-r from-[#7380B0] to-[#518CFF] bg-clip-text text-transparent">
+            Contact us
+          </p>
+        </div>
 
         <div
           className="flex flex-col justify-center items-center flex-grow-0 flex-shrink-0 gap-6 mb-16"
@@ -206,48 +209,56 @@ export default function Recruit() {
                 </p>
               </div>
               <p className="flex-grow-0 flex-shrink-0 text-sm font-semibold text-center text-[#f6f6f7]">
-                bcube@ajou.ac.kr
+                playground99@ajou.ac.kr
               </p>
             </div>
           </div>
 
           <div className="flex justify-center items-center self-stretch flex-grow-0 flex-shrink-0 gap-[6.547360420227051px] px-6 py-8 rounded-[20px] bg-[#f6f6f7]/[0.04] border border-[#518CFF]">
             <div className="flex justify-between items-center flex-grow relative">
-              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-4">
-                <Image
-                  src={kakaoTalk_logo2}
-                  alt="KakaoTalk"
-                  width={30}
-                  height={31}
-                  className="flex-grow-0 flex-shrink-0 relative"
-                />
-                <p className="flex-grow-0 flex-shrink-0 text-lg font-bold text-center bg-gradient-to-r from-[#7380B0] to-[#518CFF] bg-clip-text text-transparent">
-                  KakaoTalk
+              <Link href="https://open.kakao.com/o/sCRuhWTg">
+                <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-4">
+                  <Image
+                    src={kakaoTalk_logo2}
+                    alt="KakaoTalk"
+                    width={30}
+                    height={31}
+                    className="flex-grow-0 flex-shrink-0 relative"
+                  />
+                  <p className="flex-grow-0 flex-shrink-0 text-lg font-bold text-center bg-gradient-to-r from-[#7380B0] to-[#518CFF] bg-clip-text text-transparent">
+                    KakaoTalk
+                  </p>
+                </div>
+              </Link>
+              <Link href="https://open.kakao.com/o/sCRuhWTg">
+                <p className="flex-grow-0 flex-shrink-0 text-sm font-semibold text-center text-[#f6f6f7]">
+                  오픈채팅방
                 </p>
-              </div>
-              <p className="flex-grow-0 flex-shrink-0 text-sm font-semibold text-center text-[#f6f6f7]">
-                @bcube
-              </p>
+              </Link>
             </div>
           </div>
 
           <div className="flex justify-start items-start w-full self-stretch flex-grow-0 flex-shrink-0 gap-[6.547360420227051px] px-6 py-8 rounded-[20px] bg-[#f6f6f7]/[0.04] border border-[#518CFF]">
             <div className="flex justify-between items-center flex-grow relative">
-              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-4">
-                <Image
-                  src={insta_logo2}
-                  alt="Instagram"
-                  width={30}
-                  height={31}
-                  className="flex-grow-0 flex-shrink-0 relative"
-                />
-                <p className="flex-grow-0 flex-shrink-0 text-lg font-bold text-center bg-gradient-to-r from-[#7380B0] to-[#518CFF] bg-clip-text text-transparent">
-                  Instagram
-                </p>
-              </div>
-              <p className="flex-grow-0 flex-shrink-0 text-sm font-semibold text-center text-[#f6f6f7]">
-                @sexyit_season2
-              </p>
+              <Link href="https://www.instagram.com/sexyit_season2/">
+                <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-4">
+                  <Image
+                    src={insta_logo2}
+                    alt="Instagram"
+                    width={30}
+                    height={31}
+                    className="flex-grow-0 flex-shrink-0 relative"
+                  />
+                  <p className="flex-grow-0 flex-shrink-0 text-lg font-bold text-center bg-gradient-to-r from-[#7380B0] to-[#518CFF] bg-clip-text text-transparent">
+                    Instagram
+                  </p>
+                </div>
+              </Link>{" "}
+              <Link href="https://www.instagram.com/sexyit_season2/">
+                <p className="flex-grow-0 flex-shrink-0 text-sm font-semibold text-center text-[#f6f6f7]">
+                  @sexyit_season2
+                </p>{" "}
+              </Link>
             </div>
           </div>
         </div>

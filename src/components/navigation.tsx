@@ -18,8 +18,12 @@ export default function Navigation() {
     <div className="relative z-50 flex flex-col w-full bg-[#06132D]">
       <div className="flex flex-row justify-between items-center p-2">
         <div className="flex flex-row items-center gap-4">
-          <Image src={logo} alt="logo" />
-          <Image src={BCUBE} alt="BCUBE" />
+          <Link href="/">
+            <Image src={logo} alt="logo" />
+          </Link>
+          <Link href="/">
+            <Image src={BCUBE} alt="BCUBE" />
+          </Link>
         </div>
         <nav>
           <ul className="flex flex-row gap-10">

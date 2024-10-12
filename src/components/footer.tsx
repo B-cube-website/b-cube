@@ -14,8 +14,12 @@ export default function Footer() {
     <div className="relative z-50 flex flex-col w-full bg-[#06132D]">
       <div className="flex flex-row justify-between items-center p-2 h-[100px]">
         <div className="flex flex-row items-center gap-4">
-          <Image src={logo} alt="logo" />
-          <Image src={BCUBE} alt="BCUBE" />
+          <Link href="/">
+            <Image src={logo} alt="logo" />
+          </Link>
+          <Link href="/">
+            <Image src={BCUBE} alt="BCUBE" />
+          </Link>
         </div>
 
         <div className="flex justify-start items-center gap-6"></div>
@@ -23,32 +27,21 @@ export default function Footer() {
         <nav>
           <ul className="flex flex-row gap-10">
             <li>
-              <Link href="#">
-                <div>
-                  <Image src={email_logo} alt="email_logo" />
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link href="#" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.instagram.com/sexyit_season2/" target="_blank" rel="noopener noreferrer">
                 <div>
                   <Image src={insta_logo} alt="insta_logo" />
                 </div>
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="https://open.kakao.com/o/sCRuhWTg" target="_blank" rel="noopener noreferrer">
                 <div>
                   <Image src={kakaoTalk_logo} alt="kakaoTalk_logo" />
                 </div>
               </Link>
             </li>
             <li>
-              <Link
-                href="https://github.com/B-cube-website/b-cube"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="https://github.com/B-cube-website/b-cube" target="_blank" rel="noopener noreferrer">
                 <div>
                   <Image src={github_logo} alt="github_logo" />
                 </div>

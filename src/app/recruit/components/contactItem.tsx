@@ -45,7 +45,7 @@ export default function ContactItem({
         >
           {title}
         </p>
-        <p className="text-[20px] font-semibold text-center text-[#f6f6f7]">
+        <p className="text-[17px] font-semibold text-center text-[#f6f6f7]">
           {value}
         </p>
       </div>
