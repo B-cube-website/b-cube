@@ -6,7 +6,7 @@ import Executives from "./components/Executives";
 export default function Home() {
   return (
     <>
-      <main>
+      <main className="overflow-x-hidden">
         <section className="flex flex-col justify-center items-center p-8">
           <div className="mt-[64px] flex justify-center items-center w-full h-auto md:h-[548px] gap-2.5">
             <h1
