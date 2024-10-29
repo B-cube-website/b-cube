@@ -5,10 +5,11 @@ import MobileMain from "@/mobileComponents/mobileMain";
 import ActivityButton from "@/components/activityButton";
 import SectionOBinterview from "./components/SectionOBinterview";
 import SectionActivityPhoto from "./components/SectionActivityPhoto";
+import useStore from "@/stores/useStore";
 
 export default function Review() {
-  const [selectedActivity, setSelectedActivity] =
-    useState<string>("OBinterview");
+  const selectedActivity = useStore((state) => state.selectedActivity);
+  const setSelectedActivity = useStore((state) => state.setSelectedActivity);
 
   const handleButtonClick = (activity: string) => {
     setSelectedActivity(activity);
