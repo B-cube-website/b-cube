@@ -26,10 +26,10 @@ export default function Recruit() {
         <div
           className="absolute"
           style={{
-            width: "calc(100% - 45.5% - 7%)", // left 52.5%와 right 7%를 합한 값을 너비로 계산
+            width: "calc(100% - 45.5% - 7%)",
             height: "calc(100% - 45.5% - 7%)",
-            left: "45.5%", // 왼쪽에서 52.5% 떨어지게 설정
-            right: "7%", // 오른쪽에서 7% 떨어지게 설정
+            left: "45.5%",
+            right: "7%",
             top: "82.11px",
           }}
         >

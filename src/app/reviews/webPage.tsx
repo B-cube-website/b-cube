@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import ActivityButton from "@/components/activityButton";
 import ballon from "../../../public/ballon.svg";
 import SectionOBinterview from "./components/SectionOBinterview";
 import SectionActivityPhoto from "./components/SectionActivityPhoto";
+import useStore from "@/stores/useStore";
 
 export default function Review() {
-  const [selectedActivity, setSelectedActivity] =
-    useState<string>("OBinterview");
+  const selectedActivity = useStore((state) => state.selectedActivity);
+  const setSelectedActivity = useStore((state) => state.setSelectedActivity);
 
   const handleButtonClick = (activity: string) => {
     setSelectedActivity(activity);
