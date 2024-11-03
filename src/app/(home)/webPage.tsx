@@ -26,7 +26,15 @@ export default function Home() {
             </h1>
           </div>
 
-          <h2 className="mt-[128px] flex items-center justify-center w-full font-semibold text-xl md:text-[40px] md:leading-[40px] text-center bg-clip-text text-transparent bg-gradient-to-r from-[#A8B3D8] to-[#518CFF]">
+          <h2
+            className="mt-[128px] flex items-center justify-center w-full font-semibold text-xl md:text-[40px] md:leading-[40px] text-center"
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, #A8B3D8 37.39%, #518CFF 61.51%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
             아주대학교 경영인텔리전스학과 소학회
           </h2>
 
