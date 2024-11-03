@@ -94,6 +94,7 @@ const SectionSexyIt = () => {
             />
           ) : (
             postsData
+              .reverse()
               .slice(
                 Math.floor(visiblePosts / 3) * 3,
                 Math.floor(visiblePosts / 3) * 3 + visiblePosts % 3
