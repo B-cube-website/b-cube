@@ -17,7 +17,7 @@ const SectionDesignton = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchPosts("/api/activities/designton", setPostsData, setError);
+    fetchPosts("/api/activities/designton", setPostsData, setError, false);
   }, []);
 
   return (
