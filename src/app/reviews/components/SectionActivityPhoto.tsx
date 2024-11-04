@@ -3,6 +3,14 @@ import activityPhotoNextArrow from "../../../../public/activityPhotoNextArrow.sv
 import activityPhotoPrevArrow from "../../../../public/activityPhotoPrevArrow.svg";
 import Image from "next/image";
 import useStore from "@/stores/useStore";
+import { reverse } from "dns";
+
+interface ImageItem {
+  date: string;
+  description: string;
+  id: number;
+  imageUrl: string;
+}
 
 const SectionActivityPhoto = () => {
   const [images, setImages] = useState<any[]>([]);
@@ -15,21 +23,28 @@ const SectionActivityPhoto = () => {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_API_HOST}/api/activity-photos`
         );
-
+  
         if (!response.ok) {
           throw new Error("이미지 데이터를 불러오는데 실패했습니다.");
         }
-
-        const data = await response.json();
-        console.log(data);
-        setImages(data); // 응답 데이터를 images 상태에 설정
+  
+        const data: ImageItem[] = await response.json(); // data 타입 지정
+        let sortedData: ImageItem[] = [];
+  
+        data.forEach((item: ImageItem) => { // item 타입 지정
+          sortedData.unshift(item);
+        });
+  
+        console.log(sortedData);
+        setImages(sortedData);
       } catch (error) {
         console.error("API 호출 오류:", error);
       }
     };
-
+  
     fetchImages();
   }, []);
+  
 
   // 다음 이미지로 넘어가는 함수
   const nextImage = () => {
@@ -216,7 +231,7 @@ const SectionActivityPhoto = () => {
         <div
           style={{
             display: "flex",
-            transform: `translateX(-${currentIndex * (isMobile ? 78 : 98)}px)`,
+            transform: `translateX(-${currentIndex * (isMobile ? 90 : 120)}px)`,
             transition: "transform 0.8s ease",
             gap: isMobile ? "12px" : "18px",
             paddingLeft: "50%",
