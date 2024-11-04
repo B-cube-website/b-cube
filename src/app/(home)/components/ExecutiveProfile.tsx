@@ -32,7 +32,7 @@ export default function ExecutivesProfile({
 
   // id가 5 또는 9인 항목만 필터링
   const filteredProfile = profile.filter(
-    (executive) => executive.id === 5 || executive.id === 16
+    (executive) => executive.id === 1 || executive.id === 2
   );
 
   if (filteredProfile.length === 0) {

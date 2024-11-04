@@ -25,6 +25,7 @@ export default function Navigation() {
             <Image src={BCUBE} alt="BCUBE" />
           </Link>
         </div>
+
         <nav>
           <ul className="flex flex-row gap-10">
             <li>
