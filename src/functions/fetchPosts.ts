@@ -1,7 +1,7 @@
 type SetPostsData = (data: any[]) => void;
 type SetError = (error: string | null) => void;
 
-const fetchPosts = (requestUrl: string, setPostsData: SetPostsData, setError: SetError): void => {
+const fetchPosts = async (requestUrl: string, setPostsData: SetPostsData, setError: SetError, reverse: boolean) => {
   fetch(`${process.env.NEXT_PUBLIC_API_HOST}${requestUrl}`)
     .then((response) => {
       if (!response.ok) {
@@ -10,7 +10,7 @@ const fetchPosts = (requestUrl: string, setPostsData: SetPostsData, setError: Se
       return response.json();
     })
     .then((data: any[]) => {
-      setPostsData(data);
+      setPostsData(reverse ? data.reverse() : data);
       setError(null);
     })
     .catch((error) => {

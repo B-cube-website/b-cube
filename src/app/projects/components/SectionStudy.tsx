@@ -9,7 +9,7 @@ const SectionStudy = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchPosts("/api/activities/study", setPostsData, setError);
+    fetchPosts("/api/activities/study", setPostsData, setError, false);
   }, []);
 
   return (

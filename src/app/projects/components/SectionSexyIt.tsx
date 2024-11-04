@@ -14,19 +14,17 @@ const SectionSexyIt = () => {
   const [currentVisiblePosts, setCurrentVisiblePosts] = useState<number>(0);
 
   useEffect(() => {
-    fetchPosts("/api/activities/sexyit", setPostsData, setError);
+    fetchPosts("/api/activities/sexyit", setPostsData, setError, true);
   }, []);
 
   // 더보기 버튼 클릭 시 6개의 포스트 추가로 표시
   const loadMorePosts = () => {
     const remainingPosts = postsData.length - visiblePosts;
-    const postsToShow = Math.min(6, remainingPosts); 
+    const postsToShow = Math.min(6, remainingPosts);
 
     setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + postsToShow);
     setCurrentVisiblePosts(postsToShow);
   };
-  
-  
 
   return (
     <div className="flex flex-col justify-start items-start w-full max-w-screen-2xl mx-auto relative gap-20 px-4 sm:px-6 lg:px-8">
@@ -72,32 +70,35 @@ const SectionSexyIt = () => {
       </div>
       <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[120px]">
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-4">
-          {postsData.slice(0, (Math.floor(visiblePosts / 3)) * 3).map((card, index) => (
-            <PhotoWithTitleBox
-              key={index}
-              title={card.title}
-              date={card.date}
-              imageSrc={card.imageUrl}
-              link={card.url}
-            />
-          ))}
-          {visiblePosts % 3 === 1 && <div className="hidden lg:block"><PhotoWithTitleBox key={"dummy"} /></div>}
+          {postsData
+            .slice(0, Math.floor(visiblePosts / 3) * 3)
+            .map((card, index) => (
+              <PhotoWithTitleBox
+                key={index}
+                title={card.title}
+                date={card.date}
+                imageSrc={card.imageUrl}
+                link={card.url}
+              />
+            ))}
+          {visiblePosts % 3 === 1 && (
+            <div className="hidden lg:block">
+              <PhotoWithTitleBox key={"dummy"} />
+            </div>
+          )}
           {visiblePosts % 3 === 1 ? (
             <PhotoWithTitleBox
               key={postsData[visiblePosts - 1] + 1}
-              title={
-                postsData[visiblePosts - 1].title
-              }
+              title={postsData[visiblePosts - 1].title}
               date={postsData[visiblePosts - 1].date}
               imageSrc={postsData[visiblePosts - 1].imageUrl}
               link={postsData[visiblePosts - 1].url}
             />
           ) : (
             postsData
-              .reverse()
               .slice(
                 Math.floor(visiblePosts / 3) * 3,
-                Math.floor(visiblePosts / 3) * 3 + visiblePosts % 3
+                Math.floor(visiblePosts / 3) * 3 + (visiblePosts % 3)
               )
               .map((card, index) => (
                 <PhotoWithTitleBox
