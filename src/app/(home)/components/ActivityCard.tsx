@@ -1,8 +1,7 @@
 import { useState } from "react";
-import InfiniteLoopSlider from "./InfiniteLoopSlider";  // 컴포넌트 import
+import InfiniteLoopSlider from "./InfiniteLoopSlider";
 import './Slider.css';
 
-// 활동 데이터 타입 정의
 interface Activity {
   id: number;
   title: string;
@@ -11,18 +10,19 @@ interface Activity {
   description: string;
 }
 
-// `ActivityCard` 컴포넌트의 Props 타입 정의
 interface ActivityCardProps {
   isLoading: boolean;
   loadingText?: string;
   activity: Activity[];
-  className?: string;  // className prop 추가
+  onOpenPdf: (pdfUrl: string, title: string) => void;  // PDF 열기 핸들러 추가
+  className?: string;
 }
 
 export default function ActivityCard({
   isLoading,
   loadingText = "로딩 중...",
   activity,
+  onOpenPdf,
   className = "",
 }: ActivityCardProps) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -40,7 +40,7 @@ export default function ActivityCard({
       <div>
         <InfiniteLoopSlider onHoverStop={true}>
           {activity.map((item) => (
-            <div key={item.id} className="InfiniteLoop__item">
+            <div key={item.id} className="InfiniteLoop__item" onClick={() => onOpenPdf(item.pdfPath, item.title)}>
               <img
                 src={item.imagePath}
                 alt={item.title}
