@@ -26,7 +26,7 @@ const SectionSexyIt = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center w-full max-w-full sm:max-w-[1280px] sm:mx-auto mx-auto px-6 overflow-hidden">
+    <div className="flex flex-col justify-center items-center w-full max-w-full sm:max-w-[1280px] sm:mx-auto mx-auto px-6 sm:px-0 overflow-hidden">
       <div className="flex flex-row justify-between items-center w-full max-w-full sm:max-w-[1040px] sm:mt-[160px] mt-[64px] overflow-hidden">
         <ProjectDescription title="섹시한 IT">
           <div className="flex items-center align-middle">
@@ -68,8 +68,8 @@ const SectionSexyIt = () => {
           }}
         />
       </div>
-      <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[120px]">
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-4">
+      <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[120px] sm:mt-[160px] mt-[64px]">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-x-[32px] sm:gap-y-[64px] gap-[32px] p-4">
           {postsData
             .slice(0, Math.floor(visiblePosts / 3) * 3)
             .map((card, index) => (
