@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import ProfileCard from "./ProfileCard";
 import ActivityButton from "@/components/activityButton";
+import MobileButton from "@/mobileComponents/mobileButton"; // 모바일 버튼 컴포넌트 추가
 import useStore from "@/stores/useStore"; // Zustand 스토어를 가져오는 경로
 
 const SectionOBinterview = () => {
@@ -42,24 +43,23 @@ const SectionOBinterview = () => {
     postData.length % 3 === 1 && postData.length <= visibleCount;
 
   return (
-    <div className="section-ob-interview flex flex-col justify-center items-center mt-36 mb-32">
+    <div className="section-ob-interview flex flex-col justify-center items-center mt-[64px] mb-[128px]">
       {/* 그리드 컨테이너 */}
       <div
         className="grid-container grid w-full"
         style={{
-          gridTemplateColumns: isMobile ? "repeat(1, 1fr)" : "repeat(3, 1fr)", // 모바일에서는 한 줄에 1개, 웹에서는 3개
-          gap: isMobile ? "25px" : "20px", // 모바일에서는 25px, 웹에서는 20px
-          maxWidth: isMobile ? "87vw" : "1200px", // 모바일에서는 너비 87vw
+          gridTemplateColumns: isMobile ? "repeat(1, 1fr)" : "repeat(3, 1fr)",
+          gap: isMobile ? "25px" : "20px",
+          maxWidth: isMobile ? "87vw" : "1200px",
           width: "100%",
-          padding: isMobile ? "0" : "0 120px", // 모바일에서는 패딩 제거
-          justifyContent: "center", // 그리드 아이템을 중앙에 정렬
+          padding: isMobile ? "0" : "0 120px",
+          justifyContent: "center",
         }}
       >
         {error ? (
-          <p className="text-red-500">{error}</p> // 에러 메시지 표시
+          <p className="text-red-500">{error}</p>
         ) : postData.length > 0 ? (
           postData.slice(0, visibleCount).map((post, index) => {
-            // 마지막 카드가 3의 배수 + 1일 때 가운데 정렬
             const isLastCard =
               isLastCardCentered &&
               index === postData.slice(0, visibleCount).length - 1;
@@ -73,9 +73,9 @@ const SectionOBinterview = () => {
                     : ""
                 }`}
                 style={{
-                  width: isMobile ? "87vw" : "auto", // 모바일에서는 카드 너비 87vw
-                  height: isMobile ? "calc(87vw * 1.23)" : "auto", // 모바일에서는 높이 너비의 1.23배
-                  display: "flex", // 프로필 카드 가운데 정렬
+                  width: isMobile ? "87vw" : "auto",
+                  height: isMobile ? "calc(87vw * 1.23)" : "auto",
+                  display: "flex",
                   justifyContent: "center",
                 }}
               >
@@ -85,7 +85,6 @@ const SectionOBinterview = () => {
                   message={post.message}
                   imageUrl={post.imageUrl}
                   email={post.email}
-                  // 모바일일 때의 카드 내부 스타일 조정
                   style={
                     isMobile ? { fontSize: "clamp(0.8rem, 2vw, 1rem)" } : {}
                   }
@@ -100,12 +99,20 @@ const SectionOBinterview = () => {
 
       {/* "더보기" 버튼을 프로필 카드 아래에 배치 */}
       {visibleCount < postData.length && (
-        <section className="flex justify-center items-center w-full mt-24 mb-32">
-          <ActivityButton
-            activity="더보기"
-            selected={true}
-            onClick={handleLoadMore}
-          />
+        <section className="flex justify-center items-center w-full mt-24">
+          {isMobile ? (
+            <MobileButton
+              activity="더보기"
+              selected={true}
+              onClick={handleLoadMore}
+            />
+          ) : (
+            <ActivityButton
+              activity="더보기"
+              selected={true}
+              onClick={handleLoadMore}
+            />
+          )}
         </section>
       )}
     </div>

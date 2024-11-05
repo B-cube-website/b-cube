@@ -17,13 +17,13 @@ export default function Navigation() {
 
   const linkStyle = (href: string) =>
     pathname === href
-      ? "font-Pretendard-Bold text-[28px] text-[#14439F]"
-      : "font-Pretendard-Bold text-[28px] text-white";
+      ? "font-Pretendard-Bold text-[20px] text-[#14439F]"
+      : "font-Pretendard-Bold text-[20px] text-white";
 
   return (
     <>
-      <div className="relative flex flex-col w-full">
-        <div className="flex flex-row justify-between items-center p-2">
+      <div className="relative flex flex-col w-full px-6 py-4">
+        <div className="flex flex-row justify-between items-center">
           <div className="flex flex-row items-center gap-4">
             <Link href="/">
               <Image src={logo} alt="logo" />
@@ -60,7 +60,7 @@ export default function Navigation() {
 
           <button
             onClick={toggleSidebar}
-            className="p-2 focus:outline-none md:hidden"
+            className="focus:outline-none md:hidden"
             aria-label="Toggle Sidebar"
           >
             <Image
@@ -80,14 +80,14 @@ export default function Navigation() {
           isSidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-row justify-between items-center p-2">
+        <div className="flex flex-row justify-between items-center px-6 py-4">
           <div className="flex flex-row items-center gap-4">
             <Image src={logo} alt="logo" />
             <Image src={BCUBE} alt="BCUBE" />
           </div>
           <button
             onClick={toggleSidebar}
-            className="p-2 focus:outline-none"
+            className="focus:outline-none"
             aria-label="Close Sidebar"
           >
             <Image
@@ -100,7 +100,7 @@ export default function Navigation() {
           </button>
         </div>
 
-        <nav className="flex flex-col items-start p-4 space-y-6">
+        <nav className="flex flex-col items-start space-y-6 px-7 py-8 font-bold">
           <Link href="/" className={linkStyle("/")} onClick={closeSidebar}>
             홈
           </Link>

@@ -37,7 +37,7 @@ export default function Review() {
             className="text-5xl font-bold text-left text-white leading-normal"
             style={{ maxWidth: "38rem" }}
           >
-            B-CUBE의 생생한 후기들을 지금 확인해 보세요
+            B-CUBE의 생생한 후기들을 <br/>지금 확인해 보세요
           </h1>
         </div>
       </div>

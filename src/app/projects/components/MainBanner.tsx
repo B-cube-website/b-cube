@@ -27,7 +27,7 @@ const MainBanner = () => {
           className="text-5xl font-bold text-left text-white leading-normal"
           style={{ maxWidth: "38rem" }}
         >
-          B-CUBE의 다양한 활동들을 지금 확인해 보세요
+          B-CUBE의 다양한 활동들을 <br />지금 확인해 보세요
         </h1>
       </div>
     </div>

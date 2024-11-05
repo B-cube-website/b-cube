@@ -11,6 +11,7 @@ import email_logo2 from "../../../public/email_logo2.svg";
 import kakaoTalk_logo2 from "../../../public/kakaoTalk_logo2.svg";
 import insta_logo2 from "../../../public/insta_logo2.svg";
 import Link from "next/link";
+import Article from "@/components/Article";
 
 export default function Recruit() {
   const [selectedActivity, setSelectedActivity] =
@@ -39,52 +40,55 @@ export default function Recruit() {
           <p className="text-5xl font-bold text-left text-white">
             지금은 모집기간이 아닙니다
           </p>
-          <p className="text-2xl font-bold text-left text-[#f6f6f7]">
-            2024년 1학기 모집이 완료되었습니다!
+          <p className="text-2xl font-meduim text-left text-[#f6f6f7]">
+            2024년 2학기 모집이 완료되었습니다!
             <br />
-            다음 기수는 2024년 9월에 예정되어 있습니다.
+            다음 기수는 2025년 3월에 예정되어 있습니다
           </p>
         </div>
       </div>
 
-      <div className="flex flex-col justify-start items-start w-full max-w-screen-2xl mx-auto relative gap-20 px-4 sm:px-6 lg:px-8">
-        <SectionHeader title="Introduction" subtitle="모집 개요" />
-        <div
-          className="flex flex-col md:flex-row justify-between w-full gap-6"
-          style={{ whiteSpace: "pre-line" }}
-        >
-          <Card
-            title="인재상"
-            content="최신 IT 기술과 비즈니스 이해를 바탕으로 창의적 문제 해결과 협업 능력을 갖춘 자기주도적 학습자"
-          />
-          <Card
-            title="지원자격"
-            content="IT 기술과 비즈니스에 대한 관심과 열정을 가진 경영인텔리전스학과 학생이라면 누구나"
-          />
-          <Card
-            title="지원방법"
-            content={["1차 서류", "2차 면접"].join("\n")}
-          />
-        </div>
-
-        <SectionHeader title="Activity" subtitle="활동 분야" />
-        <div className="flex flex-nowrap justify-center items-center w-full gap-6">
-          <ActivityButton
-            activity="디자인톤"
-            selected={selectedActivity === "designathon"}
-            onClick={() => handleButtonClick("designathon")}
-          />
-          <ActivityButton
-            activity="섹시한 IT"
-            selected={selectedActivity === "sexyIT"}
-            onClick={() => handleButtonClick("sexyIT")}
-          />
-          <ActivityButton
-            activity="기타"
-            selected={selectedActivity === "others"}
-            onClick={() => handleButtonClick("others")}
-          />
-        </div>
+      <div className="flex flex-col justify-center items-center w-full max-w-screen-2xl mx-auto relative px-4 sm:px-6 lg:px-8">
+        <section className="sm:mb-[228px]">
+          <Article subject="Introduction" title="모집 개요" />
+          <div
+            className="flex flex-col md:flex-row justify-between w-full gap-6 sm:mt-[80px]"
+            style={{ whiteSpace: "pre-line" }}
+          >
+            <Card
+              title="인재상"
+              content="최신 IT 기술과 비즈니스 이해를 바탕으로 창의적 문제 해결과 협업 능력을 갖춘 자기주도적 학습자"
+            />
+            <Card
+              title="지원자격"
+              content="IT 기술과 비즈니스에 대한 관심과 열정을 가진 경영인텔리전스학과 학생이라면 누구나"
+            />
+            <Card
+              title="지원방법"
+              content={["1차 서류", "2차 면접"].join("\n")}
+            />
+          </div>
+        </section>
+        <section>
+          <Article subject="Activity" title="활동 분야" />
+          <div className="flex flex-nowrap justify-center items-center w-full gap-6 sm:mt-[48px] sm:mb-[48px]">
+            <ActivityButton
+              activity="디자인톤"
+              selected={selectedActivity === "designathon"}
+              onClick={() => handleButtonClick("designathon")}
+            />
+            <ActivityButton
+              activity="섹시한 IT"
+              selected={selectedActivity === "sexyIT"}
+              onClick={() => handleButtonClick("sexyIT")}
+            />
+            <ActivityButton
+              activity="기타"
+              selected={selectedActivity === "others"}
+              onClick={() => handleButtonClick("others")}
+            />
+          </div>
+        </section>
 
         <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[120px]">
           <div
@@ -183,7 +187,7 @@ export default function Recruit() {
           </div>
         </section>
 
-        <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[280px]">
+        <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[237px] sm:mt-[228px]">
           <div className="flex flex-col justify-center items-start w-full gap-2">
             <p
               className="w-full text-[40px] font-bold text-center"
