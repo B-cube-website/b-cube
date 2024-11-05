@@ -75,9 +75,9 @@ const PostPreviewBoxWithPdf: React.FC<PostPreviewBoxWithPdfProps> = ({
               </button>
             </div>
             {pdfUrl ? (
-              <div className="bg-gray-300">
+              <div className="bg-white">
               <iframe
-                src={`https://docs.google.com/viewer?url=${pdfUrl}&embedded=true`}
+                src={`/pdf-viewer.html?pdfUrl=${pdfUrl}`}
                 className="w-full h-[700px]"
                 title="PDF Preview"
                 frameBorder="0"
