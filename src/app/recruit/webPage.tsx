@@ -23,7 +23,7 @@ export default function Recruit() {
 
   return (
     <main>
-      <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto h-[700px]">
+      <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto h-[700px]">
         <div
           className="absolute"
           style={{
@@ -48,7 +48,7 @@ export default function Recruit() {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center items-center w-full max-w-screen-2xl mx-auto relative px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col justify-center items-center w-full max-w-7xl mx-auto relative px-4 sm:px-6 lg:px-8">
         <section className="sm:mb-[228px]">
           <Article subject="Introduction" title="모집 개요" />
           <div
@@ -71,7 +71,7 @@ export default function Recruit() {
         </section>
         <section>
           <Article subject="Activity" title="활동 분야" />
-          <div className="flex flex-nowrap justify-center items-center w-full gap-6 sm:mt-[48px] sm:mb-[48px]">
+          <div className="flex flex-nowrap justify-center items-center w-full gap-6 sm:mt-[48px] sm:mb-[80px]">
             <ActivityButton
               activity="디자인톤"
               selected={selectedActivity === "designathon"}

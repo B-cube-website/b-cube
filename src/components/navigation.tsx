@@ -52,7 +52,7 @@ export default function Navigation() {
         </nav>
       </div>
       <div
-        className="absolute top-full left-0 w-full h-[174px]"
+        className="absolute top-full left-0 w-full"
         style={{
           background:
             "linear-gradient(180deg, #06142D 0%, rgba(6,20,45,0) 100%)",

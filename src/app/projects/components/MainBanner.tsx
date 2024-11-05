@@ -4,7 +4,7 @@ import file_image from "@/../public/file-bulb.svg";
 
 const MainBanner = () => {
   return (
-    <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto h-[700px]">
+    <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto h-[700px]">
       <div
         className="absolute"
         style={{
