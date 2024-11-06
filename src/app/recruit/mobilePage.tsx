@@ -10,7 +10,7 @@ import kakaoTalk_logo2 from "../../../public/kakaoTalk_logo2.svg";
 import insta_logo2 from "../../../public/insta_logo2.svg";
 import Link from "next/link";
 import MobileButton from "@/mobileComponents/mobileButton";
-
+import megaphone from "../../../public/megaphone.svg";
 export default function Recruit() {
   const [selectedActivity, setSelectedActivity] =
     useState<string>("designathon");
@@ -22,7 +22,7 @@ export default function Recruit() {
   return (
     <main>
       <MobileMain
-        svgImage="/megaphone.svg"
+        svgImage={megaphone}
         altText="megaphone"
         mainText="지금은 모집기간이 아닙니다"
         subText="2024년 2학기 모집이 완료되었습니다!<br />다음 기수는 2025년 3월에 예정되어 있습니다"

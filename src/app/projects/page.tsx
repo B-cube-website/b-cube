@@ -10,7 +10,7 @@ import SectionEtc from "./components/SectionEtc";
 import MobileMain from "@/mobileComponents/mobileMain";
 import MobileProjectButton from "./components/MobileProjectButton";
 import useStore from "@/stores/useStore";
-
+import file_image from "@/../public/file-bulb.svg";
 const Project: React.FC = () => {
   const [selectedActivity, setSelectedActivity] =
     useState<string>("designthon");
@@ -34,7 +34,7 @@ const Project: React.FC = () => {
       </div>
       <div className="sm:hidden">
         <MobileMain
-          svgImage="/file-bulb.svg"
+          svgImage={file_image}
           altText="file-bulb"
           mainText="B-CUBE의 다양한 활동들을 <br />지금 확인해 보세요"
           subText=""

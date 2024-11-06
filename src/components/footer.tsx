@@ -11,7 +11,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <div className="relative z-50 flex flex-col w-full bg-[#06132D] px-16">
+    <div className="relative z-40 flex flex-col w-full bg-[#06132D] px-16">
       <div className="flex flex-row justify-between items-center h-[100px]">
         <div className="flex flex-row items-center gap-4">
           <Link href="/">

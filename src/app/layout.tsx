@@ -2,8 +2,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
+import localFont from "next/font/local"; // ⬅️ add
 
-const inter = Inter({ subsets: ["latin"] });
+const pretendard = localFont({ // ⬅️ add
+  src: "../styles/font/PretendardVariable.woff2",
+  display: "swap",
+  weight: "45 920",
+  variable: "--font-pretendard",
+});
 
 export const metadata: Metadata = {
   title: "B-cube",
@@ -28,8 +34,8 @@ export default function RootLayout({
   const initialMobileState = false; // 기본값 설정
 
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={`${pretendard.variable}`}>
+      <body className="font-pretendard">
         {/* 고정된 배경색 */}
         <div
           style={{
@@ -56,6 +62,7 @@ export default function RootLayout({
             backgroundSize: "cover", // 비율을 유지하며 화면을 덮음
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
+            opacity: 0.8,
           }}
         />
 

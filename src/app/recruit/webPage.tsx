@@ -24,6 +24,32 @@ export default function Recruit() {
   return (
     <main>
       <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto h-[700px]">
+        <div className="absolute inset-0 flex justify-end items-center mt-[100px]">
+          {/* 상단 그라데이션 */}
+          <div className="absolute top-[-100px] left-0 w-full h-[174px] z-30" 
+                style={{ background: "linear-gradient(to bottom, #06142D, transparent)" }}
+          />
+          <Image
+            src={megaphone}
+            alt="file_image"
+            className="object-contain object-right-bottom"
+            fill
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            style={{ filter: "blur(8px)" }}
+          />
+        </div>
+        <div className="flex flex-col justify-start items-start absolute mt-[117px] gap-6">
+        <p className="text-5xl font-bold text-left text-white">
+            지금은 모집기간이 아닙니다
+          </p>
+          <p className="text-2xl font-meduim text-left text-[#f6f6f7]">
+            2024년 2학기 모집이 완료되었습니다!
+            <br />
+            다음 기수는 2025년 3월에 예정되어 있습니다
+          </p>
+        </div>
+      </div>
+      {/* <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto h-[700px]">
         <div
           className="absolute"
           style={{
@@ -46,7 +72,7 @@ export default function Recruit() {
             다음 기수는 2025년 3월에 예정되어 있습니다
           </p>
         </div>
-      </div>
+      </div> */}
 
       <div className="flex flex-col justify-center items-center w-full max-w-7xl mx-auto relative px-4 sm:px-6 lg:px-8">
         <section className="sm:mb-[228px]">

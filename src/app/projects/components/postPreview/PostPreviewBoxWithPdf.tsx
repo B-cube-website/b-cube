@@ -60,13 +60,13 @@ const PostPreviewBoxWithPdf: React.FC<PostPreviewBoxWithPdfProps> = ({
       </div>
 
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 mx-6">
+        <div className="fixed inset-0 flex justify-center z-50">
           {/* 배경을 클릭하면 모달 닫힘 */}
-          <div className="absolute inset-0 bg-black opacity-50" onClick={closeModal}></div>
+          <div className="absolute inset-0 bg-black opacity-20" onClick={closeModal}></div>
           {/* 모달 내용 */}
-          <div className="relative w-full max-w-7xl p-8 bg-white rounded-lg">
+          <div className="relative w-full max-w-7xl p-8 bg-white rounded-lg my-8">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold">{title}</h3>
+              <h3 className="text-lg font-semibold text-black">{title}</h3>
               <button
                 onClick={closeModal}
                 className="text-black text-lg font-bold"
@@ -74,18 +74,17 @@ const PostPreviewBoxWithPdf: React.FC<PostPreviewBoxWithPdfProps> = ({
                 &times;
               </button>
             </div>
+            <div className="flex-grow h-[calc(100%-3rem)]">
             {pdfUrl ? (
-              <div className="bg-white">
               <iframe
                 src={`/pdf-viewer.html?pdfUrl=${pdfUrl}`}
-                className="w-full h-[700px]"
+                className="flex w-full h-full"
                 title="PDF Preview"
-                frameBorder="0"
               ></iframe>
-              </div>
             ) : (
               <p>PDF 파일이 없습니다.</p>
             )}
+            </div>
           </div>
         </div>
       )}

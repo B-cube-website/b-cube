@@ -26,7 +26,7 @@ const SectionSexyIt = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center w-full max-w-full sm:max-w-[1280px] sm:mx-auto mx-auto px-6 sm:px-0 overflow-hidden">
+    <div className="flex flex-col justify-center items-center w-full max-w-full sm:max-w-[1280px] sm:mx-auto mx-auto px-6 sm:px-6 lg:px-8 overflow-hidden">
       <div className="flex flex-row justify-between items-center w-full max-w-full sm:max-w-[1040px] sm:mt-[160px] mt-[64px] overflow-hidden">
         <ProjectDescription title="섹시한 IT">
           <div className="flex items-center align-middle">

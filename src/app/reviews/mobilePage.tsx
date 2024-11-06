@@ -7,7 +7,7 @@ import SectionOBinterview from "./components/SectionOBinterview";
 import SectionActivityPhoto from "./components/SectionActivityPhoto";
 import useStore from "@/stores/useStore";
 import MobileButton from "@/mobileComponents/mobileButton";
-
+import ballon from "../../../public/ballon.svg";
 export default function Review() {
   const selectedActivity = useStore((state) => state.selectedActivity);
   const setSelectedActivity = useStore((state) => state.setSelectedActivity);
@@ -19,7 +19,7 @@ export default function Review() {
   return (
     <main>
       <MobileMain
-        svgImage="/ballon.svg"
+        svgImage={ballon}
         altText="ballon"
         mainText="B-CUBE의 생생한 후기를<br />확인해 보세요"
       />
