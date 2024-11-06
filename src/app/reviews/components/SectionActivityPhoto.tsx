@@ -78,16 +78,16 @@ const SectionActivityPhoto = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: isMobile ? "space-between" : "center",
-          maxWidth: "80%",
-          margin: "0 auto",
+          // maxWidth: "80%",
+          // margin: "0 auto",
           overflow: "hidden",
           ...(isMobile
             ? {} // 모바일에서는 마스크 효과 제거
             : {
-                maskImage:
-                  "linear-gradient(to right, rgba(20, 67, 159, 0) 2%, rgba(20, 67, 159, 0.3) 8%, rgba(20, 67, 159, 0.8) 12%, #14439F 20%, #14439F 80%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 92%, rgba(20, 67, 159, 0) 98%)",
-                WebkitMaskImage:
-                  "linear-gradient(to right, rgba(20, 67, 159, 0) 2%, rgba(20, 67, 159, 0.3) 8%, rgba(20, 67, 159, 0.8) 12%, #14439F 20%, #14439F 80%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 92%, rgba(20, 67, 159, 0) 98%)",
+                // maskImage:
+                //   "linear-gradient(to right, rgba(20, 67, 159, 0) 0%, rgba(20, 67, 159, 0.3) 4%, rgba(20, 67, 159, 0.8) 12%, #14439F 20%, #14439F 80%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 96%, rgba(20, 67, 159, 0) 100%)",
+                // WebkitMaskImage:
+                //   "linear-gradient(to right, rgba(20, 67, 159, 0) 2%, rgba(20, 67, 159, 0.3) 4%, rgba(20, 67, 159, 0.8) 12%, #14439F 20%, #14439F 80%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 96%, rgba(20, 67, 159, 0) 100%)",
               }),
         }}
       >
@@ -132,7 +132,7 @@ const SectionActivityPhoto = () => {
           >
             {images.map((image, index) => {
               const distanceFromCurrent = Math.abs(currentIndex - index);
-              const opacityValue = 1 - Math.min(distanceFromCurrent * 0.2, 0.8);
+              const opacityValue = 1 - Math.min(distanceFromCurrent * 0.4, 0.8);
               const scaleValue = 1 - Math.min(distanceFromCurrent * 0.05, 0.3);
 
               return (
@@ -220,14 +220,10 @@ const SectionActivityPhoto = () => {
           justifyContent: "center",
           overflow: "hidden",
           width: "100%",
-          maxWidth: "80%",
-          margin: "0 auto",
+          // maxWidth: "80%",
+          // margin: "0 auto",
           padding: "10px 0",
-          maskImage:
-          "linear-gradient(to right, rgba(20, 67, 159, 0) 2%, rgba(20, 67, 159, 0.3) 8%, rgba(20, 67, 159, 0.8) 12%, #14439F 30%, #14439F 70%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 92%, rgba(20, 67, 159, 0) 98%)",
-          WebkitMaskImage:
-          "linear-gradient(to right, rgba(20, 67, 159, 0) 2%, rgba(20, 67, 159, 0.3) 8%, rgba(20, 67, 159, 0.8) 12%, #14439F 30%, #14439F 70%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 92%, rgba(20, 67, 159, 0) 98%)",
-        }}
+          }}
       >
         <div
           style={{
