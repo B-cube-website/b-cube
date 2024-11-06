@@ -1,12 +1,13 @@
-import MobileActivity from "./components/MobileActivity";
+import Activity from "./components/Activity";
 import Article from "@/components/Article";
 import Executives from "./components/Executives";
 // import CenterMode from "./components/ActivityCard";
+import MobileActivity from "./components/MobileActivity";
 
 export default function Home() {
   return (
     <>
-      <main>
+      <main className="overflow-x-hidden">
         <section className="flex flex-col justify-center items-center p-8">
           <div className="mt-[64px] flex justify-center items-center w-full h-auto md:h-[548px] gap-2.5">
             <h1
@@ -26,7 +27,15 @@ export default function Home() {
             </h1>
           </div>
 
-          <h2 className="mt-[128px] flex items-center justify-center w-full font-semibold text-xl md:text-[40px] md:leading-[40px] text-center bg-clip-text text-transparent bg-gradient-to-r from-[#A8B3D8] to-[#518CFF]">
+          <h2
+            className="mt-[128px] flex items-center justify-center w-full font-semibold text-xl md:text-[40px] md:leading-[40px] text-center"
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, #A8B3D8 37.39%, #518CFF 61.51%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
             아주대학교 경영인텔리전스학과 소학회
           </h2>
 
@@ -42,9 +51,9 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="flex flex-col justify-center items-center mt-[192px] px-[28px] md:px-[96px] md:mt-[228px]">
+        <section className="flex flex-col justify-center items-center mt-[192px] md:mt-[228px] px-[28px] md:px-0 w-full md:w-[1280px] mx-auto">
           <Article subject="Introduction" title="소개" />
-          <div className="flex flex-col md:flex-row justify-start md:justify-between items-center md:items-start w-full mt-8 md:mt-20 gap-4 md:gap-16">
+          <div className="flex flex-col md:flex-row justify-start md:justify-between items-center md:items-start mt-8 md:mt-20 gap-4 md:gap-16">
             <p className="text-center md:text-left text-[16px] md:text-2xl font-bold text-[#f6f6f7] md:w-1/5">
               B-CUBE의 비전
             </p>

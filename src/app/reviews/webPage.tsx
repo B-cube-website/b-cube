@@ -18,7 +18,7 @@ export default function Review() {
 
   return (
     <main>
-      <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto h-[700px]">
+      <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto h-[700px]">
         <div
           className="absolute"
           style={{
@@ -37,7 +37,7 @@ export default function Review() {
             className="text-5xl font-bold text-left text-white leading-normal"
             style={{ maxWidth: "38rem" }}
           >
-            B-CUBE의 생생한 후기들을 지금 확인해 보세요
+            B-CUBE의 생생한 후기들을 <br/>지금 확인해 보세요
           </h1>
         </div>
       </div>

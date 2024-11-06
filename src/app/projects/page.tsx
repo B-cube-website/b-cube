@@ -8,6 +8,8 @@ import SectionSexyIt from "./components/SectionSexyIt";
 import SectionStudy from "./components/SectionStudy";
 import SectionEtc from "./components/SectionEtc";
 import MobileMain from "@/mobileComponents/mobileMain";
+import MobileProjectButton from "./components/MobileProjectButton";
+import useStore from "@/stores/useStore";
 
 const Project: React.FC = () => {
   const [selectedActivity, setSelectedActivity] =
@@ -16,6 +18,14 @@ const Project: React.FC = () => {
   const handleButtonClick = (activity: string) => {
     setSelectedActivity(activity);
   };
+  const { isMobile } = useStore();
+  
+  const activities = [
+    { label: "디자인톤", key: "designthon" },
+    { label: "섹시한 IT", key: "sexyIT" },
+    { label: "스터디", key: "study" },
+    { label: "기타", key: "others" },
+  ];
 
   return (
     <main>
@@ -26,31 +36,28 @@ const Project: React.FC = () => {
         <MobileMain
           svgImage="/file-bulb.svg"
           altText="file-bulb"
-          mainText="B-CUBE의 다양한 활동들을 지금 확인해 보세요"
+          mainText="B-CUBE의 다양한 활동들을 <br />지금 확인해 보세요"
           subText=""
         />
       </div>
-      <div className="flex flex-wrap justify-center items-center w-full gap-6">
-        <ActivityButton
-          activity="디자인톤"
-          selected={selectedActivity === "designthon"}
-          onClick={() => handleButtonClick("designthon")}
-        />
-        <ActivityButton
-          activity="섹시한 IT"
-          selected={selectedActivity === "sexyIT"}
-          onClick={() => handleButtonClick("sexyIT")}
-        />
-        <ActivityButton
-          activity="스터디"
-          selected={selectedActivity === "study"}
-          onClick={() => handleButtonClick("study")}
-        />
-        <ActivityButton
-          activity="기타"
-          selected={selectedActivity === "others"}
-          onClick={() => handleButtonClick("others")}
-        />
+      <div className="flex flex-wrap justify-center items-center w-full sm:gap-6 gap-[8px]">
+        {activities.map(({ label, key }) =>
+          isMobile ? (
+            <MobileProjectButton
+              key={key}
+              activity={label}
+              selected={selectedActivity === key}
+              onClick={() => handleButtonClick(key)}
+            />
+          ) : (
+            <ActivityButton
+              key={key}
+              activity={label}
+              selected={selectedActivity === key}
+              onClick={() => handleButtonClick(key)}
+            />
+          )
+        )}
       </div>
       <div className={selectedActivity === "designthon" ? "block" : "hidden"}>
         <SectionDesignton />

@@ -42,7 +42,7 @@ const MobileMain: React.FC<MobileMainProps> = ({
         style={{ top: "55px" }}
       >
         {subText && (
-          <p className="w-full h-8 absolute left-7 top-[21.71px] text-[11px] font-bold text-left text-[#f6f6f7]">
+          <p className="w-full h-8 absolute left-7 top-[21.71px] text-[12px] font-medium text-left text-[#f6f6f7] mt-[8px]">
             {subText.split("<br />").map((line, index) => (
               <React.Fragment key={index}>
                 {line}

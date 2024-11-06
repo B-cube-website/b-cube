@@ -1,8 +1,6 @@
-import { useState } from "react";
-import MobileCarousel from "./MobileSlider";  // 컴포넌트 import
-import './MobileCarousel.css'; // 모바일 캐러셀 스타일 import
+import MobileCarousel from "./MobileSlider";  // 모바일 캐러셀 컴포넌트
+import './MobileCarousel.css';
 
-// 활동 데이터 타입 정의
 interface MobileActivity {
   id: number;
   title: string;
@@ -11,18 +9,19 @@ interface MobileActivity {
   description: string;
 }
 
-// `ActivityCard` 컴포넌트의 Props 타입 정의
 interface MobileActivityCardProps {
   isLoading: boolean;
   loadingText?: string;
   activity: MobileActivity[];
-  className?: string;  // className prop 추가
+  onOpenPdf: (pdfUrl: string, title: string) => void;  // PDF 열기 핸들러
+  className?: string;
 }
 
 export default function MobileActivityCard({
   isLoading,
   loadingText = "로딩 중...",
   activity,
+  onOpenPdf,
   className = "",
 }: MobileActivityCardProps) {
   if (isLoading) {
@@ -37,7 +36,11 @@ export default function MobileActivityCard({
     <section className='mobile-carousel-wrapper'>
       <MobileCarousel>
         {activity.map((item) => (
-          <div className="mobile-carousel-item" key={item.id}>
+          <div
+            className="mobile-carousel-item"
+            key={item.id}
+            onClick={() => onOpenPdf(item.pdfPath, item.title)} // 클릭 시 PDF 열기
+          >
             <img
               src={item.imagePath}
               alt={item.title}

@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <>
       <main className="overflow-x-hidden">
-        <section className="flex flex-col justify-center items-center p-8">
-          <div className="mt-[64px] flex justify-center items-center w-full h-auto md:h-[548px] gap-2.5">
+        <section className="flex flex-col justify-center items-center p-[24px] md:p-0 w-full md:max-w-[1280px] md:mx-auto h-[100vh]">
+          <div className="mt-[64px] md:mt-0 flex justify-center items-center w-full h-auto gap-2.5">
             <h1
               className="flex items-center justify-center w-full font-bold text-center text-[40px] leading-[50px] md:text-[80px] md:leading-[110px] bg-clip-text text-transparent"
               style={{
@@ -26,7 +26,15 @@ export default function Home() {
             </h1>
           </div>
 
-          <h2 className="mt-[128px] flex items-center justify-center w-full font-semibold text-xl md:text-[40px] md:leading-[40px] text-center bg-clip-text text-transparent bg-gradient-to-r from-[#A8B3D8] to-[#518CFF]">
+          <h2
+            className="mt-[128px] flex items-center justify-center w-full font-semibold text-xl md:text-[40px] md:leading-[40px] text-center"
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, #A8B3D8 37.39%, #518CFF 61.51%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
             아주대학교 경영인텔리전스학과 소학회
           </h2>
 
@@ -42,9 +50,9 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="flex flex-col justify-center items-center mt-[192px] px-[28px] md:px-[96px] md:mt-[228px]">
+        <section className="flex flex-col justify-center items-center mt-[192px] md:mt-[228px] px-[28px] md:px-0 w-full md:w-[1280px] mx-auto">
           <Article subject="Introduction" title="소개" />
-          <div className="flex flex-col md:flex-row justify-start md:justify-between items-center md:items-start w-full mt-8 md:mt-20 gap-4 md:gap-16">
+          <div className="flex flex-col md:flex-row justify-start md:justify-between items-center md:items-start mt-8 md:mt-20 gap-4 md:gap-16">
             <p className="text-center md:text-left text-[16px] md:text-2xl font-bold text-[#f6f6f7] md:w-1/5">
               B-CUBE의 비전
             </p>
@@ -57,12 +65,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col mt-[160px] md:mt-[228px]">
+        <section className="flex flex-col mt-[160px] md:mt-[328px]">
           <Article subject="Activities" title="주요 활동" />
           <Activity />
         </section>
 
-        <section className="flex flex-col justify-center items-center mt-[160px] md:mt-[148px] md:mb-[352px] mb-[224px]">
+        <section className="flex flex-col justify-center items-center mt-[160px] md:mt-[328px] md:mb-[228px] mb-[224px]">
           <Article subject="Executives" title="현재 회장단" />
           <Executives />
         </section>

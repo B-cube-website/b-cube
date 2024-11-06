@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import ProjectDescription from "../ProjectDescription";
 import PostPreviewBoxWithPdf from "./PostPreviewBoxWithPdf";
 import ActivityButton from "@/components/activityButton";
+import MobileButton from "@/mobileComponents/mobileButton"; // MobileButton 컴포넌트 임포트
+import useStore from "@/stores/useStore";
 
 interface PostPreviewSectionWithPdfProps {
   title: string;
@@ -13,6 +15,7 @@ interface PostPreviewSectionWithPdfProps {
 const PostPreviewSectionWithPdf: React.FC<PostPreviewSectionWithPdfProps> = ({ title, desc, postsData }) => {
   const [selectedActivity, setSelectedActivity] = useState<string>("더보기");
   const [visiblePosts, setVisiblePosts] = useState<number>(6); // 처음에는 6개의 포스트만 표시
+  const { isMobile } = useStore();
 
   // "더보기" 버튼 클릭 시 6개의 포스트를 추가로 표시
   const loadMorePosts = () => {
@@ -20,7 +23,7 @@ const PostPreviewSectionWithPdf: React.FC<PostPreviewSectionWithPdfProps> = ({ t
   };
 
   return (
-    <div className="flex flex-col justify-start items-start w-full max-w-screen-2xl mx-auto relative gap-12 sm:gap-20 px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col justify-start items-start w-full max-w-screen-2xl mx-auto relative gap-12 sm:gap-20 sm:px-6 lg:px-8">
       <ProjectDescription title={title}>
         {desc}
       </ProjectDescription>
@@ -38,11 +41,19 @@ const PostPreviewSectionWithPdf: React.FC<PostPreviewSectionWithPdfProps> = ({ t
           ))}
         </div>
         {visiblePosts < postsData.length && (
-          <ActivityButton
-            activity="더보기"
-            selected={selectedActivity === "더보기"}
-            onClick={loadMorePosts}
-          />
+          isMobile ? (
+            <MobileButton
+              activity="더보기"
+              selected={selectedActivity === "더보기"}
+              onClick={loadMorePosts}
+            />
+          ) : (
+            <ActivityButton
+              activity="더보기"
+              selected={selectedActivity === "더보기"}
+              onClick={loadMorePosts}
+            />
+          )
         )}
       </section>
     </div>
