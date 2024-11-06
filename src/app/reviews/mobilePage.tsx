@@ -26,7 +26,7 @@ export default function Review() {
 
       <div className="flex flex-nowrap justify-center items-center gap-[16px] w-full">
         <MobileButton
-          activity="OB인터뷰"
+          activity="OB한마디"
           selected={selectedActivity === "OBinterview"}
           onClick={() => handleButtonClick("OBinterview")}
         />

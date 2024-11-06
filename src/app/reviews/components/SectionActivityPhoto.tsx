@@ -81,14 +81,13 @@ const SectionActivityPhoto = () => {
           maxWidth: "80%",
           margin: "0 auto",
           overflow: "hidden",
-          padding: "0 5px", // 양쪽 여백을 위해 padding 추가
           ...(isMobile
             ? {} // 모바일에서는 마스크 효과 제거
             : {
                 maskImage:
-                  "linear-gradient(to right, rgba(20, 67, 159, 0) 2%, rgba(20, 67, 159, 0.3) 8%, rgba(20, 67, 159, 0.8) 12%, #14439F 30%, #14439F 70%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 92%, rgba(20, 67, 159, 0) 98%)",
+                  "linear-gradient(to right, rgba(20, 67, 159, 0) 2%, rgba(20, 67, 159, 0.3) 8%, rgba(20, 67, 159, 0.8) 12%, #14439F 20%, #14439F 80%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 92%, rgba(20, 67, 159, 0) 98%)",
                 WebkitMaskImage:
-                  "linear-gradient(to right, rgba(20, 67, 159, 0) 2%, rgba(20, 67, 159, 0.3) 8%, rgba(20, 67, 159, 0.8) 12%, #14439F 30%, #14439F 70%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 92%, rgba(20, 67, 159, 0) 98%)",
+                  "linear-gradient(to right, rgba(20, 67, 159, 0) 2%, rgba(20, 67, 159, 0.3) 8%, rgba(20, 67, 159, 0.8) 12%, #14439F 20%, #14439F 80%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 92%, rgba(20, 67, 159, 0) 98%)",
               }),
         }}
       >
@@ -133,7 +132,6 @@ const SectionActivityPhoto = () => {
           >
             {images.map((image, index) => {
               const distanceFromCurrent = Math.abs(currentIndex - index);
-              const blurAmount = `${Math.min(distanceFromCurrent * 2, 8)}px`;
               const opacityValue = 1 - Math.min(distanceFromCurrent * 0.2, 0.8);
               const scaleValue = 1 - Math.min(distanceFromCurrent * 0.05, 0.3);
 
@@ -169,19 +167,17 @@ const SectionActivityPhoto = () => {
                     flexDirection: "column",
                     alignItems: "center",
                     gap: "20px",
+                    borderRadius: "20px",
+                    overflow: "hidden",
                   }}
                 >
-                  <img
-                    src={image.imageUrl}
-                    alt={image.alt}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      filter: `blur(${blurAmount})`,
-                      borderRadius: 7,
-                    }}
-                  />
+                  <Image
+                      src={image.imageUrl}
+                      layout="fill" // 부모 요소를 꽉 채우도록 설정
+                      objectFit="cover" // 영역을 모두 채우기 위해 cover 사용
+                      objectPosition="center" // 이미지를 중앙에 맞춤
+                      alt={image.alt}
+                    />
                   <p>{image.description}</p>
                 </div>
               );
@@ -214,6 +210,7 @@ const SectionActivityPhoto = () => {
         </div>
       </div>
       <div style={{ height: isMobile ? 50 : 80 }}></div>
+      
       <div
         style={{
           display: "flex",
@@ -222,39 +219,47 @@ const SectionActivityPhoto = () => {
           width: "100%",
           maxWidth: "80%",
           margin: "0 auto",
+          padding: "10px 0",
           maskImage:
-            "linear-gradient(to right, rgba(20, 67, 159, 0) 2%, rgba(20, 67, 159, 0.3) 8%, rgba(20, 67, 159, 0.8) 12%, #14439F 30%, #14439F 70%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 92%, rgba(20, 67, 159, 0) 98%)",
+          "linear-gradient(to right, rgba(20, 67, 159, 0) 2%, rgba(20, 67, 159, 0.3) 8%, rgba(20, 67, 159, 0.8) 12%, #14439F 30%, #14439F 70%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 92%, rgba(20, 67, 159, 0) 98%)",
           WebkitMaskImage:
-            "linear-gradient(to right, rgba(20, 67, 159, 0) 2%, rgba(20, 67, 159, 0.3) 8%, rgba(20, 67, 159, 0.8) 12%, #14439F 30%, #14439F 70%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 92%, rgba(20, 67, 159, 0) 98%)",
+          "linear-gradient(to right, rgba(20, 67, 159, 0) 2%, rgba(20, 67, 159, 0.3) 8%, rgba(20, 67, 159, 0.8) 12%, #14439F 30%, #14439F 70%, rgba(20, 67, 159, 0.8) 88%, rgba(20, 67, 159, 0.3) 92%, rgba(20, 67, 159, 0) 98%)",
         }}
       >
         <div
           style={{
             display: "flex",
-            transform: `translateX(-${currentIndex * (isMobile ? 90 : 120)}px)`,
-            transition: "transform 0.8s ease",
-            gap: isMobile ? "12px" : "18px",
-            paddingLeft: "50%",
-            width: "100%",
+            
+            transform: `translateX(calc(50% - ${(isMobile ? 51 : 68)}px - ${currentIndex * (isMobile ? 102 : 136)}px))`,
+            transition: "transform 0.6s ease",
           }}
         >
           {images.map((image, index) => (
-            <img
+            <div
               key={index}
-              src={image.imageUrl}
-              alt={image.alt}
               style={{
-                width: isMobile ? "120px" : "150px",
+                marginLeft: isMobile ? "6px" : "8px",
+                marginRight: isMobile ? "6px" : "8px",
+                width: isMobile ? "90px" : "120px",
                 height: isMobile ? "64px" : "80px",
-                objectFit: "contain",
+                position: "relative",
                 cursor: "pointer",
-                transform:
-                  currentIndex === index ? "scale(1.15)" : "scale(1.05)",
+                transform: currentIndex === index ? "scale(1.15)" : "scale(1.0)",
                 opacity: currentIndex === index ? 1 : 0.6,
                 transition: "transform 0.3s, opacity 0.3s",
+                borderRadius: "8px",
+                overflow: "hidden",
               }}
               onClick={() => setCurrentIndex(index)}
-            />
+            >
+              <Image
+                src={image.imageUrl}
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+                alt={image.alt}
+              />
+            </div>
           ))}
         </div>
       </div>

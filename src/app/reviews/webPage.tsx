@@ -65,9 +65,9 @@ export default function Review() {
         </div>
       </div> */}
 
-      <div className="flex flex-nowrap justify-center items-center w-full gap-6">
+      <div className="flex flex-nowrap justify-center items-center s gap-6">
         <ActivityButton
-          activity="OB인터뷰"
+          activity="OB한마디"
           selected={selectedActivity === "OBinterview"}
           onClick={() => handleButtonClick("OBinterview")}
         />
