@@ -136,52 +136,51 @@ const SectionActivityPhoto = () => {
               const scaleValue = 1 - Math.min(distanceFromCurrent * 0.05, 0.3);
 
               return (
-                <div>
-                <div
-                  key={index}
-                  style={{
-                    flexShrink: 0,
-                    width:
-                      currentIndex === index
-                        ? isMobile
-                          ? "330px"
-                          : "530px"
-                        : isMobile
-                        ? "280px"
-                        : "450px",
-                    height:
-                      currentIndex === index
-                        ? isMobile
-                          ? "250px"
-                          : "353px"
-                        : isMobile
-                        ? "220px"
-                        : "320px",
-                    opacity: opacityValue,
-                    marginRight: isMobile ? "20px" : "32px",
-                    transition: "all 0.5s ease",
-                    transform:
-                      currentIndex === index
-                        ? "scale(1)"
-                        : `scale(${scaleValue})`,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "20px",
-                    borderRadius: "20px",
-                    overflow: "hidden",
-                  }}
-                >
-                  <Image
-                      src={image.imageUrl}
-                      layout="fill" // 부모 요소를 꽉 채우도록 설정
-                      objectFit="cover" // 영역을 모두 채우기 위해 cover 사용
-                      objectPosition="center" // 이미지를 중앙에 맞춤
-                      alt={image.alt}
-                    />
-                  
-                </div>
-                <p className="text-center mr-[32px] mt-4">{image.description}</p>
+                <div key={index}>
+                  <div
+                    style={{
+                      flexShrink: 0,
+                      width:
+                        currentIndex === index
+                          ? isMobile
+                            ? "330px"
+                            : "530px"
+                          : isMobile
+                          ? "280px"
+                          : "450px",
+                      height:
+                        currentIndex === index
+                          ? isMobile
+                            ? "250px"
+                            : "353px"
+                          : isMobile
+                          ? "220px"
+                          : "320px",
+                      opacity: opacityValue,
+                      marginRight: isMobile ? "20px" : "32px",
+                      transition: "all 0.5s ease",
+                      transform:
+                        currentIndex === index
+                          ? "scale(1)"
+                          : `scale(${scaleValue})`,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "20px",
+                      borderRadius: "20px",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <Image
+                        src={image.imageUrl}
+                        layout="fill" // 부모 요소를 꽉 채우도록 설정
+                        objectFit="cover" // 영역을 모두 채우기 위해 cover 사용
+                        objectPosition="center" // 이미지를 중앙에 맞춤
+                        alt={image.alt}
+                      />
+                    
+                  </div>
+                  <p className="text-center mr-[32px] mt-4">{image.description}</p>
                 </div>
               );
             })}
@@ -220,15 +219,12 @@ const SectionActivityPhoto = () => {
           justifyContent: "center",
           overflow: "hidden",
           width: "100%",
-          // maxWidth: "80%",
-          // margin: "0 auto",
           padding: "15px 0",
           }}
       >
         <div
           style={{
             display: "flex",
-            
             transform: `translateX(calc(50% - ${(isMobile ? 45 : 60)}px - ${currentIndex * (isMobile ? 102 : 136)}px))`,
             transition: "transform 0.6s ease",
           }}
@@ -237,7 +233,6 @@ const SectionActivityPhoto = () => {
             <div
               key={index}
               style={{
-                // marginLeft: isMobile ? "6px" : "8px",
                 marginRight: isMobile ? "12px" : "16px",
                 width: isMobile ? "90px" : "120px",
                 height: isMobile ? "64px" : "80px",
