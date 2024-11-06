@@ -181,7 +181,7 @@ const SectionActivityPhoto = () => {
                     />
                   
                 </div>
-                <p className="text-center mr-[16px] mt-4">{image.description}</p>
+                <p className="text-center mr-[32px] mt-4">{image.description}</p>
                 </div>
               );
             })}
@@ -222,14 +222,14 @@ const SectionActivityPhoto = () => {
           width: "100%",
           // maxWidth: "80%",
           // margin: "0 auto",
-          padding: "10px 0",
+          padding: "15px 0",
           }}
       >
         <div
           style={{
             display: "flex",
             
-            transform: `translateX(calc(50% - ${(isMobile ? 51 : 68)}px - ${currentIndex * (isMobile ? 102 : 136)}px))`,
+            transform: `translateX(calc(50% - ${(isMobile ? 45 : 60)}px - ${currentIndex * (isMobile ? 102 : 136)}px))`,
             transition: "transform 0.6s ease",
           }}
         >
@@ -237,8 +237,8 @@ const SectionActivityPhoto = () => {
             <div
               key={index}
               style={{
-                marginLeft: isMobile ? "6px" : "8px",
-                marginRight: isMobile ? "6px" : "8px",
+                // marginLeft: isMobile ? "6px" : "8px",
+                marginRight: isMobile ? "12px" : "16px",
                 width: isMobile ? "90px" : "120px",
                 height: isMobile ? "64px" : "80px",
                 position: "relative",
