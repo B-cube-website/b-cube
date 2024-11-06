@@ -59,12 +59,12 @@ const SectionSexyIt = () => {
           alt="섹시한 IT"
           width={isMobile ? 90 : 250}
           height={isMobile ? 90 : 250}
-          layout="fixed" // 이미지의 레이아웃을 고정 크기로 설정
-          className="rounded-full object-cover" // 둥근 모서리와 꽉 채우기 설정
+          layout="fixed"
+          className="rounded-full object-cover"
           style={{
-            width: isMobile ? "90px" : "250px", // 너비 강제 설정
-            height: isMobile ? "90px" : "250px", // 높이 강제 설정
-            maxWidth: "100%", // 부모 요소보다 커지지 않도록 설정
+            width: isMobile ? "90px" : "250px",
+            height: isMobile ? "90px" : "250px",
+            maxWidth: "100%",
           }}
         />
       </div>
@@ -111,12 +111,22 @@ const SectionSexyIt = () => {
               ))
           )}
         </div>
-        {visiblePosts < postsData.length - 1 && (
-          <ActivityButton
-            activity="더보기"
-            selected={selectedActivity === "더보기"}
-            onClick={loadMorePosts}
-          />
+        {visiblePosts < postsData.length && (
+          <div className="flex justify-center w-full max-w-full mt-8 overflow-hidden">
+            {isMobile ? (
+              <MobileButton
+                activity="더보기"
+                selected={selectedActivity === "더보기"}
+                onClick={loadMorePosts}
+              />
+            ) : (
+              <ActivityButton
+                activity="더보기"
+                selected={selectedActivity === "더보기"}
+                onClick={loadMorePosts}
+              />
+            )}
+          </div>
         )}
       </section>
     </div>
