@@ -136,6 +136,7 @@ const SectionActivityPhoto = () => {
               const scaleValue = 1 - Math.min(distanceFromCurrent * 0.05, 0.3);
 
               return (
+                <div>
                 <div
                   key={index}
                   style={{
@@ -178,7 +179,9 @@ const SectionActivityPhoto = () => {
                       objectPosition="center" // 이미지를 중앙에 맞춤
                       alt={image.alt}
                     />
-                  <p>{image.description}</p>
+                  
+                </div>
+                <p className="text-center mr-[16px] mt-4">{image.description}</p>
                 </div>
               );
             })}
