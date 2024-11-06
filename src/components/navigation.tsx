@@ -15,8 +15,8 @@ export default function Navigation() {
       : "font-Pretendard-Bold text-[#4f5d8d]";
 
   return (
-    <div className="relative z-50 flex flex-col w-full bg-[#06132D]">
-      <div className="flex flex-row justify-between items-center p-2">
+    <div className="relative z-50 flex flex-col w-full bg-[#06132D] px-16 py-4">
+      <div className="flex flex-row justify-between items-center">
         <div className="flex flex-row items-center gap-4">
           <Link href="/">
             <Image src={logo} alt="logo" />
@@ -52,7 +52,7 @@ export default function Navigation() {
         </nav>
       </div>
       <div
-        className="absolute top-full left-0 w-full h-[174px]"
+        className="absolute top-full left-0 w-full"
         style={{
           background:
             "linear-gradient(180deg, #06142D 0%, rgba(6,20,45,0) 100%)",

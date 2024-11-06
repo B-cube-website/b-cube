@@ -9,6 +9,7 @@ import email_logo2 from "../../../public/email_logo2.svg";
 import kakaoTalk_logo2 from "../../../public/kakaoTalk_logo2.svg";
 import insta_logo2 from "../../../public/insta_logo2.svg";
 import Link from "next/link";
+import MobileButton from "@/mobileComponents/mobileButton";
 
 export default function Recruit() {
   const [selectedActivity, setSelectedActivity] =
@@ -24,7 +25,7 @@ export default function Recruit() {
         svgImage="/megaphone.svg"
         altText="megaphone"
         mainText="지금은 모집기간이 아닙니다"
-        subText="2024년 1학기 모집이 완료되었습니다!<br />다음 기수는 2024년 9월에 예정되어 있습니다."
+        subText="2024년 2학기 모집이 완료되었습니다!<br />다음 기수는 2025년 3월에 예정되어 있습니다"
       />
       <MobileArticle subject="Introduction" title="모집 개요" />
 
@@ -64,18 +65,18 @@ export default function Recruit() {
       </div>
 
       <MobileArticle subject="Activity" title="활동 분야" />
-      <div className="flex flex-nowrap justify-center items-center w-full mb-6 gap-6">
-        <ActivityButton
+      <div className="flex flex-nowrap justify-center items-center w-full mb-[32px] gap-[8px]">
+        <MobileButton
           activity="디자인톤"
           selected={selectedActivity === "designathon"}
           onClick={() => handleButtonClick("designathon")}
         />
-        <ActivityButton
+        <MobileButton
           activity="섹시한 IT"
           selected={selectedActivity === "sexyIT"}
           onClick={() => handleButtonClick("sexyIT")}
         />
-        <ActivityButton
+        <MobileButton
           activity="기타"
           selected={selectedActivity === "others"}
           onClick={() => handleButtonClick("others")}
@@ -177,7 +178,7 @@ export default function Recruit() {
         </div>
       </section>
 
-      <div className="flex flex-col justify-center items-center gap-8">
+      <div className="flex flex-col justify-center items-center gap-8 mb-[128px]">
         <div
           className="flex flex-col justify-center items-center gap-[2px]"
           style={{ width: "87vw", maxWidth: "342px" }}
@@ -188,7 +189,7 @@ export default function Recruit() {
         </div>
 
         <div
-          className="flex flex-col justify-center items-center flex-grow-0 flex-shrink-0 gap-6 mb-16"
+          className="flex flex-col justify-center items-center flex-grow-0 flex-shrink-0 gap-6"
           style={{
             width: "87vw",
             maxWidth: "342px",

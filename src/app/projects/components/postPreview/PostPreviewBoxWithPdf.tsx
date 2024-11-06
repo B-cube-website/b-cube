@@ -60,7 +60,7 @@ const PostPreviewBoxWithPdf: React.FC<PostPreviewBoxWithPdfProps> = ({
       </div>
 
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 mx-4">
+        <div className="fixed inset-0 flex items-center justify-center z-50 mx-6">
           {/* 배경을 클릭하면 모달 닫힘 */}
           <div className="absolute inset-0 bg-black opacity-50" onClick={closeModal}></div>
           {/* 모달 내용 */}

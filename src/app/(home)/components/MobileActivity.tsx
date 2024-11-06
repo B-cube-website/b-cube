@@ -1,6 +1,7 @@
 "use client";
 
 import MobileActivityCard from "./MobileActivityCard";
+import HomePdfViewer from "./HomePdfViewer";  // PDF 모달 컴포넌트 import
 import { useEffect, useState } from "react";
 
 // 활동 데이터 타입 정의
@@ -16,6 +17,7 @@ export default function MobileActivity() {
   const [isFetching, setIsFetching] = useState(false);
   const [activeCards, setActiveCards] = useState<MobileActivity[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [selectedPdf, setSelectedPdf] = useState<{ pdfUrl: string; title: string } | null>(null);
 
   useEffect(() => {
     const fetchActivity = async () => {
@@ -50,13 +52,20 @@ export default function MobileActivity() {
     };
 
     fetchActivity();
-  }, []); // useEffect는 빈 배열로, 처음 한 번만 실행되도록 설정
+  }, []);
+
+  const handleOpenPdf = (pdfUrl: string, title: string) => {
+    setSelectedPdf({ pdfUrl, title });
+  };
+
+  const handleClosePdf = () => {
+    setSelectedPdf(null);
+  };
 
   if (error) {
     return <div className="text-red-500">데이터 불러오기 실패: {error}</div>;
   }
 
-  // isFetching이 true일 때는 로딩 중, activity가 로드되었으나 비어있을 때는 "활동 데이터가 없습니다." 표시
   return (
     <div>
       {isFetching ? (
@@ -67,7 +76,14 @@ export default function MobileActivity() {
         <MobileActivityCard
           activity={activeCards}
           isLoading={isFetching}
-          loadingText="로딩 중입니다..."
+          onOpenPdf={handleOpenPdf}  // PDF 열기 핸들러 전달
+        />
+      )}
+      {selectedPdf && (
+        <HomePdfViewer
+          pdfUrl={selectedPdf.pdfUrl}
+          title={selectedPdf.title}
+          onClose={handleClosePdf}  // PDF 닫기 핸들러
         />
       )}
     </div>
