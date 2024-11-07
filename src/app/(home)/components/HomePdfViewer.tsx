@@ -25,7 +25,7 @@ const HomePdfViewer: React.FC<HomePdfViewerProps> = ({
         {/* 배경을 클릭하면 모달 닫힘 */}
         <div className="absolute inset-0 bg-black opacity-20" onClick={closeModal}></div>
         {/* 모달 내용 */}
-        <div className="relative w-full max-w-7xl p-8 bg-white rounded-lg my-8">
+        <div className="relative w-full max-w-7xl p-8 bg-white rounded-lg my-4 mx-4 sm:my-8 sm:mx-8">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-semibold text-black">{title}</h3>
             <button
