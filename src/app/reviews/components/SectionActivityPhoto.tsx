@@ -111,6 +111,7 @@ const SectionActivityPhoto = () => {
             style={{
               filter: "drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.6))",
               opacity: 0.9,
+              marginLeft: isMobile ? "48px" : "0",
             }}
           />
         </div>
@@ -207,6 +208,7 @@ const SectionActivityPhoto = () => {
             style={{
               filter: "drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.6))",
               opacity: 0.9,
+              marginRight: isMobile ? "48px" : "0",
             }}
           />
         </div>

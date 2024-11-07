@@ -30,7 +30,7 @@ const MobileMain: React.FC<MobileMainProps> = ({
       </div>
 
   
-      <div className="flex flex-col justify-start items-start absolute z-20 gap-4 p-7">
+      <div className="flex flex-col justify-start items-start absolute z-20 gap-3 p-7">
         <p className="font-bold text-2xl text-white ">
           {mainText.split("<br />").map((line, index) => (
             <React.Fragment key={index}>
@@ -40,7 +40,7 @@ const MobileMain: React.FC<MobileMainProps> = ({
           ))}
         </p>
         {subText && (
-          <p className="z-20 w-full left-7 top-[21.71px] text-[12px] font-medium text-left text-[#f6f6f7] mt-[8px]">
+          <p className="z-20 w-full text-[14px] font-medium text-left text-[#f6f6f7]">
             {subText.split("<br />").map((line, index) => (
               <React.Fragment key={index}>
                 {line}
