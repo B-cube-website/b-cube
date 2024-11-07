@@ -25,7 +25,7 @@ const SectionOBinterview = () => {
         return response.json();
       })
       .then((data) => {
-        setPostData(data);
+        setPostData(data.reverse());
         setError(null);
       })
       .catch((error) => {
