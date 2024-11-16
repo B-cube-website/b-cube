@@ -53,7 +53,7 @@ export default function Footer() {
           />
         </Link>
         <Link
-          href="https://github.com/B-cube-website"
+          href="https://github.com/AU-Bcube"
           target="_blank"
           rel="noopener noreferrer"
         >
