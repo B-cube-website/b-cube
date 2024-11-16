@@ -41,7 +41,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="https://github.com/B-cube-website" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/AU-Bcube" target="_blank" rel="noopener noreferrer">
                 <div>
                   <Image src={github_logo} alt="github_logo" />
                 </div>
